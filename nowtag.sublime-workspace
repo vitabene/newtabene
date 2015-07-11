@@ -1,0 +1,1077 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"inlne",
+				"inline-block"
+			],
+			[
+				"get",
+				"getElementsByTagName(${0:name})	Element"
+			],
+			[
+				"getEl",
+				"getElementById(${0:id})	Element"
+			],
+			[
+				"bra",
+				"bdtlra	border-top-left-radius"
+			],
+			[
+				"tal",
+				"text-align"
+			],
+			[
+				"a",
+				"assets/"
+			],
+			[
+				"pixelsToMove",
+				"pixelsToMoveDetail"
+			],
+			[
+				"com",
+				"compoundQuery"
+			],
+			[
+				"activity",
+				"activitySelected"
+			],
+			[
+				"di",
+				"d:ib	display:inline-block"
+			],
+			[
+				"focusTask",
+				"focusedTask"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"fade",
+				"fadeOut	.fadeOut()"
+			],
+			[
+				"off",
+				"offset	.offset()"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"cli",
+				"click	.click()"
+			],
+			[
+				"ls",
+				"lis	list-style"
+			],
+			[
+				"bx",
+				"bxz:bb	box-sizing:border-box"
+			],
+			[
+				"subtask",
+				"subtasksList"
+			],
+			[
+				"subtak",
+				"subtasksList"
+			],
+			[
+				"pro",
+				"progress	Event"
+			],
+			[
+				"ch",
+				"children	.children()"
+			],
+			[
+				"brr",
+				"bdbrrz	border-bottom-right-radius"
+			],
+			[
+				"next",
+				"nextSibling	Node"
+			],
+			[
+				"Pr",
+				"Println"
+			],
+			[
+				"tem",
+				"templatePath"
+			],
+			[
+				"Pri",
+				"Printf"
+			],
+			[
+				"ma",
+				"makeHandler"
+			],
+			[
+				"Ha",
+				"HandleFunc"
+			],
+			[
+				"P",
+				"Printf"
+			],
+			[
+				"tranfo",
+				"transform"
+			],
+			[
+				"ho",
+				"horizontal"
+			],
+			[
+				"pos",
+				"pos:f	position:fixed"
+			],
+			[
+				"light",
+				"lighten"
+			],
+			[
+				"chi",
+				"childNodes	Node"
+			],
+			[
+				"has",
+				"hasChildNodes()	Node"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"crea",
+				"createElement(${0:tagName})	Document"
+			],
+			[
+				"node",
+				"nodeType	Node"
+			],
+			[
+				"errro",
+				"error_reporting"
+			],
+			[
+				"ex",
+				"exhibition"
+			],
+			[
+				"e",
+				"exhibitions"
+			],
+			[
+				"t",
+				"texta"
+			],
+			[
+				"arrare",
+				"array_reverse"
+			],
+			[
+				"tex",
+				"text_array"
+			],
+			[
+				"resu",
+				"result_mode"
+			],
+			[
+				"pa",
+				"painting_technique"
+			],
+			[
+				"pain",
+				"painting_size"
+			],
+			[
+				"pai",
+				"painting"
+			],
+			[
+				"qu",
+				"query"
+			],
+			[
+				"upd",
+				"update_condition"
+			],
+			[
+				"im",
+				"img_width"
+			],
+			[
+				"img",
+				"img_height"
+			],
+			[
+				"artw",
+				"artworks"
+			],
+			[
+				"fu",
+				"funkce.php"
+			],
+			[
+				"st",
+				"strlen"
+			],
+			[
+				"overe",
+				"overeni_ic.php"
+			],
+			[
+				"cis",
+				"cislice"
+			],
+			[
+				"ci",
+				"cislice"
+			],
+			[
+				"pr",
+				"pro_overeni"
+			],
+			[
+				"inn",
+				"innerHTML	Element"
+			],
+			[
+				"set",
+				"setTimeout(${0:func}, delay)	Window"
+			],
+			[
+				"shuffle",
+				"shuffledItems"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"onlo",
+				"DOMContentLoaded	Event"
+			],
+			[
+				"wid",
+				"wid	width"
+			],
+			[
+				"ar",
+				"artwork"
+			],
+			[
+				"arra",
+				"array_push"
+			],
+			[
+				"auth",
+				"author-text"
+			],
+			[
+				"oute",
+				"outerHeight	.outerHeight()"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"strrep",
+				"str_replace"
+			],
+			[
+				"ca",
+				"category"
+			],
+			[
+				"fl",
+				"fl:l	float:left"
+			],
+			[
+				"z",
+				"zin	z-index"
+			],
+			[
+				"w",
+				"w:a	width:auto"
+			],
+			[
+				"fad",
+				"fadeOut	.fadeOut()"
+			],
+			[
+				"fa",
+				"fadeToggle	.fadeToggle()"
+			],
+			[
+				"las",
+				"lastChild	Node"
+			],
+			[
+				"moseo",
+				"mouseover	Event"
+			],
+			[
+				"mouseo",
+				"mouseover	Event"
+			],
+			[
+				"mouser",
+				"mouseenter	Event"
+			],
+			[
+				"mo",
+				"mouseover	Event"
+			],
+			[
+				"main",
+				"main.css"
+			],
+			[
+				"s",
+				"say_bye"
+			],
+			[
+				"sa",
+				"say_hi"
+			],
+			[
+				"nam",
+				"names"
+			],
+			[
+				"say",
+				"say_bye"
+			],
+			[
+				"le",
+				"length	String"
+			],
+			[
+				"par",
+				"parentNode	Node"
+			],
+			[
+				"remo",
+				"removeEventListener(${0:type}, listener)	EventTarget"
+			],
+			[
+				"cla",
+				"className	Element"
+			],
+			[
+				"el",
+				"else if()"
+			],
+			[
+				"ad",
+				"addEventListener(${0:type}, listener)	EventTarget"
+			],
+			[
+				"docge",
+				"document.getElementById(${0:id})	Document"
+			],
+			[
+				"ge",
+				"getElementById"
+			],
+			[
+				"ke",
+				"key"
+			],
+			[
+				"vla",
+				"values"
+			],
+			[
+				"V",
+				"values"
+			],
+			[
+				"key",
+				"key_index"
+			],
+			[
+				"q",
+				"queryOne"
+			],
+			[
+				"inpu",
+				"inputArray"
+			],
+			[
+				"inp",
+				"inputNodeList"
+			],
+			[
+				"_",
+				"_POST"
+			],
+			[
+				"set_",
+				"set_id"
+			],
+			[
+				"add",
+				"addKeyButton"
+			],
+			[
+				"in",
+				"inputField"
+			],
+			[
+				"sub",
+				"submitButton"
+			],
+			[
+				"adk",
+				"addKeyButton"
+			],
+			[
+				"values",
+				"values_array"
+			],
+			[
+				"tab",
+				"table_name"
+			],
+			[
+				"se",
+				"set_name"
+			],
+			[
+				"ta",
+				"table_name"
+			],
+			[
+				"else",
+				"elseif	elseif …"
+			],
+			[
+				"que",
+				"queryAll"
+			],
+			[
+				"ove",
+				"overBC"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"cisl",
+				"cislo"
+			],
+			[
+				"poz",
+				"pozice_lom"
+			],
+			[
+				"strps",
+				"strpos"
+			],
+			[
+				"str_",
+				"str_replace"
+			],
+			[
+				"assigned",
+				"assignedValue"
+			],
+			[
+				"mis",
+				"mistakesJSONArray"
+			],
+			[
+				"mi",
+				"mistakesJSONArray"
+			],
+			[
+				"val",
+				"valueNode"
+			],
+			[
+				"inde",
+				"indexesLeft"
+			],
+			[
+				"ti",
+				"time_in_sec"
+			],
+			[
+				"da",
+				"pairDatabase"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "css/style.scss",
+			"settings":
+			{
+				"buffer_size": 1143,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: en",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: di",
+				"Package Control: Discover Packages"
+			],
+			[
+				"Package Control: d",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: e",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package Control: li",
+				"Package Control: List Packages"
+			],
+			[
+				"gr",
+				"Grunt"
+			],
+			[
+				"Package Control: l",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 547.0
+	},
+	"console":
+	{
+		"height": 155.0,
+		"history":
+		[
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/opt/lampp/htdocs/nowtag",
+		"/opt/lampp/htdocs/nowtag/css"
+	],
+	"file_history":
+	[
+		"/opt/lampp/htdocs/nowtag/index.html",
+		"/opt/lampp/htdocs/nowtag/manifest.json",
+		"/opt/lampp/htdocs/nowtag/css/card.scss",
+		"/opt/lampp/htdocs/nowtag/Gruntfile.js",
+		"/opt/lampp/htdocs/nowtag/package.json",
+		"/opt/lampp/htdocs/nowtag/css/style.css",
+		"/opt/lampp/htdocs/nowtag/.gitignore",
+		"/home/vitabene/work/cos/exex/note.js",
+		"/home/vitabene/work/cos/exex/po.js",
+		"/home/vitabene/work/cos/exex/st.css",
+		"/home/vitabene/work/cos/exex/index.html",
+		"/home/vitabene/work/cos/cos.sublime-project",
+		"/home/vitabene/work/cos/index.html",
+		"/home/vitabene/work/cos/exex/manifest.json",
+		"/home/vitabene/work/cos/exex/popup.js",
+		"/home/vitabene/work/cos/rm.sh",
+		"/home/vitabene/work/cos/scr.sh",
+		"/home/vitabene/go/todo/src/todo/readme.md",
+		"/home/vitabene/school/maturita/cj/RUR + Proměna",
+		"/home/vitabene/school/maturita/cj/kniska",
+		"/home/vitabene/go/todo/js/todo.js",
+		"/home/vitabene/go/todo/tmpl/do.html",
+		"/home/vitabene/go/todo/css/main.scss",
+		"/home/vitabene/go/todo/src/todo/todo.go",
+		"/home/vitabene/go/todo/css/wall.scss",
+		"/home/vitabene/go/todo/tmpl/wall.html",
+		"/opt/lampp/htdocs/informatics.html",
+		"/home/vitabene/go/todo/informatics.html",
+		"/home/vitabene/go/todo/.gitignore",
+		"/home/vitabene/go/todo/todo.sublime-project",
+		"/home/vitabene/go/todo.sublime-project",
+		"/opt/lampp/htdocs/artbene/.gitignore",
+		"/opt/lampp/htdocs/artbene/artbene.sublime-project",
+		"/opt/lampp/htdocs/artbene/scr/fb-like.php",
+		"/opt/lampp/htdocs/artbene/scr/head.php",
+		"/home/vitabene/go/todo/js/wall.js",
+		"/opt/lampp/htdocs/artbene/scr/footer.php",
+		"/opt/lampp/htdocs/artbene/css/mixins.scss",
+		"/opt/lampp/htdocs/wordpress/wp-content/themes/twentyfourteen/footer.php",
+		"/home/vitabene/Documents/mine/silent blog/Arica",
+		"/home/vitabene/go/todo/css/mixins.scss",
+		"/home/vitabene/go/todo/src/todo/tasks.go",
+		"/home/vitabene/go/todo/Gruntfile.js",
+		"/home/vitabene/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/vitabene/go/todo/css/main.css",
+		"/home/vitabene/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+		"/home/vitabene/go/todo/tmpl/relax.html",
+		"/home/vitabene/go/todo/tmpl/learn.html",
+		"/home/vitabene/go/todo/tmpl/think.html",
+		"/opt/lampp/htdocs/portfolio/index.php",
+		"/opt/lampp/htdocs/portfolio/css/main.scss",
+		"/opt/lampp/htdocs/learn/outline.php",
+		"/opt/lampp/htdocs/artbene/gallery.php",
+		"/home/vitabene/go/todo/css/progress-bar.scss",
+		"/opt/lampp/htdocs/adventurum/js/main.js",
+		"/opt/lampp/htdocs/artbene/css/main.scss",
+		"/home/vitabene/go/todo/tmpl/add.html",
+		"/home/vitabene/go/todo/tmpl/work.html",
+		"/opt/lampp/htdocs/learn/includes/head.php",
+		"/home/vitabene/go/todo/tmpl/todo.html",
+		"/home/vitabene/go/gowiki/wiki.go",
+		"/home/vitabene/go/todo/src/todo/links.go",
+		"/home/vitabene/go/todo/tasks.go",
+		"/home/vitabene/go/todo/todo.go",
+		"/opt/lampp/htdocs/learn/css/mixins.scss",
+		"/opt/lampp/htdocs/learn/js/App.js",
+		"/home/vitabene/go/gotodo/tmpl/lit.html",
+		"/opt/lampp/htdocs/artbene/about.php",
+		"/opt/lampp/htdocs/artbene/scr/connection.php",
+		"/opt/lampp/htdocs/learn/index.php",
+		"/opt/lampp/htdocs/learn/css/style.scss",
+		"/home/vitabene/.config/sublime-text-3/Packages/GoSublime/USAGE.md",
+		"/media/vitabene/My Book/ntb/vimrc",
+		"/opt/lampp/htdocs/learn/add.php",
+		"/home/vitabene/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/opt/lampp/htdocs/subl conf",
+		"/opt/lampp/htdocs/learn/includes/Db.php",
+		"/opt/lampp/htdocs/learn/js/order.js",
+		"/opt/lampp/htdocs/learn/results.php",
+		"/opt/lampp/htdocs/learnftp/includes/init.php",
+		"/opt/lampp/htdocs/learn/includes/nav.php",
+		"/opt/lampp/htdocs/learn/Gruntfile.js",
+		"/opt/lampp/htdocs/learn/connect.php",
+		"/opt/lampp/htdocs/learn/js/build/application.js",
+		"/opt/lampp/htdocs/learn/js/build/build/application.js",
+		"/opt/lampp/htdocs/learn/*/js/build/order.js",
+		"/opt/lampp/htdocs/learn/*.min.js/js/build/application.js",
+		"/opt/lampp/htdocs/learn/includes/getpairs.php",
+		"/opt/lampp/htdocs/learn/includes/getoutline.php",
+		"/opt/lampp/htdocs/learn/getpairs.php",
+		"/home/vitabene/.config/sublime-text-3/Packages/GoSublime/CHANGELOG.md",
+		"/opt/lampp/htdocs/artbene/index.php",
+		"/opt/lampp/htdocs/artbene/contact.php",
+		"/opt/lampp/htdocs/artbene/scr/nav.php",
+		"/opt/lampp/htdocs/artbene/photoswipe/default-skin/default-skin.css",
+		"/opt/lampp/htdocs/artbene/paintings_sql_query",
+		"/opt/lampp/htdocs/artbene/getimgsizes.php",
+		"/opt/lampp/htdocs/artbene/scr/photoswipe.php",
+		"/opt/lampp/htdocs/seminar/telefon.php",
+		"/opt/lampp/htdocs/artbene/scr/Db.php",
+		"/opt/lampp/htdocs/artbene/scr/get_img_size.php",
+		"/home/vitabene/Downloads/Semin ý/seminar150415.sql",
+		"/home/vitabene/Downloads/Semin ý/sql150415_test.sql",
+		"/opt/lampp/htdocs/seminar/funkce.php",
+		"/opt/lampp/htdocs/learn/practice.php",
+		"/opt/lampp/htdocs/seminar/index.php",
+		"/opt/lampp/htdocs/seminar/overeni_bc.php",
+		"/opt/lampp/htdocs/seminar/overeni_ic.php",
+		"/opt/lampp/htdocs/seminar/overeni_rc.php",
+		"/opt/lampp/htdocs/seminar/copying to remote server",
+		"/opt/lampp/htdocs/learn/js/Pair.js",
+		"/opt/lampp/htdocs/learn/getoutline.php",
+		"/opt/lampp/htdocs/learn/order.php",
+		"/opt/lampp/htdocs/learn/css/general.scss",
+		"/opt/lampp/htdocs/learn/package.json",
+		"/home/vitabene/go/gotodo/todo.go",
+		"/home/vitabene/go/gotodo/tmpl/todo.html",
+		"/home/vitabene/go/gotodo/src/todo.go",
+		"/opt/lampp/htdocs/stathome.html",
+		"/home/vitabene/go/gotodo/data/stathome.html",
+		"/home/vitabene/go/gotodo/css/main.scss",
+		"/home/vitabene/go/gotodo/static_home.html",
+		"/opt/lampp/htdocs/artbene/js/menu.js",
+		"/home/vitabene/Downloads/artwork.sql",
+		"/home/vitabene/Downloads/PhotoSwipe-master/README.md",
+		"/opt/lampp/htdocs/artbene/js/preview.js",
+		"/opt/lampp/htdocs/artbene/js/jquery.prettyPhoto.js",
+		"/opt/lampp/htdocs/artbene/js/jquery_1.9.1.min.js"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 100.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" class=\"mat_tema\"",
+			"& ",
+			"36px",
+			"foot",
+			"nav-sh",
+			"/li",
+			";",
+			"div",
+			"button",
+			"-c",
+			"table",
+			"corner-bg",
+			"links",
+			"span",
+			"corners",
+			"menu-badge",
+			"corner",
+			" speed",
+			"1px",
+			"subtasks",
+			"time",
+			"sendDataTo",
+			"mt",
+			"pswp__caption__center",
+			"caption",
+			"captin",
+			"col",
+			"150",
+			"caption",
+			".gallery",
+			"\\.gallery",
+			"'ic'",
+			"pair",
+			"{\n",
+			"item3",
+			"footer",
+			"content",
+			"welcome",
+			"line",
+			"hover",
+			" -.",
+			"line ",
+			"setValue",
+			"drawLine",
+			"button",
+			"notify",
+			"values",
+			"checkButton",
+			"$height",
+			"setTi",
+			"moz",
+			"message",
+			"messa",
+			"col",
+			"\"",
+			"build"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"$nav-height",
+			"/span",
+			"\\n;",
+			"li",
+			"-bgc",
+			"button",
+			" fadeSpeed",
+			"fadeSpeed",
+			"2px",
+			"'rc'",
+			"heading",
+			"valueNodes",
+			"$lineWidth",
+			"this.notify",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "css/style.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1143,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								152,
+								152
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"open_with_edit": true,
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MarGo-output":
+	{
+		"height": 98.0
+	},
+	"output.exec":
+	{
+		"height": 27.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "nowtag.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"styl",
+				"css/style.css"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"wa",
+				"css/wall.scss"
+			],
+			[
+				"scr/",
+				"artbene/scr/fb-like.php"
+			],
+			[
+				"nav",
+				"artbene/scr/nav.php"
+			],
+			[
+				"foo",
+				"artbene/scr/footer.php"
+			],
+			[
+				"fofoop",
+				"wordpress/wp-content/themes/twentyfourteen/footer.php"
+			],
+			[
+				"wjs",
+				"js/wall.js"
+			],
+			[
+				"main.s",
+				"css/main.scss"
+			],
+			[
+				"tmpl/",
+				"tmpl/do.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/work/cos/cos.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 158.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
