@@ -4,18 +4,9 @@
   "version": "2.0",
   "permissions": [
     "activeTab",
-    "bookmarks"
+    "bookmarks",
+    "background"
   ],
-  "content_scripts": [
-    {
-      "matches": ["https://*/*"],
-      "css": ["css/style.css"]
-    }
-  ],
-  "background": {
-    "scripts": ["js/po.js"],
-    "persistent": false
-  },
   "chrome_url_overrides" : {
     "newtab": "newtab.html"
   },

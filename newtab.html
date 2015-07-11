@@ -3,142 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>new tab</title>
-  <style type="text/css">
-  body, html {
-    display: block;
-    background-color: rgb(57, 58, 60);
-    background-image: url(http://subtlepatterns.com/patterns/stardust.png);
-    background-repeat: repeat;
-    width: 100%;
-    height: auto;
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: auto;
-  }
-  .left-pane {
-    width: 49%;
-    height: 100%;
-    min-height: 650px;
-    float: left;
-    position: relative;
-  }
-  .divider {
-    width: 2%;
-    height: 100%;
-    float: left;
-    min-height: 250px;
-    margin-top: 100px;
-    border-radius: 10px;
-    background-color: #c1cbf5;
-    position: relative;
-    word-break: break-all;
-  }
-  .fuckit {
-    display: none;
-  }
-  .right-pane {
-    width: 49%;
-    height: 100%;
-    min-height: 650px;
-    float: left;
-    position: relative;
-  }
-  .teeth {
-    position: fixed;
-    width: 55.7%;
-    top: 400px;
-    margin: 0;
-    height: 200px;
-    margin-left: 23.1%;
-    list-style: none;
-    padding: 0;
-    vertical-align: top;
-  }
-  .tooth img {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-  }
-  .tooth {
-    width: 115px;
-    height: 70px;
-    line-height: 70px;
-    text-align: center;
-    border-radius: 15px;
-    margin: 10px 2px;
-    display: inline-block;
-    background-color: rgb(242, 226, 136);
-    font-family: fantasy;
-  }
-  .tooth:hover {
-    background-color: #000;
-  }
-  .up-tooth {
-    border-bottom-left-radius: 35px;
-    border-bottom-right-radius: 35px;
-  }
-  .down-tooth {
-    border-top-left-radius: 35px;
-    border-top-right-radius: 35px;
-  }
-  .tooth-link {
-    display: block;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    font-family: Inconsolata;
-    color: #000;
-    font-size: large;
-    text-decoration: none;
-  }
-  .tooth-link:hover {
-    color: white;
-  }
-  .left-eye {
-    background-color: transparent;
-    border: 25px rgb(127, 224, 108) solid;
-    border-radius: 50%;
-    width: 200px;
-    cursor: pointer;
-    height: 200px;
-    vertical-align: middle;
-    line-height: 200px;
-    text-align: center;
-    color: white;
-    font-family: Inconsolata;
-    font-size: x-large;
-    margin: 0 auto;
-    font-weight: bold;
-    margin-top: 100px;
-    margin-left: 350px;
-  }
-  .left-eye-text, .right-eye-text {
-	  color: white;
-	  text-decoration: none;
-	  display: block;
-	  width:100%;
-	  height:100%;
-	}
-  .right-eye {
-    background-color: transparent;
-    border: 25px rgb(255, 104, 83) solid;
-    border-radius: 50%;
-    width: 200px;
-    cursor: pointer;
-    height: 200px;
-    vertical-align: middle;
-    line-height: 200px;
-    font-weight: bold;
-    text-align: center;
-    color: white;
-    font-family: Inconsolata;
-    font-size: x-large;
-    margin: 0 auto;
-    margin-top: 100px;
-    margin-right: 350px;
-  }
-  </style>
+  <link rel="stylesheet" href="./css/newtab.css">
 </head>
 <body>
   <div id="leftPane" class="left-pane">
@@ -154,13 +19,13 @@
     </div>
   </div>
   <ul class="teeth">
-    <li class="tooth up-tooth">
-      <a class="tooth-link"href="http://localhost:8080/simple">
+    <li class="tooth up-tooth" data-grin="0">
+      <a class="tooth-link"href="http://localhost:8080">
         <!-- <img src="http://www.google.com/s2/favicons?domain=www.hitrecord.org" alt="dev"> -->
         togodo
       </a>
     </li>
-    <li class="tooth up-tooth">
+    <li class="tooth up-tooth" data-grin="1">
       <a class="tooth-link"href="https://www.atomic.io">
         <!-- <img src="http://www.google.com/s2/favicons?domain=www.atomic.io" alt="atomic"> -->
         atomic
@@ -177,25 +42,27 @@
           phpmyadmin
         </a>
       </li>
-      <li class="tooth up-tooth">
+      <li class="tooth up-tooth" data-grin="1">
         <a class="tooth-link"href="https://www.reddit.com">
           <!-- <img src="http://www.google.com/s2/favicons?domain=www.reddit.com" alt="reddit"> -->
           reddit
         </a>
       </li>
-      <li class="tooth up-tooth">
+      <li class="tooth up-tooth" data-grin="0">
         <a class="tooth-link"href="https://www.facebook.com">
           <!-- <img src="http://www.google.com/s2/favicons?domain=www.facebook.com" alt="Facebook"> -->
           facebook
         </a>
       </li>
-      <li class="tooth down-tooth">
+      </ul>
+      <ul class="teeth down-teeth">
+      <li class="tooth down-tooth" data-grin="0">
         <a class="tooth-link"href="https://mail.google.com/mail/u/0/#inbox">
           <!-- <img src="https://ssl.gstatic.com/ui/v1/icons/mail/images/favicon5.ico" alt="mail"> -->
           mail
         </a>
       </li>
-      <li class="tooth down-tooth">
+      <li class="tooth down-tooth" data-grin="1">
         <a class="tooth-link"href="https://www.youtube.com/user/caseyneistat/videos">
           <!-- <img src="http://www.google.com/s2/favicons?domain=www.youtube.com" alt="casey"> -->
           casey
@@ -213,18 +80,19 @@
           piratebay
         </a>
       </li>
-      <li class="tooth down-tooth">
+      <li class="tooth down-tooth" data-grin="1">
         <a class="tooth-link"href="http://www.kat.cr">
           <!-- <img src="http://www.google.com/s2/favicons?domain=www.kat.cr" alt="kickass"> -->
           kickass
         </a>
       </li>
-      <li class="tooth down-tooth">
+      <li class="tooth down-tooth" data-grin="0">
         <a class="tooth-link"href="https://www.apple.com">
           <!-- <img src="http://www.google.com/s2/favicons?domain=www.apple.com" alt="apple"> -->
           apple
         </a>
       </li>
     </ul>
+    <script src='./js/po.js'></script>
   </body>
   </html>
