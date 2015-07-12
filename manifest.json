@@ -1,18 +1,18 @@
 {
-  "name": "new tab",
-  "description": "new tab",
+  "name": "new tab & to go do",
+  "description": "an extension for myself",
   "version": "2.0",
   "permissions": [
     "activeTab",
     "bookmarks",
-    "background"
+    "background",
+    "tabs"
   ],
   "chrome_url_overrides" : {
     "newtab": "newtab.html"
   },
   "browser_action": {
-      "default_title": "add a note",
-      "default_icon": "assets/favicon.png"
+    "default_icon": "assets/favicon.png"
   },
   "manifest_version": 2
 }
