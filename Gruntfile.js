@@ -1,17 +1,5 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    uglify: {
-      options: {
-        mangle: true,
-        compress: true,
-        sourceMap: 'simple.map',
-        banner: '/* Vitezslav Benes 2015*/\n'
-      },
-      target: {
-        src: 'js/simple.js',
-        dest: 'js/simple.min.js'
-      }
-    },
     watch: {
       options: {
         livereload: true,
@@ -30,19 +18,10 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-          'css/style.css': 'css/style.scss'
+          'css/newtab.css': 'css/newtab.scss'
         }
       }
     },
-    concat: {
-			options: {
-				separator: '',
-			},
-			dist: {
-				src: ['js/Task.js', 'js/Note.js', 'js/Notif.js', 'js/View.js', 'js/Token.js', 'js/ViewStack.js', 'js/App.js', 'js/core.js'],
-				dest: 'js/simple.js',
-			},
-		},
     browserSync: {
 			dev: {
 				bsFiles: {
@@ -59,5 +38,5 @@ module.exports = function(grunt) {
 		}
   });
   require('load-grunt-tasks')(grunt);
-  grunt.registerTask('default', ['sass', 'concat', 'uglify']);
-}
+  grunt.registerTask('default', ['browserSync', 'watch']);
+};

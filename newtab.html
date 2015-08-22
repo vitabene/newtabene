@@ -4,60 +4,57 @@
   <meta charset="UTF-8">
   <title>new tab</title>
   <link rel="stylesheet" href="./css/newtab.css">
+  <link rel="icon" href="./assets/favicon.png">
 </head>
-<body>
-  <div id="leftPane" class="left-pane">
-    <div id="leftEye" class="left-eye">
-  		<a href="./simple.html" class="left-eye-text">start a new day</a>
-    </div>
+<body id="body">
+  <span id="body-text" contenteditable>here</span>
+  <div id="leftEye" class="left-eye" contentEditable="false">
+    <a href class="left-eye-text">launch</a>
   </div>
-  <div id="divider" class="divider"><span class="fuckit">fuckit</span>
-  </div>
-  <div id="rightPane" class="right-pane">
-    <div id="rightEye" class="right-eye">
-      <span class="right-eye-text">resume the old</span>
-    </div>
+  <div id="divider" class="divider"></div>
+  <div id="rightEye" class="right-eye" contentEditable="false">
+    <a href class="right-eye-text">resume</a>
   </div>
   <ul class="teeth">
-    <li class="tooth up-tooth" data-grin="0">
-      <a class="tooth-link" href="http://localhost:8080">togodo</a>
+    <li class="tooth up-tooth" data-grin="big" data-side="left">
+      <a class="tooth-link" href="http://localhost:8080">questera</a>
     </li>
-    <li class="tooth up-tooth" data-grin="1">
+    <li class="tooth up-tooth" data-grin="small" data-side="left">
       <a class="tooth-link" href="https://www.atomic.io">atomic</a>
     </li>
-      <li class="tooth up-tooth">
-        <a class="tooth-link" href="http://localhost">localhost</a>
-      </li>
-      <li class="tooth up-tooth">
-        <a class="tooth-link" href="http://localhost/phpmyadmin">phpmyadmin</a>
-      </li>
-      <li class="tooth up-tooth" data-grin="1">
-        <a class="tooth-link" href="https://www.reddit.com">reddit</a>
-      </li>
-      <li class="tooth up-tooth" data-grin="0">
-        <a class="tooth-link" href="https://www.facebook.com">facebook</a>
-      </li>
-      </ul>
-      <ul class="teeth down-teeth">
-      <li class="tooth down-tooth" data-grin="0">
-        <a class="tooth-link" href="https://mail.google.com/mail/u/0/#inbox">mail</a>
-      </li>
-      <li class="tooth down-tooth" data-grin="1">
-        <a class="tooth-link" href="https://www.youtube.com/user/caseyneistat/videos">casey</a>
-      </li>
-      <li class="tooth down-tooth">
-        <a class="tooth-link" href="http://hitrecord.org">hitrecord</a>
-      </li>
-      <li class="tooth down-tooth">
-        <a class="tooth-link" href="http://www.thepiratebay.se">piratebay</a>
-      </li>
-      <li class="tooth down-tooth" data-grin="1">
-        <a class="tooth-link" href="http://www.kat.cr">kickass</a>
-      </li>
-      <li class="tooth down-tooth" data-grin="0">
-        <a class="tooth-link" href="https://www.apple.com">apple</a>
-      </li>
-    </ul>
-    <script src='./js/core.js'></script>
-  </body>
-  </html>
+    <li class="tooth up-tooth" data-grin="tiny" data-side="left">
+      <a class="tooth-link" href="http://localhost">localhost</a>
+    </li>
+    <li class="tooth up-tooth" data-grin="tiny" data-side="right">
+      <a class="tooth-link" href="http://localhost/phpmyadmin">phpadmin</a>
+    </li>
+    <li class="tooth up-tooth" data-grin="small" data-side="right">
+      <a class="tooth-link" href="https://www.reddit.com">reddit</a>
+    </li>
+    <li class="tooth up-tooth" data-grin="big" data-side="right">
+      <a class="tooth-link" href="https://www.facebook.com">facebook</a>
+    </li>
+  </ul>
+  <ul class="teeth down-teeth">
+    <li class="tooth down-tooth" data-grin="big" data-side="left">
+      <a class="tooth-link" href="https://mail.google.com/mail/u/0/#inbox">mail</a>
+    </li>
+    <li class="tooth down-tooth" data-grin="small" data-side="left">
+      <a class="tooth-link" href="https://www.youtube.com/user/caseyneistat/videos">casey</a>
+    </li>
+    <li class="tooth down-tooth" data-grin="tiny" data-side="left">
+      <a class="tooth-link" href="http://www.untitledrothfuss.com">rothcast</a>
+    </li>
+    <li class="tooth down-tooth" data-grin="tiny" data-side="right">
+      <a class="tooth-link" href="http://www.thepiratebay.se">piratebay</a>
+    </li>
+    <li class="tooth down-tooth" data-grin="small" data-side="right">
+      <a class="tooth-link" href="http://www.kat.cr">kickass</a>
+    </li>
+    <li class="tooth down-tooth" data-grin="big" data-side="right">
+      <a class="tooth-link" href="https://www.apple.com">apple</a>
+    </li>
+  </ul>
+  <script src='./js/core.js'></script>
+</body>
+</html>
