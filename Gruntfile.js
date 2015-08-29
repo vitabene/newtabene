@@ -6,7 +6,8 @@ module.exports = function(grunt) {
       },
       all: {
         files: ['js/*.js', '*.html', 'css/*.scss'],
-        tasks: ['default'],
+        // tasks: ['default'],
+        tasks: ['sass'],
         options: {
           spawn: false,
         }

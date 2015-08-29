@@ -5,7 +5,7 @@ $redShadow: 0px 0px 5px 1px #A13636;
 $greenShadow: 0px 0px 5px 1px #77C572;
 $blueShadow: 0px 0px 5px 1px #6EC4B8;
 $eyeColor: 25px transparent solid;
-$bgUrl: "../assets/blackmamba.png";
+$bgUrl: "../assets/c.jpg";
 $bgHoverUrl: "../assets/nami.png";
 $toothFont: 'Josefin Sans', 'PT Mono';
 body, html {
@@ -19,12 +19,14 @@ body, html {
   padding: 0;
   background-color: $toothHoverShadow !important;
   background-image: url($bgUrl);
-  background-repeat: repeat;
+  background-repeat: no-repeat;
+  background-size: 1366px 700px;
   color: lighten(red, 10%);
   font-family: $toothFont;
 }
 #body-text {
-  font-size: x-large;
+  font-size: large;
+  color: rgb(244, 228, 124);
 }
 a {
   color: lighten(red, 10%);
