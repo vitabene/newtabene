@@ -1,11 +1,9 @@
 {
-  "name": "new tab & to go do",
-  "description": "an extension for myself",
+  "name": "new tab",
+  "description": "a simple and clean newtab extension for Google Chrome",
   "version": "2.0",
   "permissions": [
-    "activeTab",
     "bookmarks",
-    "background",
     "tabs",
     "storage"
   ],
