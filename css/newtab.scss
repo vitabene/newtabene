@@ -1,13 +1,24 @@
-$toothShadow: 0px 0px 5px 1px #D9D9D9;
-$toothShadow: 0px 0px 5px 1px rgb(13, 8, 4);
-$toothHoverShadow: 0px 0px 5px 1px rgb(6, 202, 119);
-$redShadow: 0px 0px 5px 1px #A13636;
-$greenShadow: 0px 0px 5px 1px #77C572;
-$blueShadow: 0px 0px 5px 1px #6EC4B8;
-$eyeColor: 25px transparent solid;
-$bgUrl: "../assets/c.jpg";
-$bgHoverUrl: "../assets/nami.png";
-$toothFont: 'Josefin Sans', 'PT Mono';
+// mixins
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+// variables
+$backgroundUrl: "../assets/c.jpg";
+$globalFont: 'Josefin Sans', 'PT Mono';
+
+$defaultLinkColor: rgb(249, 240, 186);
+$defaultLinkSize: x-large;
+$defaultLinkLineHeight: 120px;
+
+$tileBackgroundColor: rgba(#211717, 0.9);
+$tileHoverAnimation: darken .6s forwards;
+$tileBorderRadius: 7px;
+
+$notesTextShadow: 0 0 4px #fff;
+$notesTextColor: #FFCE0C;
+$notesTextSize: x-large;
+
 body, html {
   display: block;
   overflow: auto;
@@ -15,30 +26,19 @@ body, html {
   height: auto;
   min-height: 100%;
   margin: 0;
-  color: lighten(red, 10%);
   padding: 0;
-  background-color: $toothHoverShadow !important;
-  background-image: url($bgUrl);
+  background-image: url($backgroundUrl);
   background-repeat: no-repeat;
-  background-size: 1366px 700px;
-  color: lighten(red, 10%);
-  font-family: $toothFont;
-}
-#body-text {
-  font-size: x-large;
-  color: #FFCE0C;
-  width: 75%;
-  position: fixed;
-  margin: 12px;
-  display: block;
+  background-size: 100%;
+  font-family: $globalFont;
 }
 a {
-  color: rgb(249, 240, 186);
   display: block;
   text-align: center;
-  line-height: 120px;
-  font-size: x-large;
   text-decoration: none;
+  color: $defaultLinkColor;
+  font-size: $defaultLinkSize;
+  line-height: $defaultLinkLineHeight;
 }
 ul {
   position: fixed;
@@ -48,20 +48,28 @@ ul {
   height: auto;
   list-style: none;
   li {
-    display: inline-block;
+    float: right;
     margin: 5px;
-    width: 121px;
-    height: 121px;
-    border-radius: 7px;
-    background-color: rgba(#211717, 0.9);
+    @include size(121px);
+    border-radius: $tileBorderRadius;
+    background-color: $tileBackgroundColor;
     &:hover {
-      animation: darken .6s forwards;
+      animation: $tileHoverAnimation;
     }
   }
 }
+.notes {
+  position: fixed;
+  display: block;
+  width: 75%;
+  margin: 12px;
+  color: $notesTextColor;
+  text-shadow: $notesTextShadow;
+  font-size: $notesTextSize;
+}
 @keyframes darken {
   to {
-    background-color: rgba(#000000, 0.95);
-    color: rgb(244, 228, 124);
+    color: lighten($defaultLinkColor, 20%);
+    background-color: darken($tileBackgroundColor, 20%);
   }
 }

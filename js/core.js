@@ -1,27 +1,23 @@
 var body = document.getElementById('body'),
-    bodyText = document.getElementById('body-text'),
-    res = {},
+    noteSpace = document.getElementById('noteSpace'),
     noteDelay = 800;
 document.onkeypress = function(e){
   if (e.which == 13) {
-    chrome.storage.sync.set({'text': bodyText.innerHTML}, function(){});
+    chrome.storage.sync.set({'text': noteSpace.innerHTML}, function(){
+      console.log('Notes have been saved.');
+    });
   }
 };
 window.onload = function(){
-  // delay for fast newtab
+  // delay for fast loading
   setTimeout(loadNotes, noteDelay);
 };
 var loadNotes = function() {
   var text = chrome.storage.sync.get('text', function(obj){
-    res = obj;
-    bodyText.innerHTML = res.text;
+    noteSpace.innerHTML = obj.text;
   });
 };
-bodyText.addEventListener('change', function(){
-  chrome.storage.sync.set({'text': bodyText.innerHTML}, function() {
-    console.log('haha set');
-  });
-}, false);
+// not doing anything with bookmarks yet
 window.onbeforeunload = function(e) {
   chrome.tabs.getAllInWindow(null, function(tabs){
     for (var i = 0; i < tabs.length; i++) {
@@ -29,7 +25,6 @@ window.onbeforeunload = function(e) {
     }
   });
 };
-// not doing anything with bookmarks yet
 function processBookmarks(bookmarks) {
     for (var i = 0; i < bookmarks.length; i++) {
         var bookmark = bookmarks[i];
@@ -42,6 +37,6 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   try {
     chrome.bookmarks.getTree(processBookmarks);
   } catch (e) {
-    console.log('something hapend');
+    console.error('following error has occured: ' + e);
   }
 });
