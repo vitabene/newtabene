@@ -3,22 +3,49 @@
   width: $width;
   height: $height;
 }
+%plus-base {
+	position: relative;
+	display: block;
+	&::after {
+		position: absolute;
+		content: "";
+	}
+}
+@mixin plus-icon($width, $lineWidth, $color, $borderRadius) {
+	width: $width - $lineWidth;
+	height: $lineWidth;
+	margin: ($width - $lineWidth)/2 ($width - $lineWidth)/2;
+	border-radius: $borderRadius;
+	background: $color;
+	@extend %plus-base;
+	&::after {
+		top: -($width/2) + $lineWidth;
+		left: ($width/2) - $lineWidth;
+		width: $lineWidth;
+		height: $width - $lineWidth;
+		border-radius: $borderRadius;
+		background: $color;
+	}
+}
 // variables
 $backgroundUrl: "../assets/c.jpg";
 $globalFont: 'Josefin Sans', 'PT Mono';
-
 $defaultLinkColor: rgb(249, 240, 186);
 $defaultLinkSize: x-large;
 $defaultLinkLineHeight: 120px;
-
 $tileBackgroundColor: rgba(#211717, 0.9);
 $tileHoverAnimation: darken .6s forwards;
 $tileBorderRadius: 7px;
-
 $notesTextShadow: 0 0 4px #fff;
 $notesTextColor: #FFCE0C;
 $notesTextSize: x-large;
-
+.plus {
+  box-shadow: $notesTextShadow;
+  @include plus-icon(34px, 5px, lighten(rgb(249, 240, 210), 25%), 10%);
+  &::after {
+    box-shadow: $notesTextShadow;
+  }
+}
 body, html {
   display: block;
   overflow: auto;
@@ -40,6 +67,11 @@ a {
   font-size: $defaultLinkSize;
   line-height: $defaultLinkLineHeight;
 }
+// plus
+a[href='#'] {
+  margin-top: 57px;
+  margin-left: 29px;
+}
 ul {
   position: fixed;
   top: 0;
@@ -50,12 +82,72 @@ ul {
   li {
     float: right;
     margin: 5px;
-    @include size(121px);
     border-radius: $tileBorderRadius;
     background-color: $tileBackgroundColor;
+    @include size(121px);
     &:hover {
       animation: $tileHoverAnimation;
     }
+  }
+}
+.link-form {
+  // temporary
+  display: none;
+  position: fixed;
+  top: 18px;
+  width: 40%;
+  padding: 20px 0;
+  min-height: 200px;
+  margin-left: 25%;
+  border-radius: $tileBorderRadius;
+  background-color: $tileBackgroundColor;
+  box-shadow: 0 0 100px 10px $tileBackgroundColor;
+  input, button {
+    height: 34px;
+    border: 0;
+    border-radius: inherit;
+    font-family: inherit;
+    box-shadow: $notesTextShadow;
+  }
+  label {
+    display: block;
+    width: 80%;
+    height: 24px;
+    margin: 10px 0 0 10%;
+    text-indent: 5px;
+    text-transform: lowercase;
+    color: $defaultLinkColor;
+    font-family: inherit;
+    text-shadow: $notesTextShadow;
+    font-size: large;
+    line-height: 24px;
+  }
+  input {
+    display: block;
+    width: 80%;
+    margin: 0 0 20px 10%;
+    text-indent: 7px;
+    font-size: large;
+  }
+  button {
+    display: inline-block;
+    width: 20%;
+    margin-left: 14.5%;
+    text-transform: lowercase;
+    background-color: lighten($notesTextColor, 15%);
+    font-size: x-large;
+    line-height: 36px;
+  }
+  .progress-indicator {
+    background-color: rgba(#555, .3);
+    display: inline-block;
+    height: 14px;
+    width: 25%;
+    margin-left: 10%;
+    margin-right: -8%;
+    border-radius: 4px;
+    font-family: inherit;
+    box-shadow: $notesTextShadow;
   }
 }
 .notes {
