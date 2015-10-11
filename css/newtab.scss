@@ -28,16 +28,16 @@
 	}
 }
 // variables
-$backgroundUrl: "../assets/c.jpg";
+$backgroundUrl: "../assets/fall.jpg";
 $globalFont: 'Josefin Sans', 'PT Mono';
 $defaultLinkColor: rgb(249, 240, 186);
 $defaultLinkSize: x-large;
 $defaultLinkLineHeight: 120px;
-$tileBackgroundColor: rgba(#211717, 0.9);
-$tileHoverAnimation: darken .6s forwards;
-$tileBorderRadius: 7px;
-$notesTextShadow: 0 0 4px #fff;
-$notesTextColor: #FFCE0C;
+$tileBackgroundColor: rgba(#000000, 0.9);
+$tileHoverAnimation: lighten .3s forwards;
+$tileBorderRadius: 3px;
+$notesTextShadow: 0 0 2px #fff;
+$notesTextColor: #fff0b4;
 $notesTextSize: x-large;
 .plus {
   box-shadow: $notesTextShadow;
@@ -84,6 +84,7 @@ ul {
     margin: 5px;
     border-radius: $tileBorderRadius;
     background-color: $tileBackgroundColor;
+    box-shadow: 0 0 3px 0 white;
     @include size(121px);
     &:hover {
       animation: $tileHoverAnimation;
@@ -153,15 +154,20 @@ ul {
 .notes {
   position: fixed;
   display: block;
-  width: 75%;
-  margin: 12px;
+  width: 44.8%;
+  outline: none;
+  margin: 15px;
+  padding: 7px;
   color: $notesTextColor;
   text-shadow: $notesTextShadow;
   font-size: $notesTextSize;
+  &:focus {
+    border-left: 1px solid invert($tileBackgroundColor);
+  }
 }
-@keyframes darken {
+@keyframes lighten {
   to {
-    color: lighten($defaultLinkColor, 20%);
-    background-color: darken($tileBackgroundColor, 20%);
+    color: darken($defaultLinkColor, 20%);
+    background-color: lighten($tileBackgroundColor, 20%);
   }
 }
