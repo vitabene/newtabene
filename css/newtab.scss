@@ -1,51 +1,3 @@
-// mixins
-@mixin size($width, $height: $width) {
-  width: $width;
-  height: $height;
-}
-%plus-base {
-	position: relative;
-	display: block;
-	&::after {
-		position: absolute;
-		content: "";
-	}
-}
-@mixin plus-icon($width, $lineWidth, $color, $borderRadius) {
-	width: $width - $lineWidth;
-	height: $lineWidth;
-	margin: ($width - $lineWidth)/2 ($width - $lineWidth)/2;
-	border-radius: $borderRadius;
-	background: $color;
-	@extend %plus-base;
-	&::after {
-		top: -($width/2) + $lineWidth;
-		left: ($width/2) - $lineWidth;
-		width: $lineWidth;
-		height: $width - $lineWidth;
-		border-radius: $borderRadius;
-		background: $color;
-	}
-}
-// variables
-$backgroundUrl: "../assets/fall.jpg";
-$globalFont: 'Josefin Sans', 'PT Mono';
-$defaultLinkColor: rgb(249, 240, 186);
-$defaultLinkSize: x-large;
-$defaultLinkLineHeight: 120px;
-$tileBackgroundColor: rgba(#000000, 0.9);
-$tileHoverAnimation: lighten .3s forwards;
-$tileBorderRadius: 3px;
-$notesTextShadow: 0 0 2px #fff;
-$notesTextColor: #fff0b4;
-$notesTextSize: x-large;
-.plus {
-  box-shadow: $notesTextShadow;
-  @include plus-icon(34px, 5px, lighten(rgb(249, 240, 210), 25%), 10%);
-  &::after {
-    box-shadow: $notesTextShadow;
-  }
-}
 body, html {
   display: block;
   overflow: auto;
@@ -54,120 +6,101 @@ body, html {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url($backgroundUrl);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  font-family: $globalFont;
+  background-color: #0E232B;
+  font-family: 'King';
 }
-a {
+.active {
+  position: relative;
   display: block;
-  text-align: center;
-  text-decoration: none;
-  color: $defaultLinkColor;
-  font-size: $defaultLinkSize;
-  line-height: $defaultLinkLineHeight;
-}
-// plus
-a[href='#'] {
-  margin-top: 57px;
-  margin-left: 29px;
-}
-ul {
-  position: fixed;
-  top: 0;
-  right: 5px;
-  width: 270px;
+  width: 40%;
   height: auto;
+  margin: 1% 30%;
+  padding: 0;
   list-style: none;
   li {
-    float: right;
-    margin: 5px;
-    border-radius: $tileBorderRadius;
-    background-color: $tileBackgroundColor;
-    box-shadow: 0 0 3px 0 white;
-    @include size(121px);
-    &:hover {
-      animation: $tileHoverAnimation;
+    float: left;
+    width: 24%;
+    height: 24%;
+    margin-left: 1%;
+    text-shadow: 0 0 2px #b37a00;
+    &:hover, &:focus {
+      animation: lighten .5s forwards;
+    }
+    a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: #F2DCAE;
+      font-size: large;
+      line-height: 120px;
     }
   }
 }
-.link-form {
-  // temporary
-  display: none;
-  position: fixed;
-  top: 18px;
+.passive {
+  display: block;
+  overflow: auto;
   width: 40%;
-  padding: 20px 0;
-  min-height: 200px;
-  margin-left: 25%;
-  border-radius: $tileBorderRadius;
-  background-color: $tileBackgroundColor;
-  box-shadow: 0 0 100px 10px $tileBackgroundColor;
-  input, button {
-    height: 34px;
-    border: 0;
-    border-radius: inherit;
-    font-family: inherit;
-    box-shadow: $notesTextShadow;
-  }
-  label {
-    display: block;
-    width: 80%;
-    height: 24px;
-    margin: 10px 0 0 10%;
-    text-indent: 5px;
-    text-transform: lowercase;
-    color: $defaultLinkColor;
-    font-family: inherit;
-    text-shadow: $notesTextShadow;
-    font-size: large;
-    line-height: 24px;
-  }
-  input {
-    display: block;
-    width: 80%;
-    margin: 0 0 20px 10%;
-    text-indent: 7px;
-    font-size: large;
-  }
-  button {
-    display: inline-block;
+  height: auto;
+  min-height: 80px;
+  margin: 0 30%;
+  padding: 10px 0 0 0;
+  list-style: none;
+  li {
+    float: left;
     width: 20%;
-    margin-left: 14.5%;
-    text-transform: lowercase;
-    background-color: lighten($notesTextColor, 15%);
-    font-size: x-large;
-    line-height: 36px;
+    height: 20%;
   }
-  .progress-indicator {
-    background-color: rgba(#555, .3);
-    display: inline-block;
-    height: 14px;
-    width: 25%;
-    margin-left: 10%;
-    margin-right: -8%;
-    border-radius: 4px;
-    font-family: inherit;
-    box-shadow: $notesTextShadow;
+  a {
+    display: block;
+    text-align: center;
+  }
+  img {
+    width: 40%;
+    vertical-align: middle;
+    &:hover, &:focus {
+      animation: bounce .5s forwards;
+    }
   }
 }
-.notes {
-  position: fixed;
+quote {
+  position: relative;
   display: block;
-  width: 44.8%;
+  display: none;
+  width: 30%;
+  margin: 2% 30%;
+  padding: 0 5%;
+  text-align: center;
+  color: rgb(236, 236, 236);
+  font-size: large;
+}
+.notes {
+  position: relative;
+  display: block;
+  width: 40%;
+  margin: 2% 30%;
+  color: rgb(236, 236, 236);
+  padding: 10px 20px;
   outline: none;
-  margin: 15px;
-  padding: 7px;
-  color: $notesTextColor;
-  text-shadow: $notesTextShadow;
-  font-size: $notesTextSize;
+  font-size: medium;
+  font-family: 'King';
   &:focus {
-    border-left: 1px solid invert($tileBackgroundColor);
+    background-color: rgba(#fff, .1);
   }
 }
 @keyframes lighten {
   to {
-    color: darken($defaultLinkColor, 20%);
-    background-color: lighten($tileBackgroundColor, 20%);
+    background-color: rgba(#F4AE64, .8);
+    text-shadow: 0 0 15px #3C404C;
+  }
+}
+@keyframes bounce {
+  30% {
+    margin-top: -10px;
+  }
+  50% {
+    margin-top: 5px;
+  }
+  80% {
+    margin-top: -5px;
   }
 }

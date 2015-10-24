@@ -7,12 +7,14 @@ var loadNotes = function() {
     noteSpace.innerHTML = obj.text;
   });
 };
-document.onkeypress = function(e){
-  if (e.which == 13) {
-    chrome.storage.sync.set({'text': noteSpace.innerHTML}, function(){
-      console.log('Notes have been saved.');
-    });
-  }
+document.onkeydown = function(e) {
+    e = e || window.event;
+    if (e.keyCode == 27 || e.keyCode == 13) {
+      chrome.storage.sync.set({'text': noteSpace.innerHTML}, function(){
+        console.log('Notes have been saved.');
+      });
+    }
+    if (e.keyCode == 27) noteSpace.blur();
 };
 window.onload = function(){
   // delay for fast loading
