@@ -9,12 +9,7 @@
   "author": "Vitezslav Benes",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.9.11",
-    "gulp": "^3.9.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-sass": "^2.0.4",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.4.1",
-    "uglify-js": "^2.4.24"
+    "gulp-ruby-sass": "~2.0.5",
+    "browser-sync": "~2.9.11"
   }
 }

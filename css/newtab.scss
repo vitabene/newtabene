@@ -1,106 +1,105 @@
 body, html {
   display: block;
   overflow: auto;
+
   width: 100%;
   height: auto;
   min-height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #0E232B;
-  font-family: 'King';
+  // background-color: rgb(14, 35, 43);
+
+  background-color: rgb(18, 6, 18);
+
+  font-family: 'Sawasdee';
+}
+a {
+  display: block;
+
+  text-align: center;
+  text-decoration: none;
+
+  color: lightslategrey;
+
+  font-size: large;
+  font-weight: bold;
+  line-height: 60px;
 }
 .active {
   position: relative;
+
   display: block;
+
   width: 40%;
   height: auto;
   margin: 1% 30%;
   padding: 0;
+
   list-style: none;
   li {
     float: left;
+
     width: 24%;
-    height: 24%;
+    height: 60px;
     margin-left: 1%;
-    text-shadow: 0 0 2px #b37a00;
     &:hover, &:focus {
       animation: lighten .5s forwards;
     }
-    a {
-      display: block;
+  }
+  span {
+      float: right;
+
+      width: 18px;
+      height: 18px;
+      margin-top: -58px;
+      margin-right: 12px;
+      padding: 0;
+
       text-align: center;
-      text-decoration: none;
-      color: #F2DCAE;
-      font-size: large;
-      line-height: 120px;
-    }
-  }
-}
-.passive {
-  display: block;
-  overflow: auto;
-  width: 40%;
-  height: auto;
-  min-height: 80px;
-  margin: 0 30%;
-  padding: 10px 0 0 0;
-  list-style: none;
-  li {
-    float: left;
-    width: 20%;
-    height: 20%;
-  }
-  a {
-    display: block;
-    text-align: center;
-  }
-  img {
-    width: 40%;
-    vertical-align: middle;
-    &:hover, &:focus {
-      animation: bounce .5s forwards;
-    }
+
+      color: rgb(18, 6, 18);
+      border-radius: 5px;
+      background-color: rgba(188, 198, 204, 0.65);
+
+      font-size: medium;
+      font-weight: 900;
+      line-height: 22px;
   }
 }
 quote {
   position: relative;
+
   display: block;
-  display: none;
-  width: 30%;
-  margin: 2% 30%;
+
+  width: 40%;
+  margin: 12% 25% 0 25%;
   padding: 0 5%;
+
   text-align: center;
-  color: rgb(236, 236, 236);
-  font-size: large;
+
+  color: crimson;
+
+  font-family: 'Colleged';
+  font-size: 80px;
 }
 .notes {
   position: relative;
+
   display: block;
+
   width: 40%;
-  margin: 2% 30%;
-  color: rgb(236, 236, 236);
-  padding: 10px 20px;
+  margin: 1% 30% 0 30%;
+  padding: 20px 0;
+
+  text-align: center;
+
+  color: #EFF1C5;
   outline: none;
-  font-size: medium;
-  font-family: 'King';
+
+  font-family: 'Sawasdee';
+  font-size: large;
+  font-weight: bold;
   &:focus {
     background-color: rgba(#fff, .1);
-  }
-}
-@keyframes lighten {
-  to {
-    background-color: rgba(#F4AE64, .8);
-    text-shadow: 0 0 15px #3C404C;
-  }
-}
-@keyframes bounce {
-  30% {
-    margin-top: -10px;
-  }
-  50% {
-    margin-top: 5px;
-  }
-  80% {
-    margin-top: -5px;
   }
 }
