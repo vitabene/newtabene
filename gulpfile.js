@@ -39,4 +39,5 @@ gulp.task('watch', function(){
 	gulp.watch('css/newtab.scss*', ['sass']);
 	gulp.watch('js/core.js').on('change', browserSync.reload);
 	gulp.watch('newtab.html').on('change', browserSync.reload);
+	gulp.watch('popup.html').on('change', browserSync.reload);
 });

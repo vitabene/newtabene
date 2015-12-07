@@ -5,8 +5,22 @@ var body = document.getElementById('body'),
     baseDate = "Thu Oct 29 2015 00:00:00 GMT+0100 (CET)",
     baseLifeSpan = 19712,
     linkParent = document.getElementById('linkParent'),
+    numResetButton = document.getElementById('numResetButton')
     address = "",
     addresses = {};
+chrome.storage.onChanged.addListener(function(changes, namespace) {
+  for (key in changes) {
+    var storageChange = changes[key];
+    console.log("key:");
+    console.log(key);
+    // console.log('Storage key "%s" in namespace "%s" changed. ' +
+    //             'Old value was "%s", new value is "%s".',
+    //             key,
+    //             namespace,
+    //             storageChange.oldValue,
+    //             storageChange.newValue);
+  }
+});
 linkParent.addEventListener("click", function(e) {
   e.preventDefault();
   address = e.target.href;
@@ -24,6 +38,11 @@ var loadNotes = function() {
     noteSpace.innerHTML = obj.text;
   });
 };
+numResetButton.addEventListener("click", function(e) {
+  chrome.storage.sync.set({"addresses": {}}, function(obj){
+    window.location = window.location.href;
+  });
+}, false);
 var checkDate = function() {
   var today = new Date(),
       baseDay = new Date(baseDate);
@@ -41,6 +60,9 @@ var loadLinkNumbers = function() {
       el.lastChild.innerHTML = address;
     }
   });
+}
+var checkModDate = function(){
+
 }
 document.onkeydown = function(e) {
     e = e || window.event;
