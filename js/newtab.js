@@ -11,8 +11,11 @@ var body = document.getElementById('body'),
 chrome.storage.onChanged.addListener(function(changes, namespace) {
   for (key in changes) {
     var storageChange = changes[key];
-    console.log("key:");
-    console.log(key);
+    if (key === "activeTheme" && storageChange.newValue.str != undefined) {
+      setStyle(storageChange.newValue.str)
+    }
+    // console.log("key:");
+    // console.log(key);
     // console.log('Storage key "%s" in namespace "%s" changed. ' +
     //             'Old value was "%s", new value is "%s".',
     //             key,
@@ -61,9 +64,6 @@ var loadLinkNumbers = function() {
     }
   });
 }
-var checkModDate = function(){
-
-}
 document.onkeydown = function(e) {
     e = e || window.event;
     if (e.keyCode == 27 || e.keyCode == 13) {
@@ -75,7 +75,10 @@ document.onkeydown = function(e) {
 };
 window.onload = function(){
   // delay for fast loading
+  getSetStyle("activeTheme");
   setTimeout(loadNotes, noteDelay);
   setTimeout(loadLinkNumbers, noteDelay);
   checkDate();
 };
+// chrome.notifications.create("", {message:"Hello World!", title: "Hi!", type: "basic", iconUrl:"./assets/favicon.png"})
+// var tim = setTimeout(function(){chrome.notifications.create("", {message:"Stahp tha work!", title: "Hey!", type: "basic", iconUrl:"./assets/favicon.png"})}, 25*60000);

@@ -1,0 +1,125 @@
+@mixin nomp {
+  margin: 0;
+  padding: 0;
+}
+body {
+  position: relative;
+
+  overflow: hidden;
+
+  width: 160px;
+
+  font-family: 'King';
+
+  @include nomp;
+}
+.settings-parent {
+  overflow: hidden;
+
+  width: 100%;
+  height: 0;
+
+  background-color: #fff;
+}
+.show-settings {
+  top: 0;
+  position: absolute;
+  height: 100px;
+}
+.element-select {
+  position: relative;
+
+  overflow: hidden;
+
+  background-color: #fff;
+  ul {
+    width: 100%;
+
+    @include nomp;
+    li {
+      width: 100%;
+      height: 33px;
+
+      cursor: pointer;
+      text-align: center;
+
+      font-size: 14px;
+      line-height: 34px;
+      &:hover {
+        background-color: #fce698;
+      }
+    }
+  }
+}
+.choice-buttons {
+  position: relative;
+
+  width: 100%;
+  height: 34px;
+
+  list-style: none;
+
+  cursor: pointer;
+  text-indent: 15px;
+
+  border: 0;
+  outline: 0;
+  background: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.45);
+
+  font-family: 'King';
+
+  @include nomp;
+  li {
+    float: left;
+
+    width: 33.3%;
+    height: 30px;
+
+    text-align: center;
+
+    color: #fff;
+    background-color: #2943cd;
+
+    line-height: 32px;
+
+    @include nomp;
+  }
+}
+.save-button-box {
+  width: 100%;
+  height: 33px;
+
+  background-color: #fff;
+
+  font-family: 'King';
+}
+.save-button {
+  overflow: hidden;
+
+  width: 100%;
+  text-indent: 12px;
+  height: 34px;
+  cursor: pointer;
+  text-align: left;
+  border: 0;
+  background: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.45);
+
+  font-family: 'King';
+  line-height: 36px;
+}
+.text-field {
+  width: 100%;
+  height: 32px;
+  padding: 0;
+
+  text-indent: 20px;
+  position: relative;
+  border: 0;
+  outline: none;
+  background: white;
+
+  font-family: 'King';
+  font-weight: bold;
+}

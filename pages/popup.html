@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Newtabene</title>
+  <link rel="stylesheet" href="../css/popup.css"/>
+</head>
+<body>
+  <div id="elementParent" class="element-select">
+    <ul>
+      <li id="body">body</li>
+      <li id=".links">link</li>
+      <li id=".quote">quote</li>
+      <li id=".notes">notes</li>
+    </ul>
+  </div>
+  <div id="settingsParent" class="settings-parent">
+    <select id="styleParent" class="choice-buttons">
+      <option>select a style</option>
+      <option value="background-color">background</option>
+      <option value="font-family">font</option>
+      <option value="font-size">font size</option>
+      <option value="color">color</option>
+      <option value="text-shadow">text shadow</option>
+    </select>
+    <input class="text-field" type="text" id="inputField" name="inputField"/>
+    <button class="save-button" id="saveButton">save the style</button>
+  </div>
+  <script type="text/javascript" src="../js/helpers.js"></script>
+  <script type="text/javascript" src="../js/popup.js"></script>
+</body>
+</html>

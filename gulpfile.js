@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 // 		.pipe(browserSync.stream());
 // });
 gulp.task('sass', function () {
-  return sass('css/newtab.scss', { sourcemap: true })
+  return sass('css/*.scss', { sourcemap: true })
     .on('error', sass.logError)
     .pipe(sourcemaps.write())
     .pipe(sourcemaps.write('maps', {
@@ -36,7 +36,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('watch', function(){
-	gulp.watch('css/newtab.scss*', ['sass']);
+	gulp.watch('css/*.scss*', ['sass']);
 	gulp.watch('js/core.js').on('change', browserSync.reload);
 	gulp.watch('newtab.html').on('change', browserSync.reload);
 	gulp.watch('popup.html').on('change', browserSync.reload);
