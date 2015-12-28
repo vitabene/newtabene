@@ -1,27 +1,66 @@
+// ******************** variables ********************
+var newtabene = {};
 var body = document.getElementById('body'),
     noteSpace = document.getElementById('noteSpace'),
-    noteDelay = 600,
+    quote = document.getElementById('quote'),
     lifeSpan = document.getElementById('life'),
-    baseDate = "Thu Oct 29 2015 00:00:00 GMT+0100 (CET)",
-    baseLifeSpan = 19712,
     linkParent = document.getElementById('linkParent'),
-    numResetButton = document.getElementById('numResetButton')
+    noteDelay = 100,
     address = "",
     addresses = {};
+// ******************** functions ********************
+var loadNotes = function() {
+  chrome.storage.sync.get('text', function(obj){
+    noteSpace.innerHTML = obj.text;
+  });
+};
+var loadQuote = function() {
+  chrome.storage.sync.get('quote', function(obj){
+    quote.innerHTML = obj.quote;
+  });
+};
+var checkLastOpen = function() {
+  chrome.storage.sync.get(["daysLeft", "lastOpen"], function(obj){
+    var lastDate = new Date(obj.lastOpen),
+        today = new Date(),
+        daysLeft = obj.daysLeft;
+    var diff = today.getTime() - lastDate.getTime();
+    diff = Math.floor(diff/86400000);
+    if (diff > 0) chrome.storage.sync.set({"daysLeft": --daysLeft});
+    lifeSpan.innerHTML = daysLeft;
+  });
+};
+var loadLinkNumbers = function() {
+  chrome.storage.sync.get('addresses', function(obj){
+    if (obj != undefined) addresses = obj.addresses;
+    for (var i = 0; i < linkParent.children.length; i++) {
+      var el = linkParent.children[i];
+      var address = addresses[el.firstChild.href];
+      if (address == undefined) address = 0;
+      el.lastChild.innerHTML = address;
+    }
+  });
+};
+function constructLink(url, title) {
+  var li = document.createElement('li'),
+      a = document.createElement('a');
+  a.href = url;
+  a.innerHTML = title;
+  li.appendChild(a);
+  document.getElementById('linkParent').appendChild(li);
+}
+// ******************** event handlers ********************
 chrome.storage.onChanged.addListener(function(changes, namespace) {
   for (key in changes) {
     var storageChange = changes[key];
     if (key === "activeTheme" && storageChange.newValue.str != undefined) {
       setStyle(storageChange.newValue.str)
     }
-    // console.log("key:");
-    // console.log(key);
-    // console.log('Storage key "%s" in namespace "%s" changed. ' +
-    //             'Old value was "%s", new value is "%s".',
-    //             key,
-    //             namespace,
-    //             storageChange.oldValue,
-    //             storageChange.newValue);
+    if (key === "daysLeft") {
+      chrome.storage.sync.set({"addresses": {}}, function(obj){
+        window.location = window.location.href;
+      });
+    }
   }
 });
 linkParent.addEventListener("click", function(e) {
@@ -35,35 +74,6 @@ linkParent.addEventListener("click", function(e) {
     window.location = address;
   });
 }, false);
-var loadNotes = function() {
-  // when working on localhost chrome.storage is undefined
-  var text = chrome.storage.sync.get('text', function(obj){
-    noteSpace.innerHTML = obj.text;
-  });
-};
-numResetButton.addEventListener("click", function(e) {
-  chrome.storage.sync.set({"addresses": {}}, function(obj){
-    window.location = window.location.href;
-  });
-}, false);
-var checkDate = function() {
-  var today = new Date(),
-      baseDay = new Date(baseDate);
-  var diff = today.getTime() - baseDay.getTime();
-  diff = Math.floor(diff/86400000);
-  lifeSpan.innerHTML = 19712 - diff;
-}
-var loadLinkNumbers = function() {
-  chrome.storage.sync.get('addresses', function(obj){
-    if (obj != undefined) addresses = obj.addresses;
-    for (var i = 0; i < linkParent.children.length; i++) {
-      var el = linkParent.children[i];
-      var address = addresses[el.firstChild.href];
-      if (address == undefined) address = 0;
-      el.lastChild.innerHTML = address;
-    }
-  });
-}
 document.onkeydown = function(e) {
     e = e || window.event;
     if (e.keyCode == 27 || e.keyCode == 13) {
@@ -74,11 +84,13 @@ document.onkeydown = function(e) {
     if (e.keyCode == 27) noteSpace.blur();
 };
 window.onload = function(){
-  // delay for fast loading
   getSetStyle("activeTheme");
   setTimeout(loadNotes, noteDelay);
+  setTimeout(loadQuote, noteDelay);
   setTimeout(loadLinkNumbers, noteDelay);
-  checkDate();
+  checkLastOpen();
 };
+// ******************** unused code snippets ********************
 // chrome.notifications.create("", {message:"Hello World!", title: "Hi!", type: "basic", iconUrl:"./assets/favicon.png"})
 // var tim = setTimeout(function(){chrome.notifications.create("", {message:"Stahp tha work!", title: "Hey!", type: "basic", iconUrl:"./assets/favicon.png"})}, 25*60000);
+// chrome.storage.sync.get(null, function(obj){console.log(Object.keys(obj))})
