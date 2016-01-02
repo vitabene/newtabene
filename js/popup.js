@@ -1,15 +1,12 @@
 var styles = "",
     style = "",
-    input = "",
     theme = "",
     element = "",
     saveButton = document.getElementById('saveButton'),
     styleParent = document.getElementById('styleParent'),
     inputField = document.getElementById('inputField'),
     settingsParent = document.getElementById('settingsParent'),
-    elementParent = document.getElementById('elementParent'),
-    action = [];
-
+    elementParent = document.getElementById('elementParent');
 var themes = {
   "default": {
     "body": {
@@ -40,14 +37,14 @@ document.addEventListener('click', function(e){
     chrome.storage.sync.get("theme", function(obj){
       var theme = obj["theme"];
       var themeKeys = Object.keys(theme);
-      if (themeKeys.indexOf(id) !== -1) {
-        styles = theme[id];
-      }
+      if (themeKeys.indexOf(id) !== -1) styles = theme[id];
       settingsParent.className += " show-settings";
       elementParent.style.display = "none";
     });
   }
   if (id == "saveButton") {
+    // set when installing to ""
+    localStorage.styleChanges += styleParent.value + ",";
     applyThemeChange(element, styleParent.value, inputField.value);
   }
 }, false);
@@ -55,11 +52,10 @@ styleParent.addEventListener('change', function(e) {
   style = e.target.value;
   inputField.value = styles[style];
 }, false);
-
 var applyThemeChange = function(element, style, change) {
   chrome.storage.sync.get("theme", function(obj){
+    // theme is the actual theme object used
     var theme = obj["theme"];
-    // console.log(theme[element][style]);
     if (theme[element] === undefined) theme[element] = {}
     theme[element][style] = change;
     chrome.storage.sync.set({"theme": theme}, function() {
@@ -67,17 +63,14 @@ var applyThemeChange = function(element, style, change) {
     });
   });
 }
-
 var getTheme = function(str) {
   return chrome.storage.sync.get(str, function(obj){
       return obj
   });
 }
-
 var applyTheme = function(){
   chrome.storage.sync.get("theme", function(obj){
     theme = obj;
-    // theme = JSON.stringify(obj);
     var rules = Object.keys(theme["theme"]);
     var cssStr = "";
     for (rule in rules) {
@@ -94,19 +87,7 @@ var applyTheme = function(){
       }
       cssStr += "}";
     }
+    // activeTheme is the string version of theme used
     chrome.storage.sync.set({"activeTheme": {"str":cssStr}});
   });
 };
-
-// chrome.storage.sync.set();
-// saveButton.addEventListener('click', function(){
-  // save settings
-  // alert(window.location.href)
-  // applyTheme();
-  // simpleGet('text');
-// }, false);
-
-window.onload = function(){
-  // load
-  // simpleGet('text');
-}

@@ -1,39 +1,27 @@
 // ******************** variables ********************
-var newtabene = {};
 var body = document.getElementById('body'),
     noteSpace = document.getElementById('noteSpace'),
     quote = document.getElementById('quote'),
     lifeSpan = document.getElementById('life'),
     linkParent = document.getElementById('linkParent'),
-    noteDelay = 100,
-    address = "",
-    addresses = {};
+    noteDelay = 100, address = "", addresses = {};
+// var newtabene = (function(){})();
 // ******************** functions ********************
-var loadNotes = function() {
-  chrome.storage.sync.get('text', function(obj){
-    noteSpace.innerHTML = obj.text;
-  });
-};
-var loadQuote = function() {
-  chrome.storage.sync.get('quote', function(obj){
-    quote.innerHTML = obj.quote;
-  });
-};
-var checkLastOpen = function() {
-  chrome.storage.sync.get(["daysLeft", "lastOpen"], function(obj){
-    var lastDate = new Date(obj.lastOpen),
-        today = new Date(),
-        daysLeft = obj.daysLeft;
-    var diff = today.getTime() - lastDate.getTime();
-    diff = Math.floor(diff/86400000);
-    if (diff > 0) chrome.storage.sync.set({"daysLeft": --daysLeft});
-    lifeSpan.innerHTML = daysLeft;
-  });
-};
-var loadLinkNumbers = function() {
-  chrome.storage.sync.get('addresses', function(obj){
-    if (obj != undefined) addresses = obj.addresses;
-    for (var i = 0; i < linkParent.children.length; i++) {
+var load = function() {
+  // text is contents of note section
+  // quote is contents of quote
+  // links are clickable links
+  // linkTitles are titles of the links
+  // addresses are are address:numClicked pairs
+  var toLoad = ['text', 'quote', 'links', 'linkTitles', 'addresses'];
+  chrome.storage.sync.get(toLoad, function(o){
+    noteSpace.innerHTML = o.text;
+    quote.innerHTML = o.quote;
+    for (var i = 0; i < o.links.length; i++) {
+      constructLink(o.links[i], o.linkTitles[i]);
+    }
+    for (i = 0; i < linkParent.children.length; i++) {
+      if (o != undefined) addresses = o.addresses;
       var el = linkParent.children[i];
       var address = addresses[el.firstChild.href];
       if (address == undefined) address = 0;
@@ -41,12 +29,32 @@ var loadLinkNumbers = function() {
     }
   });
 };
+var checkLastOpen = function() {
+  // daysLeft is number of days left
+  // lastOpen is last day the new tab was opened
+  chrome.storage.sync.get(["daysLeft", "lastOpen"], function(obj){
+    var lastDate = new Date(obj.lastOpen),
+        today = new Date(),
+        daysLeft = obj.daysLeft;
+    if (today.getDate() != lastDate.getDate()) {
+      chrome.storage.sync.set({
+        "daysLeft": --daysLeft,
+        "lastOpen": new Date().toString()
+      });
+    }
+    lifeSpan.innerHTML = daysLeft;
+  });
+};
 function constructLink(url, title) {
   var li = document.createElement('li'),
-      a = document.createElement('a');
+      a = document.createElement('a'),
+      span = document.createElement('span');
   a.href = url;
   a.innerHTML = title;
+  span.innerHTML = "#";
+  span.className = "link-number";
   li.appendChild(a);
+  li.appendChild(span);
   document.getElementById('linkParent').appendChild(li);
 }
 // ******************** event handlers ********************
@@ -75,19 +83,15 @@ linkParent.addEventListener("click", function(e) {
   });
 }, false);
 document.onkeydown = function(e) {
-    e = e || window.event;
-    if (e.keyCode == 27 || e.keyCode == 13) {
-      chrome.storage.sync.set({'text': noteSpace.innerHTML}, function(){
-        console.log('Notes have been saved.');
-      });
-    }
-    if (e.keyCode == 27) noteSpace.blur();
+  if (e.keyCode == 27 || e.keyCode == 13)
+    chrome.storage.sync.set({'text': noteSpace.innerHTML}, function(){
+      console.log('Notes have been saved.');
+    });
+  if (e.keyCode == 27) noteSpace.blur();
 };
 window.onload = function(){
   getSetStyle("activeTheme");
-  setTimeout(loadNotes, noteDelay);
-  setTimeout(loadQuote, noteDelay);
-  setTimeout(loadLinkNumbers, noteDelay);
+  setTimeout(load, noteDelay);
   checkLastOpen();
 };
 // ******************** unused code snippets ********************

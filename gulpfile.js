@@ -5,14 +5,6 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
 		browserSync = require('browser-sync').create();
 
-// gulp.task('sass', function () {
-//   gulp.src('css/newtab.scss')
-// 		.pipe(sourcemaps.init())
-//     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-// 		.pipe(sourcemaps.write())
-//     .pipe(gulp.dest('css'))
-// 		.pipe(browserSync.stream());
-// });
 gulp.task('sass', function () {
   return sass('css/*.scss', { sourcemap: true })
     .on('error', sass.logError)
@@ -37,7 +29,7 @@ gulp.task('browser-sync', function() {
 gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('watch', function(){
 	gulp.watch('css/*.scss*', ['sass']);
-	gulp.watch('js/core.js').on('change', browserSync.reload);
-	gulp.watch('newtab.html').on('change', browserSync.reload);
-	gulp.watch('popup.html').on('change', browserSync.reload);
+	// gulp.watch('js/core.js').on('change', browserSync.reload);
+	// gulp.watch('newtab.html').on('change', browserSync.reload);
+	// gulp.watch('popup.html').on('change', browserSync.reload);
 });

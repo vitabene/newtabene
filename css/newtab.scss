@@ -7,10 +7,6 @@ body, html {
   min-height: 100%;
   margin: 0;
   padding: 0;
-
-  background-color: rgb(18, 6, 18);
-
-  font-family: 'Sawasdee';
 }
 a {
   display: block;
@@ -19,48 +15,18 @@ a {
   text-decoration: none;
 
   color: inherit;
-    font-size: inherit;
-  font-weight: inherit;
+
   line-height: 60px;
 }
-.reset-button {
-  position: absolute;
-  top:5px;
-  left:5px;
-  border-radius: 5px;
-  width: 90px;
-  color: transparent;
-  cursor: pointer;
-  font-family: 'Colleged';
-  background-color: transparent;
-  border:0;
-  line-height: 47px;
-  font-size: large;
-  height: 45px;
-  &:hover, &:focus {
-    color: crimson;
-    text-shadow: 1px 1px 3px #000;
-    background-color: rgba(navajowhite, .3);
-  }
-}
-.do-something {
-    display: block;
-
-    padding-top: 0;
-    cursor: default;
-    color: navajowhite;
-
-    font-size: 35px;
-}
-.resourceful {
-margin-top: auto;
-
-@extend .do-something;
-}
-#life {
+.life-span {
   display: block;
+
+  height: 50px;
+  margin: 0 30%;
+
+  text-align: center;
 }
-.active {
+.links {
   position: relative;
 
   display: block;
@@ -81,42 +47,32 @@ margin-top: auto;
       animation: lighten .5s forwards;
     }
   }
-
 }
 .link-number {
-    float: right;
+  float: right;
 
-    width: 18px;
-    height: 18px;
-    margin-top: -58px;
-    margin-right: 12px;
-    padding: 0;
-
-    text-align: center;
-
-    color: inherit;
-    border-radius: 5px;
-    background-color: inherit;
-
-    font-size: medium;
-    font-weight: 900;
-    line-height: 22px;
-}
-quote {
-  position: relative;
-
-  display: block;
-
-  width: 40%;
-  margin: 12% 25% 0 25%;
-  padding: 0 5%;
+  width: 18px;
+  height: 18px;
+  margin-top: -58px;
+  margin-right: 12px;
+  padding: 0;
 
   text-align: center;
 
-  color: crimson;
+  color: inherit;
+  border-radius: 5px;
+  background-color: inherit;
+
+  font-size: medium;
+  font-weight: 900;
+  line-height: 22px;
+}
+quote {
+  display: block;
+
+  text-align: center;
 
   font-family: inherit;
-  font-size: 80px;
 }
 .notes {
   position: relative;
@@ -126,7 +82,7 @@ quote {
   width: 40%;
   margin: 1% 30% 0 30%;
   padding: 20px 0;
-margin-top: 200px;
+
   text-align: center;
 
   color: inherit;
