@@ -1,11 +1,86 @@
+'use strict';
 // ******************** variables ********************
 var body = document.getElementById('body'),
-    noteSpace = document.getElementById('noteSpace'),
+    noteSpace = {},
     quote = document.getElementById('quote'),
     lifeSpan = document.getElementById('life'),
     linkParent = document.getElementById('linkParent'),
     noteDelay = 100, address = "", addresses = {};
-// var newtabene = (function(){})();
+
+var newtabene = (function(){
+  const delay = 100;
+  var data = {},
+      plugins = [];
+
+  var init = function(){
+    // construct activeElements
+    if (plugins.length !== 0) loadPlugins();
+  };
+
+  var loadPlugins = function() {
+    for (var i = 0; i < plugins.length; i++) {
+      plugins[i].init();
+    }
+  };
+
+  var getData = function(key){
+    return data[key];
+  };
+
+  var loadData = function(){
+    var nwt = this;
+    chrome.storage.sync.get(null, function(o){
+      data = o;
+      init();
+    });
+  };
+
+  var registerPlugin = function(plugin) {
+    plugins.push(plugin);
+  }
+
+  return {
+      loadData: loadData,
+      registerPlugin: registerPlugin,
+      getData: getData
+  };
+})();
+newtabene.loadData();
+
+var notes = (function(newtabene) {
+  var elementType = "span",
+      classStr = "notes",
+      idStr = "noteSpace",
+      storageStr = "text",
+      contentEditable = 'true',
+      spellCheck = 'false';
+
+  var init = function() {
+    construct();
+  };
+
+  var construct = function(){
+    var e = document.createElement(elementType);
+    e.className = classStr;
+    e.id = idStr;
+    e.innerHTML = newtabene.getData(storageStr);
+    e.contentEditable = contentEditable;
+    e.spellcheck = spellCheck;
+    console.log(e);
+    document.body.appendChild(e);
+  };
+
+  return {
+    init: init
+  };
+}(newtabene || {}));
+
+newtabene.registerPlugin(notes);
+
+
+
+
+
 // ******************** functions ********************
 var load = function() {
   // text is contents of note section
@@ -26,6 +101,22 @@ var load = function() {
       var address = addresses[el.firstChild.href];
       if (address == undefined) address = 0;
       el.lastChild.innerHTML = address;
+    }
+  });
+};
+var loadSettings = function() {
+  chrome.storage.sync.get("settings", function(o){
+    var s = o.settings, sKeys = Object.keys(o.settings);
+    for (var i = 0; i < sKeys.length; i++) {
+      var setting = s[sKeys[i]];
+      if (setting != "body" && setting.active == "true") {
+        // load the thing
+        // console.log(s[sKeys[i]]);
+        // var el = document.createElement(setting.parentType);
+        // el.className = setting.class;
+        // el.id = setting.id;
+        // document.body.appendChild(el);
+      }
     }
   });
 };
@@ -59,7 +150,7 @@ function constructLink(url, title) {
 }
 // ******************** event handlers ********************
 chrome.storage.onChanged.addListener(function(changes, namespace) {
-  for (key in changes) {
+  for (var key in changes) {
     var storageChange = changes[key];
     if (key === "activeTheme" && storageChange.newValue.str != undefined) {
       setStyle(storageChange.newValue.str)
@@ -84,15 +175,25 @@ linkParent.addEventListener("click", function(e) {
 }, false);
 document.onkeydown = function(e) {
   if (e.keyCode == 27 || e.keyCode == 13)
-    chrome.storage.sync.set({'text': noteSpace.innerHTML}, function(){
-      console.log('Notes have been saved.');
+    chrome.storage.sync.set({
+      'text': noteSpace.innerHTML,
+      'quote': quote.innerHTML
+      }, function(){
+        console.log('Notes and quote saved.');
     });
-  if (e.keyCode == 27) noteSpace.blur();
+  if (e.keyCode == 27) {
+    noteSpace.blur();
+    quote.blur();
+  }
 };
 window.onload = function(){
   getSetStyle("activeTheme");
   setTimeout(load, noteDelay);
   checkLastOpen();
+  loadSettings();
+  // document.open();
+  // document.write('<script src="../js/background.js"></script><p>"ta"</p>');
+  // document.close();
 };
 // ******************** unused code snippets ********************
 // chrome.notifications.create("", {message:"Hello World!", title: "Hi!", type: "basic", iconUrl:"./assets/favicon.png"})

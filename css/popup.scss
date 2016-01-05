@@ -50,6 +50,18 @@ body {
       }
     }
   }
+  input {
+    height: 20px;
+    right: 0;
+    width: 20px;
+    background: gray;
+    -webkit-appearance: inherit;
+    position: absolute;
+    margin: 6.5px;
+    &:checked {
+      background: #7dee7b;
+    }
+  }
 }
 .choice-buttons {
   position: relative;
