@@ -1,8 +1,8 @@
-var notes = (function(newtabene) {
-  var elementType = "span",
-      classStr = "notes",
-      idStr = "noteSpace",
-      storageStr = "text",
+var quote = (function() {
+  var elementType = "quote",
+      classStr = "quote",
+      idStr = "quote",
+      storageStr = "quote",
       contentEditable = 'true',
       spellCheck = 'false',
       element = {};
@@ -18,7 +18,6 @@ var notes = (function(newtabene) {
     e.innerHTML = newtabene.getData(storageStr);
     e.contentEditable = contentEditable;
     e.spellcheck = spellCheck;
-    // crude
     e.dataset.plugin = classStr;
     document.body.appendChild(e);
     element = e;
@@ -30,9 +29,9 @@ var notes = (function(newtabene) {
 
   var save = function(){
     chrome.storage.sync.set({
-       'text': element.innerHTML
+       'quote': element.innerHTML
        }, function(){
-         console.log('Notes saved.');
+         console.log('Quote saved.');
      });
   };
 
@@ -44,5 +43,3 @@ var notes = (function(newtabene) {
   };
 
 }(newtabene || {}));
-
-newtabene.registerPlugin(notes);

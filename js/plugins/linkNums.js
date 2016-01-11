@@ -23,7 +23,7 @@ var linkNums = (function(newtabene, links) {
       if (address == undefined) address = 0;
       span.innerHTML = address;
       el.appendChild(span);
-      }
+    }
   };
 
   var addHandlers = function() {

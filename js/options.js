@@ -3,7 +3,6 @@ var linkNumber = {},
     inputField = {};
 function getLinks() {
   chrome.storage.sync.get("links", function(obj){
-    // console.log(obj.links[linkNumber.value]);
     inputField.value = obj.links[linkNumber.value];
   });
 }

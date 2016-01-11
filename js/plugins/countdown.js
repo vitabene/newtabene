@@ -1,6 +1,8 @@
 var countdown = (function() {
   var elementType = 'span',
-      classStr = 'countdown',
+      // should be 'countdown'
+      // classStr = 'life-span',
+      classStr = 'life-span',
       idStr = 'countdown',
       storageStr = 'countdown';
 
@@ -24,8 +26,8 @@ var countdown = (function() {
         countdown = newtabene.getData(storageStr);
     if (today.getDate() != lastDate.getDate()) {
       chrome.storage.sync.set({
-        storageStr: --countdown,
-        "lastOpen": new Date().toString()
+        'countdown': --countdown,
+        'lastOpen': new Date().toString()
       });
     }
   };

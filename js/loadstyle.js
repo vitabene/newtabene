@@ -22,4 +22,3 @@ function writeRule(style, ruleText) {
   else style.appendChild(document.createTextNode(ruleText));
   return style;
 }
-// window.location = '../background.html';

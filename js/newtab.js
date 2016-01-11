@@ -30,6 +30,15 @@ var newtabene = (function(){
         if (changeDependecies.indexOf(key) !== -1) changeDependecies[key].call();
       }
     });
+    document.onkeydown = function(e) {
+      if (e.keyCode == 27 || e.keyCode == 13) {
+        var pluginName = e.target.dataset.plugin;
+        if (plugins.indexOf(pluginName) !== -1) {
+          window[pluginName].keyPressed(e.keyCode);
+        }
+      }
+      if (e.keyCode == 27) e.target.blur();
+    };
   };
 
   var getData = function(key){
@@ -65,35 +74,22 @@ newtabene.loadData();
 
 // ******************** non-modularized follows ********************
 // ******************** functions ********************
-var loadSettings = function() {
-  chrome.storage.sync.get("settings", function(o){
-    var s = o.settings, sKeys = Object.keys(o.settings);
-    for (var i = 0; i < sKeys.length; i++) {
-      var setting = s[sKeys[i]];
-      if (setting != "body" && setting.active == "true") {
-        //
-      }
-    }
-  });
-};
+// var loadSettings = function() {
+//   chrome.storage.sync.get("settings", function(o){
+//     var s = o.settings, sKeys = Object.keys(o.settings);
+//     for (var i = 0; i < sKeys.length; i++) {
+//       var setting = s[sKeys[i]];
+//       if (setting != "body" && setting.active == "true") {
+//         //
+//       }
+//     }
+//   });
+// };
 // ******************** event handlers ********************
-document.onkeydown = function(e) {
-  console.log(e);
-//   if (e.keyCode == 27 || e.keyCode == 13)
-//     chrome.storage.sync.set({
-//       'text': noteSpace.innerHTML,
-//       'quote': quote.innerHTML
-//       }, function(){
-//         console.log('Notes and quote saved.');
-//     });
-//   if (e.keyCode == 27) {
-//     noteSpace.blur();
-//     quote.blur();
-//   }
-};
+
 window.onload = function(){
   getSetStyle("activeTheme");
-  loadSettings();
+  // loadSettings();
 };
 // ******************** unused code snippets ********************
 // chrome.notifications.create("", {message:"Hello World!", title: "Hi!", type: "basic", iconUrl:"./assets/favicon.png"})
