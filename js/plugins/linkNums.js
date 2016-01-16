@@ -7,7 +7,7 @@ var linkNums = (function(newtabene, links) {
 
   var init = function() {
     construct();
-    newtabene.registerChangeKey("lastOpen", onChanged);
+    newtabene.registerChangeKey("linkNums", onChanged);
     addHandlers();
   };
 

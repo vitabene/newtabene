@@ -112,21 +112,33 @@ var applyThemeChange = function(element, style, change) {
 document.addEventListener('click', function(e){
   var t = e.target,
       id = e.target.id;
-  if (t.parentNode.parentNode.id == "elementParent") {
-    element = id;
-    chrome.storage.sync.get("theme", function(obj){
-      var theme = obj["theme"];
-      var themeKeys = Object.keys(theme);
-      if (themeKeys.indexOf(id) !== -1) styles = theme[id];
-      settingsParent.className += " show-settings";
-      elementParent.style.display = "none";
-    });
+  // switch between sliding
+  if (t.className.indexOf("element") !== -1 || t.parentNode.className.indexOf("element") !== -1) {
+    var elementSelect = document.getElementById('elementSelect');
+    var styleSelect = document.getElementById('styleSelect');
+    // purge all slide- classes
+    elementSelect.className += " slide-left";
+    styleSelect.className += " slide-from-right";
   }
+
   if (id == "saveButton") {
     // set when installing to ""
     localStorage.styleChanges += styleParent.value + ",";
     applyThemeChange(element, styleParent.value, inputField.value);
   }
+
+  // closing button
+  if (id == "elementCloseButton") window.close();
+
+  // back to element choice
+  if (id == "elementBackButton") {
+    var elementSelect = document.getElementById('elementSelect');
+    var styleSelect = document.getElementById('styleSelect');
+    elementSelect.className = elementSelect.className.replace(" slide-left", " slide-from-left");
+    styleSelect.className = styleSelect.className.replace(" slide-from-right", " slide-right");
+  }
+
+
   if (t.type === "checkbox") {
     var elementNode = t.parentNode;
     // console.log(elementNode, t);
@@ -141,7 +153,22 @@ document.addEventListener('click', function(e){
     // another object - settings
     // chrome.storage.sync.set({elementNode.id: t.checked}, function() {});
   }
+  // tabs switching
+  if (t.className.indexOf("tab") !== -1) {
+    var aT = document.getElementsByClassName("tab");
+    for (var i = 0; i < aT.length; i++) {
+      var c = document.getElementById(aT[i].id + "Content");
+      if (aT[i] != t) {
+        aT[i].className = aT[i].className.replace("active", "");
+        c.className = c.className.replace("active", "");
+      } else {
+        aT[i].className = aT[i].className + " active";
+        c.className = c.className + " active";
+      }
+    }
+  }
 }, false);
+
 styleParent.addEventListener('change', function(e) {
   style = e.target.value;
   if (styles[style] === undefined) inputField.placeholder = "no style set";

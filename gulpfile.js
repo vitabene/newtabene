@@ -21,7 +21,7 @@ gulp.task('browser-sync', function() {
 	browserSync.init({
 			server: {
 					baseDir: "./",
-					index: "newtab.html"
+					index: "./pages/popup.html"
 			}
 	});
 });
@@ -30,6 +30,6 @@ gulp.task('default', ['browser-sync', 'watch']);
 gulp.task('watch', function(){
 	gulp.watch('css/*.scss*', ['sass']);
 	// gulp.watch('js/core.js').on('change', browserSync.reload);
-	// gulp.watch('newtab.html').on('change', browserSync.reload);
-	// gulp.watch('popup.html').on('change', browserSync.reload);
+	// gulp.watch('pages/newtab.html').on('change', browserSync.reload);
+	gulp.watch('pages/popup.html').on('change', browserSync.reload);
 });

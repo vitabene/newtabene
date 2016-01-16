@@ -6,36 +6,163 @@
   <link rel="stylesheet" href="../css/popup.css"/>
 </head>
 <body>
-  <div id="elementParent" class="element-select">
-    <ul>
+  <div class="header-box">
+    <button class="back-button" id="elementBackButton">&#8592;</button>
+    <input type="text" class="selected-element" value="please select an element"/>
+    <button class="close-button" id="elementCloseButton">&#x2717</button>
+  </div>
+  <div class="element-select" id="elementSelect">
+    <ul id="elementParent">
       <!-- load dynamically -->
-      <li id="body"><span>body</span></li>
-      <li id=".links">link<input type="checkbox"></li>
-      <li id=".link-number">link numbers<input type="checkbox"></li>
-      <li id=".life-span">life span<input type="checkbox"></li>
-      <li id=".quote">quote<input type="checkbox"></li>
-      <li id=".notes">notes<input type="checkbox"></li>
+      <li class="element" id="body"><span>body</span></li>
+      <li class="element" id=".links"><span>link</span><input type="checkbox"></li>
+      <li class="element" id=".link-number"><span>link numbers</span><input type="checkbox"></li>
+      <li class="element" id=".life-span"><span>life span</span><input type="checkbox"></li>
+      <li class="element" id=".quote"><span>quote</span><input type="checkbox"></li>
+      <li class="element" id=".notes"><span>notes</span><input type="checkbox"></li>
     </ul>
   </div>
+  <div class="style-select" id="styleSelect">
+    <div class="tabs">
+      <div id="tab1" class="tab">Shape</div>
+      <div id="tab2" class="tab">Position</div>
+      <div id="tab3" class="tab active">Styles</div>
+      <div id="tab4" class="tab">Content</div>
+    </div>
+    <hr>
+    <div class="tab-content-parent">
+      <div id="tab1Content" class="tab-content">
+        <!-- shape pane -->
+        <div class="formgroup">
+          <label for="">Width</label>
+          <input type="number">
+        </div>
+        <div class="formgroup">
+          <label for="">Height</label>
+          <input type="number">
+        </div>
+        <div class="formgroup">
+          <label for="">Corner Roundness</label>
+          <input type="number">
+        </div>
+      </div>
+      <!-- positioning -->
+      <div id="tab2Content" class="position-tab tab-content">
+        <div>
+          <table class="position-table">
+            <tr>
+              <td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td></td><td class="default"></td><td></td>
+            </tr>
+            <tr>
+              <td></td><td></td><td></td>
+            </tr>
+          </table>
+        </div>
+        <div class="move-box">
+          <table class="arrow-table">
+            <tr>
+              <td class="hidden-cell"></td>
+              <td><span class="">&#8593;</span></td>
+              <td class="hidden-cell"></td>
+            </tr>
+            <tr>
+              <td><span class="">&#8592;</span></td>
+              <td><span class="move">move</span></td>
+              <td><span class="">&#8594;</span></td>
+            </tr>
+            <tr>
+              <td class="hidden-cell"></td>
+              <td><span class="">&#8595;</span></td>
+              <td class="hidden-cell"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div id="tab3Content" class="tab-content active">
+        <select name="" id="" class="choice-buttons">
+          <option value="select what to change">select what to change</option>
+          <option value="">style</option>
+          <option value="">style</option>
+        </select>
+        <input type="text" class="input-field" name=""/>
+      </div>
+
+      <div id="tab4Content" class="tab-content">
+        <select name="" id="" class="choice-buttons">
+          <option value="select what to change">select what to change</option>
+          <option value="">style</option>
+          <option value="">style</option>
+        </select>
+        <input type="text" class="input-field" name=""/>
+      </div>
+    </div>
+    <hr>
+    <div class="save-button-box">
+      <button class="save-button">Save</button>
+    </div>
+  </div>
   <div id="settingsParent" class="settings-parent">
-    <select id="styleParent" class="choice-buttons">
-      <option>select a style</option>
-      <!-- sort by most modified -->
-      <option value="background-color">background</option>
-      <option value="background-image">background image</option>
-      <option value="background-size">background size</option>
-      <option value="background-position">background position</option>
-      <option value="background-repeat">background repeat</option>
-      <option value="font-family">font</option>
-      <option value="font-size">font size</option>
-      <option value="border-radius">corner roundness</option>
-      <option value="width">width</option>
-      <option value="margin">margin</option>
-      <option value="padding">padding</option>
-      <option value="font-weight">font style</option>
-      <option value="color">color</option>
-      <option value="text-shadow">text shadow</option>
-    </select>
+    <!-- four tabs bellow
+        shape
+        appearance
+        position
+        content
+    -->
+    <!-- <div class="tab" id="stylesTab"> -->
+      <select id="styleParent" class="choice-buttons">
+        <option>select a style</option>
+        <!-- background contains-->
+        <!-- color box -->
+        <option value="background-color">background</option>
+
+        <!-- upload API -->
+        <option value="background-image">background image</option>
+
+        <!-- select -->
+        <option value="background-size">background size</option>
+
+        <!-- arrows -->
+        <option value="background-position">background position</option>
+
+        <!-- checkboxes -->
+        <option value="background-repeat">background repeat</option>
+
+        <!-- font contains -->
+        <!-- bold, normal, italics - toggles checkboxes -->
+        <option value="font-weight">font style</option>
+        <option value="font-family">font</option>
+        <option value="font-size">font size</option>
+        <!-- recently used colors suggested -->
+        <option value="color">color</option>
+
+        <!-- shape contains -->
+        <!-- input field -->
+        <option value="border-radius">corner roundness</option>
+
+        <!-- number inputFields -->
+        <option value="height">height</option>
+        <option value="width">width</option>
+
+        <!-- position -->
+        <option value="margin">margin</option>
+        <option value="padding">padding</option>
+
+        <!-- advanced -->
+        <option value="text-shadow">text shadow</option>
+      </select>
+    <!-- </div> -->
+    <!-- <div class="tab" id="positionTab"> -->
+      <!-- position -->
+    <!-- </div> -->
+    <!-- <div class="tab" id="contentTab"> -->
+      <!-- content -->
+    <!-- </div> -->
+
+
     <input class="text-field" type="text" id="inputField" name="inputField"/>
     <button class="save-button" id="saveButton">save the style</button>
   </div>
