@@ -5,12 +5,9 @@
 body {
   position: relative;
   overflow: auto;
-
   width: 280px;
-
   @include nomp;
 }
-
 .header-box {
   width: 100%;
   position: relative;
@@ -32,30 +29,32 @@ body {
   }
   .back-button {
     background-color: rgb(157, 171, 207);
-    border: 0;
+    margin: 2.5px 0 2.5px 2.5px;
+    text-shadow: .5px .5px;
+    font-size: medium;
+
     width: 20px;
     height: 20px;
-    margin: 2.5px 0 2.5px 2.5px;
     padding: 0;
     border-radius: 4px;
     cursor: pointer;
     color: #fff;
-    text-shadow: .5px .5px;
-    font-size: medium;
+    border: 0;
   }
   .close-button {
     background-color: rgb(186, 7, 55);
     float: right;
-    border: 0;
     line-height: 23px;
     text-indent: 1px;
+    margin: 2.5px 2.5px 2.5px 0;
+
     width: 20px;
     height: 20px;
-    margin: 2.5px 2.5px 2.5px 0;
     padding: 0;
     border-radius: 4px;
     cursor: pointer;
     color: #fff;
+    border: 0;
   }
 }
 .element-select {
@@ -81,14 +80,20 @@ body {
     }
   }
 }
+.style-controls {
+  &:not(.active-controls) {
+    display: none;
+  }
+}
 .style-select {
   width: 100%;
   font-family: Ubuntu;
   min-height: 198px;
-  position: absolute;
+  position:  absolute;
   top:26px;
   display: block;
   right: -100%;
+  background-color: antiquewhite;
   height: auto;
   .tab {
     text-align: center;
@@ -176,12 +181,12 @@ input[type="checkbox"] {
   list-style: none;
 
   cursor: pointer;
-  text-indent: 15px;
+  text-indent: 7px;
 
   border: 0;
   outline: 0;
   background: white;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 0, 0, 0.45);
 
   font-family: 'King';
 
@@ -212,12 +217,12 @@ input[type="checkbox"] {
   list-style: none;
 
   cursor: pointer;
-  text-indent: 15px;
+  text-indent: 7px;
 
   border: 0;
   outline: 0;
   background: white;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 0, 0, 0.45);
 
   font-family: 'King';
 }
@@ -234,11 +239,6 @@ input[type="checkbox"] {
     color: #fff;
     border-color: #444;
   }
-}
-hr {
-  margin: 3px;
-  padding: 0;
-  -webkit-margin-after: 0;
 }
 .formgroup {
   margin-top: 10px;

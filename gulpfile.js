@@ -32,4 +32,5 @@ gulp.task('watch', function(){
 	// gulp.watch('js/core.js').on('change', browserSync.reload);
 	// gulp.watch('pages/newtab.html').on('change', browserSync.reload);
 	gulp.watch('pages/popup.html').on('change', browserSync.reload);
+	gulp.watch('js/popup.js').on('change', browserSync.reload);
 });

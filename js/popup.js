@@ -2,9 +2,12 @@
 var styles = "", style = "", theme = "", element = "",
     saveButton = document.getElementById('saveButton'),
     styleParent = document.getElementById('styleParent'),
+    styleTypeSelect = document.getElementById('styleTypeSelect'),
     inputField = document.getElementById('inputField'),
     settingsParent = document.getElementById('settingsParent'),
-    elementParent = document.getElementById('elementParent');
+    elementParent = document.getElementById('elementParent'),
+    selectedElementField = document.getElementById('selectedElementField');
+
 var themes = {
   "default": {
     "body": {
@@ -98,6 +101,7 @@ var applyTheme = function(){
   });
 };
 var applyThemeChange = function(element, style, change) {
+  console.log(element, style, change);
   chrome.storage.sync.get("theme", function(obj){
     // theme is the actual theme object used
     var theme = obj["theme"];
@@ -108,23 +112,55 @@ var applyThemeChange = function(element, style, change) {
     });
   });
 };
+var loadToInputs = function() {
+  if (styles == undefined) return;
+  var aI = document.getElementsByClassName("style-input");
+  for (var i = 0; i < aI.length; i++) {
+    var field = aI[i];
+    var rule = field.name;
+    if (styles[rule] != undefined) {
+      field.value = styles[rule];
+    }
+  }
+};
 // ******************** event handlers ********************
 document.addEventListener('click', function(e){
   var t = e.target,
       id = e.target.id;
+  // if span inside li is clicked
+  if (t.parentNode.className == "element") {
+    t = t.parentNode;
+    id = t.id;
+  }
+
   // switch between sliding
-  if (t.className.indexOf("element") !== -1 || t.parentNode.className.indexOf("element") !== -1) {
+  if (t.className.indexOf("element") !== -1) {
+    selectedElementField.value = id;
     var elementSelect = document.getElementById('elementSelect');
     var styleSelect = document.getElementById('styleSelect');
-    // purge all slide- classes
+    // load theme
+    chrome.storage.sync.get("theme", function(obj){
+      var theme = obj["theme"];
+      var themeKeys = Object.keys(theme);
+      if (themeKeys.indexOf(id) !== -1) styles = theme[id];
+      loadToInputs();
+    });
+
+    // UI effect
     elementSelect.className += " slide-left";
     styleSelect.className += " slide-from-right";
   }
 
   if (id == "saveButton") {
     // set when installing to ""
-    localStorage.styleChanges += styleParent.value + ",";
-    applyThemeChange(element, styleParent.value, inputField.value);
+    // localStorage.styleChanges += styleParent.value + ",";
+    var aI = document.getElementsByClassName("style-input");
+    for (var i = 0; i < aI.length; i++) {
+      var field = aI[i];
+      var rule = field.name;
+      // if (field.value != styles[rule]) console.log(selectedElementField.value, rule, field.value);
+      if (field.value != styles[rule]) applyThemeChange(selectedElementField.value, rule, field.value);
+    }
   }
 
   // closing button
@@ -137,7 +173,6 @@ document.addEventListener('click', function(e){
     elementSelect.className = elementSelect.className.replace(" slide-left", " slide-from-left");
     styleSelect.className = styleSelect.className.replace(" slide-from-right", " slide-right");
   }
-
 
   if (t.type === "checkbox") {
     var elementNode = t.parentNode;
@@ -153,6 +188,7 @@ document.addEventListener('click', function(e){
     // another object - settings
     // chrome.storage.sync.set({elementNode.id: t.checked}, function() {});
   }
+
   // tabs switching
   if (t.className.indexOf("tab") !== -1) {
     var aT = document.getElementsByClassName("tab");
@@ -169,8 +205,21 @@ document.addEventListener('click', function(e){
   }
 }, false);
 
-styleParent.addEventListener('change', function(e) {
-  style = e.target.value;
-  if (styles[style] === undefined) inputField.placeholder = "no style set";
-  else inputField.value = styles[style];
+// styleParent.addEventListener('change', function(e) {
+//   style = e.target.value;
+//   if (styles[style] === undefined) inputField.placeholder = "no style set";
+//   else inputField.value = styles[style];
+// }, false);
+
+styleTypeSelect.addEventListener('change', function(e) {
+  var styleType = e.target.value;
+  var activeControls = document.getElementById(styleType);
+  var aC = document.getElementsByClassName("style-controls");
+  for (var i = 0; i < aC.length; i++) {
+    if (aC[i] != activeControls) {
+      aC[i].className = aC[i].className.replace("active-controls", "");
+    } else {
+      aC[i].className = aC[i].className + " active-controls";
+    }
+  }
 }, false);
