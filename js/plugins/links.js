@@ -1,20 +1,19 @@
 var links = (function() {
-  var parentType = 'ul',
-      childType = 'li',
-      classStr = 'links',
-      idStr = 'links',
-      storageStr = 'links',
-      parent = {};
+  const NAME = 'links',
+        PARENT_TYPE = 'ul',
+        CHILD_TYPE = 'li';
+
+  var parent = {};
 
   var init = function() {
     construct();
   };
 
   var construct = function(){
-    var e = document.createElement(parentType);
-    e.className = classStr;
-    e.id = idStr;
-    var links = newtabene.getData(storageStr);
+    var e = document.createElement(PARENT_TYPE);
+    e.className = NAME;
+    e.id = NAME;
+    var links = newtabene.getData(NAME);
     // crude, should be part of links object
     var linkTitles = newtabene.getData('linkTitles');
     for (var i = 0; i < links.length; i++) {
@@ -38,6 +37,7 @@ var links = (function() {
   };
 
   init();
+  newtabene.loadNextPlugin();
 
   return {
     getParent: getParent

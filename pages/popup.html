@@ -25,142 +25,125 @@
   </div>
 
   <div class="style-select" id="styleSelect">
-    <div class="tabs">
-      <div id="tab1" class="tab active">Shape</div>
-      <div id="tab2" class="tab">Position</div>
-      <div id="tab3" class="tab">Styles</div>
-      <div id="tab4" class="tab">Contents</div>
+    <ul id="styleParent">
+      <li class="style" data-ctrls="backgroundControls">background</li>
+      <li class="style" data-ctrls="fontControls">font</li>
+      <li class="style" data-ctrls="shapeControls">shape</li>
+      <li class="style" data-ctrls="positionControls">position</li>
+      <li class="style" data-ctrls="contentsControls">contents</li>
+    </ul>
+  </div>
+
+  <div class="control-select">
+    <div id="shapeControls" class="style-controls">
+      <div class="formgroup">
+        <label for="">Width</label>
+        <input type="number" name="width">
+      </div>
+      <div class="formgroup">
+        <label for="">Height</label>
+        <input type="number" name="height">
+      </div>
+      <div class="formgroup">
+        <label for="">Corner Roundness</label>
+        <input type="number" name="border-radius">
+      </div>
+    </div>
+    <div id="positionControls" class="style-controls">
+      <div>
+        <table class="position-table">
+          <tr>
+            <td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td></td><td class="default"></td><td></td>
+          </tr>
+          <tr>
+            <td></td><td></td><td></td>
+          </tr>
+        </table>
+      </div>
+      <div class="move-box">
+        <table class="arrow-table">
+          <tr>
+            <td class="hidden-cell"></td>
+            <td><span class="">&#8593;</span></td>
+            <td class="hidden-cell"></td>
+          </tr>
+          <tr>
+            <td><span class="">&#8592;</span></td>
+            <td><span class="move">move</span></td>
+            <td><span class="">&#8594;</span></td>
+          </tr>
+          <tr>
+            <td class="hidden-cell"></td>
+            <td><span class="">&#8595;</span></td>
+            <td class="hidden-cell"></td>
+          </tr>
+        </table>
+        <!-- position -->
+        <div class="formgroup">
+          <label for="">margin</label>
+          <input name="margin"/>
+        </div>
+        <div class="formgroup">
+          <label for="">padding</label>
+          <input name="padding"/>
+        </div>
+      </div>
     </div>
 
-    <div class="tab-content-parent">
-      <div id="tab1Content" class="tab-content active">
-        <!-- shape pane -->
-        <div class="formgroup">
-          <label for="">Width</label>
-          <input type="number" name="width">
-        </div>
-        <div class="formgroup">
-          <label for="">Height</label>
-          <input type="number" name="height">
-        </div>
-        <div class="formgroup">
-          <label for="">Corner Roundness</label>
-          <input type="number" name="border-radius">
-        </div>
+    <div id="backgroundControls" class="style-controls background-controls active-controls">
+      <!-- color box -->
+      <div class="formgroup">
+        <label for="">background color</label>
+        <input class="style-input" name="background-color"/>
       </div>
-      <!-- positioning -->
-      <div id="tab2Content" class="position-tab tab-content">
-        <div>
-          <table class="position-table">
-            <tr>
-              <td></td><td></td><td></td>
-            </tr>
-            <tr>
-              <td></td><td class="default"></td><td></td>
-            </tr>
-            <tr>
-              <td></td><td></td><td></td>
-            </tr>
-          </table>
-        </div>
-        <div class="move-box">
-          <table class="arrow-table">
-            <tr>
-              <td class="hidden-cell"></td>
-              <td><span class="">&#8593;</span></td>
-              <td class="hidden-cell"></td>
-            </tr>
-            <tr>
-              <td><span class="">&#8592;</span></td>
-              <td><span class="move">move</span></td>
-              <td><span class="">&#8594;</span></td>
-            </tr>
-            <tr>
-              <td class="hidden-cell"></td>
-              <td><span class="">&#8595;</span></td>
-              <td class="hidden-cell"></td>
-            </tr>
-          </table>
-          <!-- position -->
-          <div class="formgroup">
-            <label for="">margin</label>
-            <input name="margin"/>
-          </div>
-          <div class="formgroup">
-            <label for="">padding</label>
-            <input name="padding"/>
-          </div>
-        </div>
+      <div class="formgroup">
+        <label for="">background image</label>
+        <input class="style-input" name="background-image"/>
       </div>
-
-      <div id="tab3Content" class="tab-content">
-        <select name="" id="styleTypeSelect" class="choice-buttons">
-          <option value="">select what to change</option>
-          <option value="backgroundControls">background</option>
-          <option value="fontControls">font</option>
+      <div class="formgroup">
+        <label for="">background size</label>
+        <input class="style-input" name="background-size"/>
+      </div>
+      <div class="formgroup">
+        <label for="">background position</label>
+        <input class="style-input" name="background-position"/>
+      </div>
+      <div class="formgroup">
+        <label for="">background repeat</label>
+        <select class="style-input" name="background-repeat" id="">
+          <option value="no-repeat">none</option>
+          <option value="repeat-y">vertical</option>
+          <option value="repeat-x">horizontal</option>
+          <option value="repeat">vertical &amp; horizantal</option>
         </select>
-        <div class="style-controls background-controls" id="backgroundControls">
-          <!-- background contains-->
-          <!-- color box -->
-          <div class="formgroup">
-            <label for="">background color</label>
-            <input class="style-input" name="background-color"/>
-          </div>
-
-          <div class="formgroup">
-            <label for="">background image</label>
-            <input class="style-input" name="background-image"/>
-          </div>
-
-          <div class="formgroup">
-            <label for="">background size</label>
-            <input class="style-input" name="background-size"/>
-          </div>
-
-          <div class="formgroup">
-            <label for="">background position</label>
-            <input class="style-input" name="background-position"/>
-          </div>
-          <div class="formgroup">
-            <label for="">background repeat</label>
-            <select class="style-input" name="background-repeat" id="">
-              <option value="no-repeat">none</option>
-              <option value="repeat-y">vertical</option>
-              <option value="repeat-x">horizontal</option>
-              <option value="repeat">vertical &amp; horizantal</option>
-            </select>
-          </div>
-        </div>
-        <div class="style-controls font-controls" id="fontControls">
-          <!-- font contains -->
-          <!-- bold, normal, italics - toggles checkboxes -->
-          <button data-value="font-weight">bold</button>
-          <div class="formgroup">
-            <label for="">font</label>
-            <input class="style-input" name="font-family"/>
-          </div>
-          <div class="formgroup">
-            <label for="">font size</label>
-            <input class="style-input" name="font-size"/>
-          </div>
-          <div class="formgroup">
-            <label for="">color</label>
-            <input class="style-input" name="color"/>
-          </div>
-          <!-- advanced -->
-          <!-- <option value="text-shadow">text shadow</option> -->
-        </div>
-      </div>
-
-      <div id="tab4Content" class="tab-content">
-        <p>for each thing unique</p>
-        <!-- <input type="text" class="input-field" name=""/> -->
       </div>
     </div>
-
-    <div class="save-button-box">
-      <button id="saveButton" class="save-button">Save</button>
+    <div id="fontControls" class="style-controls font-controls">
+      <!-- bold, normal, italics - toggles checkboxes -->
+      <button data-value="font-weight">bold</button>
+      <button data-value="font-style">italics</button>
+      <div class="formgroup">
+        <label for="">font</label>
+        <input class="style-input" name="font-family"/>
+      </div>
+      <div class="formgroup">
+        <label for="">font size</label>
+        <input class="style-input" name="font-size"/>
+      </div>
+      <div class="formgroup">
+        <label for="">color</label>
+        <input class="style-input" name="color"/>
+      </div>
+      <!-- advanced -->
+      <!-- <option value="text-shadow">text shadow</option> -->
     </div>
+  </div>
+
+  <div class="save-button-box">
+    <button id="saveButton" class="save-button">Save</button>
   </div>
 
   <script src="../js/popup.js"></script>

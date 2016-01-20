@@ -1,10 +1,10 @@
 var countdown = (function() {
-  var elementType = 'span',
-      // should be 'countdown'
-      // classStr = 'life-span',
-      classStr = 'life-span',
-      idStr = 'countdown',
-      storageStr = 'countdown';
+  const NAME = 'countdown',
+        ELEMENT_TYPE = 'span',
+        // should be 'countdown'
+        CLASS = 'life-span';
+
+  var number = 0;
 
   var init = function() {
     checkLastOpen();
@@ -12,10 +12,10 @@ var countdown = (function() {
   };
 
   var construct = function(){
-    var e = document.createElement(elementType);
-    e.className = classStr;
-    e.id = idStr;
-    e.innerHTML = newtabene.getData(storageStr);
+    var e = document.createElement(ELEMENT_TYPE);
+    e.className = CLASS;
+    e.id = NAME;
+    e.innerHTML = number;
     document.body.appendChild(e);
   };
 
@@ -23,7 +23,8 @@ var countdown = (function() {
     // crude
     var lastDate = new Date(newtabene.getData("lastOpen")),
         today = new Date(),
-        countdown = newtabene.getData(storageStr);
+        countdown = newtabene.getData(NAME);
+        number = countdown;
     if (today.getDate() != lastDate.getDate()) {
       chrome.storage.sync.set({
         'countdown': --countdown,
@@ -33,6 +34,7 @@ var countdown = (function() {
   };
 
   init();
+  newtabene.loadNextPlugin();
 
   return {
     init: init

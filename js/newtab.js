@@ -1,22 +1,27 @@
 'use strict';
+
+const ESCAPE_KEYCODE = 27,
+      ENTER_KEYCODE = 13;
+
 var newtabene = (function(){
-  const delay = 100;
+
   var data = {},
       plugins = [],
       scriptsParent = 'scriptsParent',
-      changeDependecies = [];
+      changeDependecies = [],
+      loadIndex = 0;
 
   var init = function(){
-    if (plugins.length !== 0) loadPlugins();
+    if (plugins.length !== 0) loadNextPlugin();
     addHandlers();
   };
 
-  var loadPlugins = function() {
-    for (var i = 0; i < plugins.length; i++) {
-      var scr = document.createElement('script');
-      scr.src = "../js/plugins/" + plugins[i] + ".js";
-      document.body.appendChild(scr);
-    }
+  var loadNextPlugin = function() {
+    if (plugins.length == loadIndex) return;
+    var scr = document.createElement('script');
+    scr.src = "../js/plugins/" + plugins[loadIndex] + ".js";
+    document.body.appendChild(scr);
+    loadIndex++;
   };
 
   var addHandlers = function() {
@@ -31,13 +36,13 @@ var newtabene = (function(){
       }
     });
     document.onkeydown = function(e) {
-      if (e.keyCode == 27 || e.keyCode == 13) {
+      if (e.keyCode == ESCAPE_KEYCODE || e.keyCode == ENTER_KEYCODE) {
         var pluginName = e.target.dataset.plugin;
         if (plugins.indexOf(pluginName) !== -1) {
           window[pluginName].keyPressed(e.keyCode);
         }
       }
-      if (e.keyCode == 27) e.target.blur();
+      if (e.keyCode == ESCAPE_KEYCODE) e.target.blur();
     };
   };
 
@@ -66,6 +71,7 @@ var newtabene = (function(){
     loadData: loadData,
     registerChangeKey: registerChangeKey,
     registerPlugin: registerPlugin,
+    loadNextPlugin: loadNextPlugin,
     getData: getData
   };
 })();

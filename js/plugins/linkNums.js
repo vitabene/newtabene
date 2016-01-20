@@ -1,22 +1,24 @@
 var linkNums = (function(newtabene, links) {
-  var storageStr = "addresses",
-      classStr = "link-number",
-      elementType = "span";
-      linkParent = {}.
+  const NAME = 'link-numbers',
+        STORAGE_KEY = 'addresses',
+        ELEMENT_TYPE = 'span',
+        CLASS = 'link-number';
+
+  var linkParent = {},
       addresses = [];
 
   var init = function() {
     construct();
-    newtabene.registerChangeKey("linkNums", onChanged);
+    newtabene.registerChangeKey("lastOpen", onChanged);
     addHandlers();
   };
 
   var construct = function(){
     linkParent = links.getParent(),
-    addresses = newtabene.getData(storageStr);
+    addresses = newtabene.getData(STORAGE_KEY);
     for (var i = 0; i < linkParent.children.length; i++) {
-      var span = document.createElement(elementType);
-      span.className = classStr;
+      var span = document.createElement(ELEMENT_TYPE);
+      span.className = CLASS;
       if (addresses == undefined) return;
       var el = linkParent.children[i];
       var address = addresses[el.firstChild.href];
@@ -47,6 +49,7 @@ var linkNums = (function(newtabene, links) {
   };
 
   init();
+  newtabene.loadNextPlugin();
 
   return {
     init: init

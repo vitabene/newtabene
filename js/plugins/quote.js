@@ -1,30 +1,29 @@
 var quote = (function() {
-  var elementType = "quote",
-      classStr = "quote",
-      idStr = "quote",
-      storageStr = "quote",
-      contentEditable = 'true',
-      spellCheck = 'false',
-      element = {};
+  const NAME = 'quote',
+        ELEMENT_TYPE = 'quote',
+        CONTENT_EDITABLE = true,
+        SPELLCHECK = false;
+
+  var element = {};
 
   var init = function() {
     construct();
   };
 
   var construct = function(){
-    var e = document.createElement(elementType);
-    e.className = classStr;
-    e.id = idStr;
-    e.innerHTML = newtabene.getData(storageStr);
-    e.contentEditable = contentEditable;
-    e.spellcheck = spellCheck;
-    e.dataset.plugin = classStr;
+    var e = document.createElement(ELEMENT_TYPE);
+    e.className = NAME;
+    e.id = NAME;
+    e.innerHTML = newtabene.getData(NAME);
+    e.contentEditable = CONTENT_EDITABLE;
+    e.spellcheck = SPELLCHECK;
+    e.dataset.plugin = NAME;
     document.body.appendChild(e);
     element = e;
   };
 
   var keyPressed = function(keyCode) {
-    if (keyCode == 13 || keyCode == 27) save();
+    if (keyCode == ENTER_KEYCODE || keyCode == ESCAPE_KEYCODE) save();
   };
 
   var save = function(){
@@ -36,6 +35,7 @@ var quote = (function() {
   };
 
   init();
+  newtabene.loadNextPlugin();
 
   return {
     init: init,
