@@ -64,10 +64,11 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
   position: relative;
   width: 100%;
   overflow: hidden;
-  ul {
+
+  .style-parent, ul {
     width: 100%;
     @include nomp;
-    li {
+    .element, .style {
       width: 276px;
       height: 30px;
       margin: 2px;
@@ -111,11 +112,6 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
     }
   }
 }
-.style-controls {
-  &:not(.active-controls) {
-    display: none;
-  }
-}
 .style-select {
   width: 100%;
   position:  absolute;
@@ -123,6 +119,48 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
   display: block;
   right: -100%;
   height: auto;
+  .style-controls {
+    border-radius: $borderRadius;
+    background-color: #fff;
+    width: 256px;
+    margin: 2px;
+    padding: 10px 10px 45px 10px;
+    &:not(.active-controls) {
+      display: none;
+    }
+  }
+}
+.dark-buttons {
+  @extend .header-button;
+  font-size: 20px;
+  background-color: lighten(#37424E, 25%);
+  &.bold {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  &.italics {
+    font-style: italic;
+  }
+  &.underline {
+    text-decoration: underline;
+  }
+  &.overline {
+    text-decoration: overline;
+  }
+  &.line-through {
+    text-decoration: line-through;
+  }
+  &.active, &:active {
+    background-color: #37424E;
+  }
+}
+@keyframes a3to1col {
+  from {
+    right: -200%;
+  }
+  to {
+    right: 0
+  }
 }
 .control-select {
   width: 256px;
@@ -131,21 +169,25 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
   border-radius: $borderRadius;
   margin: 2px;
   padding: 10px;
+  padding-bottom: 35px;
   background-color: #fff;
   display: block;
   right: -200%;
   height: auto;
 }
+.a3to1col {
+  animation: 1s a3to1col forwards;
+}
 .save-button-box {
   bottom: 0;
   margin-top: 25px;
-  height: 35px;
+  height: auto;
   position: absolute;
-  display: none;
-  // display: block;
+  display: block;
   width: 100%;
 }
 .save-button {
+  display: none;
   width: 275px;
   margin: 2.5px;
   background-color: #85ff91;
@@ -154,8 +196,10 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
   border-radius: $borderRadius;
   box-shadow: $borderShadow;
   border: 0;
+  bottom: 0;
+  position: fixed;
   &:hover {
-    background-color: darken(#beff85, 70%);
+    background-color: #37424E;
     color: #fff;
   }
 }
@@ -164,27 +208,31 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
   padding: 5px;
   label {
     display: block;
+    text-align: left;
     margin-left: 5px;
     height: 25px;
   }
   input {
-    background-color: darken(#fbf6f6, 4%);
+    background-color: #6D8198;
     border-radius: $borderRadius;
     text-indent: 5px;
     margin-left: 3px;
     border: 0;
     outline: 0;
+    text-indent: 5px;
     padding-right: 8px;
     height: 25px;
     display: block;
     width: 150px;
+    color: #faf4ce;
     &:focus {
-      background-color: darken(#fbf6f6, 14%);
+      background-color: #37424E;
     }
   }
 }
 .position-table {
   margin: auto;
+  text-align: center;
   td {
     width: 45px;
     height: 20px;
@@ -209,6 +257,7 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
   text-align: center;
 }
 .move-box {
+  text-align: center;
   margin-top: 15px;
   td {
     width: 45px;

@@ -2,7 +2,6 @@
 var styles = "", style = "", theme = "", element = "",
     saveButton = document.getElementById('saveButton'),
     styleParent = document.getElementById('styleParent'),
-    styleTypeSelect = document.getElementById('styleTypeSelect'),
     inputField = document.getElementById('inputField'),
     settingsParent = document.getElementById('settingsParent'),
     elementParent = document.getElementById('elementParent'),
@@ -115,8 +114,43 @@ var applyThemeChange = function(element, style, change) {
 var loadToInputs = function() {
   if (styles == undefined) return;
   var aI = document.getElementsByClassName("style-input");
-  for (var i = 0; i < aI.length; i++) {
+  // load from original styleSheet
+  // need to get the styles from the new tab
+  var sts = document.styleSheets;
+  // console.log(sts);
+
+  // I have created a monster
+  // Need a break before I destroy it
+
+  for (var i = 0; i < sts.length; i++) {
+    var ruleList = sts[i].cssRules;
+    for (var j = 0; j < ruleList.length; j++) {
+      var rule = ruleList[j];
+      // not an animation
+      if (rule.selectorText != undefined) {
+        for (var k = 0; k < rule.style.length; k++) {
+          if (rule.style[k] != undefined) {
+            // console.log(rule.style[k]);
+            // console.log(rule.style[rule.style[k]]);
+            for (var l = 0; l < aI.length; l++) {
+              var field = aI[l];
+              var r = field.name;
+              if (rule.selectorText == r) {
+                console.log(field.name, rule.style[rule.style[k]]);
+                // field.value = rule.style[rule.style[k]];
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  // load from custom styles
+  for (i = 0; i < aI.length; i++) {
     var field = aI[i];
+    console.log(field);
     var rule = field.name;
     if (styles[rule] != undefined) {
       field.value = styles[rule];
@@ -149,6 +183,24 @@ document.addEventListener('click', function(e){
     // UI effect
     elementSelect.className += " slide-left";
     styleSelect.className += " slide-from-right";
+  }
+  if (t.className == "style") {
+    var styleType = t.dataset.ctrls;
+    var activeControls = document.getElementById(styleType);
+    var aC = document.getElementsByClassName("style-controls");
+    for (var i = 0; i < aC.length; i++) {
+      if (aC[i] != activeControls) {
+        aC[i].className = aC[i].className.replace("active-controls", "");
+      } else {
+        if (aC[i].className.indexOf('active-controls') !== -1) {
+          aC[i].className = aC[i].className.replace("active-controls", "");
+        } else {
+          aC[i].className = aC[i].className + " active-controls";
+        }
+      }
+    }
+    // sliding
+    saveButton.style.display = "block";
   }
 
   if (id == "saveButton") {
@@ -201,25 +253,6 @@ document.addEventListener('click', function(e){
         aT[i].className = aT[i].className + " active";
         c.className = c.className + " active";
       }
-    }
-  }
-}, false);
-
-// styleParent.addEventListener('change', function(e) {
-//   style = e.target.value;
-//   if (styles[style] === undefined) inputField.placeholder = "no style set";
-//   else inputField.value = styles[style];
-// }, false);
-
-styleTypeSelect.addEventListener('change', function(e) {
-  var styleType = e.target.value;
-  var activeControls = document.getElementById(styleType);
-  var aC = document.getElementsByClassName("style-controls");
-  for (var i = 0; i < aC.length; i++) {
-    if (aC[i] != activeControls) {
-      aC[i].className = aC[i].className.replace("active-controls", "");
-    } else {
-      aC[i].className = aC[i].className + " active-controls";
     }
   }
 }, false);
