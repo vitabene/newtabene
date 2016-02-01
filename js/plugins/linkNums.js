@@ -2,6 +2,7 @@ var linkNums = (function(newtabene, links) {
   const NAME = 'link-numbers',
         STORAGE_KEY = 'addresses',
         ELEMENT_TYPE = 'span',
+        DEPENDENCIES = 'links',
         CLASS = 'link-number';
 
   var linkParent = {},
@@ -11,6 +12,7 @@ var linkNums = (function(newtabene, links) {
     construct();
     newtabene.registerChangeKey("lastOpen", onChanged);
     addHandlers();
+    newtabene.loadNextPlugin();
   };
 
   var construct = function(){
@@ -49,9 +51,9 @@ var linkNums = (function(newtabene, links) {
   };
 
   init();
-  newtabene.loadNextPlugin();
+  // newtabene.loadNextPlugin();
 
   return {
     init: init
   };
-}(newtabene || {}, links));
+}(newtabene || {}, links || {}));

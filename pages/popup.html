@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Newtabene</title>
+  <link rel="stylesheet" href="../css/newtab.css"/>
   <link rel="stylesheet" href="../css/popup.css"/>
 </head>
 <body>
@@ -14,13 +15,13 @@
 
   <div class="element-select" id="elementSelect">
     <ul id="elementParent">
-      <!-- load dynamically -->
       <li class="element" id="body"><span>body</span></li>
-      <li class="element" id=".links"><span>link</span><input type="checkbox"></li>
-      <li class="element" id=".link-number"><span>link numbers</span><input type="checkbox"></li>
-      <li class="element" id=".life-span"><span>life span</span><input type="checkbox"></li>
-      <li class="element" id=".quote"><span>quote</span><input type="checkbox"></li>
-      <li class="element" id=".notes"><span>notes</span><input type="checkbox"></li>
+      <!-- load dynamically the rest -->
+      <!-- <li class="element" id=".links"><span data-plugin="links">link</span><input type="checkbox"></li> -->
+      <!-- <li class="element" id=".link-number"><span data-plugin="linkNums">link numbers</span><input type="checkbox"></li> -->
+      <!-- <li class="element" id=".life-span"><span data-plugin="countdown">life span</span><input type="checkbox"></li> -->
+      <!-- <li class="element" id=".quote"><span data-plugin="quote">quote</span><input type="checkbox"></li> -->
+      <!-- <li class="element" id=".notes"><span data-plugin="notes">notes</span><input type="checkbox"></li> -->
     </ul>
   </div>
 
@@ -82,15 +83,15 @@
       <div id="shapeControls" class="style-controls">
         <div class="formgroup">
           <label for="">Width</label>
-          <input type="number" name="width">
+          <input class="style-input" type="text" name="width">
         </div>
         <div class="formgroup">
           <label for="">Height</label>
-          <input type="number" name="height">
+          <input class="style-input" type="text" name="height">
         </div>
         <div class="formgroup">
           <label for="">Corner Roundness</label>
-          <input type="number" name="border-radius">
+          <input class="style-input" type="text" name="border-radius">
         </div>
       </div>
       <div class="style" data-ctrls="positionControls">position</div>
@@ -129,11 +130,11 @@
           <!-- position -->
           <div class="formgroup">
             <label for="">margin</label>
-            <input name="margin"/>
+            <input class="style-input" name="margin"/>
           </div>
           <div class="formgroup">
             <label for="">padding</label>
-            <input name="padding"/>
+            <input class="style-input" name="padding"/>
           </div>
         </div>
       </div>

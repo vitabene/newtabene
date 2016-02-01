@@ -1,4 +1,4 @@
-body, html {
+body#newtab, html#newtab {
   display: block;
   overflow: auto;
 
@@ -8,90 +8,111 @@ body, html {
   margin: 0;
   padding: 0;
 }
-a {
-  display: block;
+// alignment
+// position: absolute;
 
-  text-align: center;
-  text-decoration: none;
+// center vertical
+/* margin-left: -22.5%; */
+/* left: 50%; */
 
-  color: inherit;
+// center horizontal
+// ???
 
-  line-height: 60px;
-}
-.life-span {
-  display: block;
+// top: 0;
+// right: 0;
+// left: 0;
+// bottom: 0;
+#newtab {
+  a {
+    display: block;
 
-  height: 50px;
-  margin: 0 30%;
+    text-align: center;
+    text-decoration: none;
 
-  text-align: center;
-}
-.links {
-  position: relative;
+    color: inherit;
 
-  display: block;
+    line-height: 60px;
+  }
+  .life-span {
+    position: absolute;
 
-  width: 40%;
-  height: auto;
-  margin: 1% 30%;
-  padding: 0;
+    display: block;
 
-  list-style: none;
-  li {
-    float: left;
+    height: 50px;
+    margin: 0 30%;
 
-    width: 24%;
-    height: 60px;
-    margin-left: 1%;
-    &:hover, &:focus {
-      animation: lighten .5s forwards;
+    text-align: absolute;
+  }
+  .links {
+    position: initial;
+
+    display: block;
+    overflow: auto;
+    width: 40%;
+    height: auto;
+    margin: 1% 30%;
+    padding: 0;
+
+    list-style: none;
+    li {
+      float: left;
+
+      width: 24%;
+      height: 60px;
+      margin-left: 1%;
+      &:hover, &:focus {
+        animation: lighten .5s forwards;
+      }
     }
   }
-}
-.link-number {
-  float: right;
+  .link-number {
+    float: right;
 
-  width: 18px;
-  height: 18px;
-  margin-top: -58px;
-  margin-right: 12px;
-  padding: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: -58px;
+    margin-right: 12px;
+    padding: 0;
 
-  text-align: center;
+    text-align: center;
 
-  color: inherit;
-  border-radius: 5px;
-  background-color: inherit;
+    color: inherit;
+    border-radius: 5px;
+    background-color: inherit;
 
-  font-size: medium;
-  font-weight: 900;
-  line-height: 22px;
-}
-quote {
-  display: block;
+    font-size: medium;
+    font-weight: 900;
+    line-height: 22px;
+  }
+  quote {
+    position: absolute;
 
-  text-align: center;
+    display: block;
 
-  font-family: inherit;
-}
-.notes {
-  position: relative;
+    text-align: center;
 
-  display: block;
+    font-family: inherit;
+  }
+  .notes {
 
-  width: 40%;
-  margin: 1% 30% 0 30%;
-  padding: 20px 0;
+    position: absolute;
 
-  text-align: center;
+    display: block;
 
-  color: inherit;
-  outline: none;
+    width: 40%;
+    margin: 1% 30% 0 30%;
+    padding: 20px 0;
 
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: bold;
-  &:focus {
-    background-color: rgba(#fff, .1);
+    text-align: center;
+
+    color: inherit;
+    outline: none;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    &:focus {
+      background-color: rgba(#fff, .1);
+    }
   }
 }

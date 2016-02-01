@@ -6,12 +6,12 @@ body {
   position: relative;
   overflow: auto;
   // background-color: #FFC41E;
-  background-color: rgba(105, 89, 43, 0.76);
+  background-color: rgba(117, 128, 142, 0.76);
   font-family: Ubuntu;
   width: 280px;
   @include nomp;
 }
-$borderRadius: 8px;
+$borderRadius: 3.5px;
 $headerButtonSize: 25px;
 $borderShadow: 0.5px 0.5px 1px 0 gray;
 .header-button {
@@ -32,7 +32,7 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
   width: 100%;
   position: relative;
   height: 35px;
-  background-color: #37424E;
+  background-color: #401D1D;
   display: block;
   @include nomp;
   .selected-element {

@@ -7,6 +7,8 @@ var newtabene = (function(){
 
   var data = {},
       plugins = [],
+      // to do
+      pluginsLoaded = [],
       scriptsParent = 'scriptsParent',
       changeDependecies = [],
       loadIndex = 0;
@@ -19,9 +21,14 @@ var newtabene = (function(){
   var loadNextPlugin = function() {
     if (plugins.length == loadIndex) return;
     var scr = document.createElement('script');
-    scr.src = "../js/plugins/" + plugins[loadIndex] + ".js";
-    document.body.appendChild(scr);
-    loadIndex++;
+    // clumsy
+    if (plugins[loadIndex] !== "") {
+      scr.src = "../js/plugins/" + plugins[loadIndex] + ".js";
+      document.body.appendChild(scr);
+    } else {
+      // loadNextPlugin();
+    }
+      loadIndex++;
   };
 
   var addHandlers = function() {
@@ -33,6 +40,7 @@ var newtabene = (function(){
           setStyle(storageChange.newValue.str)
         }
         if (changeDependecies.indexOf(key) !== -1) changeDependecies[key].call();
+        if (key === "activePlugins") window.location = window.location;
       }
     });
     document.onkeydown = function(e) {
