@@ -1,8 +1,6 @@
 var countdown = (function() {
   const NAME = 'countdown',
-        ELEMENT_TYPE = 'span',
-        // should be 'countdown'
-        CLASS = 'life-span';
+        ELEMENT_TYPE = 'span';
 
   var number = 0;
 
@@ -13,7 +11,7 @@ var countdown = (function() {
 
   var construct = function(){
     var e = document.createElement(ELEMENT_TYPE);
-    e.className = CLASS;
+    e.className = NAME;
     e.id = NAME;
     e.innerHTML = number;
     document.body.appendChild(e);

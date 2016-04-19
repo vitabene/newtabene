@@ -33,6 +33,9 @@ body#newtab, html#newtab {
 
     line-height: 60px;
   }
+  .countdown {
+    display: block;
+  }
   .life-span {
     position: absolute;
 
@@ -110,7 +113,7 @@ body#newtab, html#newtab {
 
     font-family: inherit;
     font-size: inherit;
-    font-weight: bold;
+    // font-weight: bold;
     &:focus {
       background-color: rgba(#fff, .1);
     }
