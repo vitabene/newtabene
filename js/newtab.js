@@ -14,8 +14,29 @@ var newtabene = (function(){
       loadIndex = 0;
 
   var init = function(){
+    checkStyles();
     if (plugins.length !== 0) loadNextPlugin();
     addHandlers();
+  };
+
+  var checkStyles = function(){
+    chrome.storage.sync.get(null, function(obj){
+      if (typeof obj.theme == "undefined") {
+        setDefaultTheme();
+      }
+    });
+  };
+
+  var setDefaultTheme = function(){
+    var theme = {
+      "body": {},
+      ".notes": {},
+      ".quote": {},
+      ".links": {},
+      ".linkNums": {},
+      ".countdown": {}
+    };
+    chrome.storage.sync.set({"theme": theme});
   };
 
   var loadNextPlugin = function() {
@@ -107,5 +128,6 @@ window.onload = function(){
 };
 // ******************** unused code snippets ********************
 // chrome.notifications.create("", {message:"Hello World!", title: "Hi!", type: "basic", iconUrl:"./assets/favicon.png"})
-// var tim = setTimeout(function(){chrome.notifications.create("", {message:"Stahp tha work!", title: "Hey!", type: "basic", iconUrl:"./assets/favicon.png"})}, 25*60000);
+// var tim = setTimeout(function(){chrome.notifications.create("", {
+// message:"Stahp tha work!", title: "Hey!", type: "basic", iconUrl:"./assets/favicon.png"})}, 25*60000);
 // chrome.storage.sync.get(null, function(obj){console.log(Object.keys(obj))})

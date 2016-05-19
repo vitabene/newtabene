@@ -50,7 +50,7 @@ body#newtab, html#newtab {
     position: initial;
 
     display: block;
-    overflow: auto;
+    // overflow: auto;
     width: 40%;
     height: auto;
     margin: 1% 30%;
@@ -68,7 +68,7 @@ body#newtab, html#newtab {
       }
     }
   }
-  .link-number {
+  .linkNums {
     float: right;
 
     width: 18px;

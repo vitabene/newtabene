@@ -1,4 +1,5 @@
 // ******************** variables ********************
+// davidrs.github.io/vr-dataviz/client/index.html
 var styles = "", style = "", theme = "", element = "",
     saveButton = document.getElementById('saveButton'),
     styleParent = document.getElementById('styleParent'),
@@ -6,6 +7,8 @@ var styles = "", style = "", theme = "", element = "",
     settingsParent = document.getElementById('settingsParent'),
     elementParent = document.getElementById('elementParent'),
     selectedElementField = document.getElementById('selectedElementField');
+
+var AVAILABLE_EXTENSIONS = ["links", "notes", "linkNums", "countdown", "quote"];
 
 var themes = {
   "default": {
@@ -88,10 +91,10 @@ var applyTheme = function(){
       cssStr += "#newtab " + rules[rule] + " {";
       for (var i = 0; i < vals.length; i++) {
         // deal with states later
-        if (vals[i] !== "normal") {
-          var str = vals[i] + ":" + ruleArr[vals[i]]+";";
-          cssStr += str;
-        }
+        // if (vals[i] !== "normal") {
+        var str = vals[i] + ":" + ruleArr[vals[i]]+";";
+        cssStr += str;
+        // }
       }
       cssStr += "}";
     }
@@ -100,7 +103,6 @@ var applyTheme = function(){
   });
 };
 var applyThemeChange = function(element, style, change) {
-  console.log(element, style, change);
   chrome.storage.sync.get("theme", function(obj){
     // theme is the actual theme object used
     var theme = obj["theme"];
@@ -112,6 +114,13 @@ var applyThemeChange = function(element, style, change) {
     });
   });
 };
+
+var resetPlugins = function() {
+  chrome.storage.sync.set({"activePlugins": ["links", "notes", "linkNums", "countdown", "quote"]}, function(o){
+      console.log(o)
+  });
+};
+
 var cleanInputs = function() {
   var aI = document.getElementsByClassName("style-input");
   for (var l = 0; l < aI.length; l++) {
@@ -155,7 +164,7 @@ var loadToInputs = function(id) {
     }
     if (field.value == "") {
       // if input field
-      field.placeholder = "no style set yet";
+      field.placeholder = "not set";
     }
   }
 };
@@ -165,7 +174,6 @@ window.onload = function() {
     var ACTIVE_PLUGINS = obj['activePlugins'];
     // load the available extension
     // temporary solution
-    var AVAILABLE_EXTENSIONS = ["links", "notes", "linkNums", "countdown", "quote"];
     // ext settings needed
     // append to elementParent
     // this needed to construct
@@ -190,16 +198,44 @@ window.onload = function() {
   });
 };
 
+var save = function(){
+  // set when installing to ""
+  // localStorage.styleChanges += styleParent.value + ",";
+  chrome.storage.sync.get("theme", function(obj){
+    // theme is the actual theme object used
+    var theme = obj["theme"];
+    var aI = document.getElementsByClassName("style-input");
+    for (var i = 0; i < aI.length; i++) {
+      var field = aI[i];
+      var rule = field.name;
+      // if (field.value != styles[rule]) console.log(selectedElementField.value, rule, field.value);
+      // if (field.value != styles[rule] && field.value != "") {
+      if (field.value != "") {
+        styles[rule] = field.value;
+        var selEl = selectedElementField.value;
+        if (theme[selEl] === undefined) theme[selEl] = {}
+        if (theme[selEl][rule] === undefined) theme[selEl][rule] = "";
+        // applyThemeChange(selectedElementField.value, rule, field.value);
+        theme[selEl][rule] = field.value;
+        if (rule == "background-color" || rule == "color") {
+          theme[selEl][rule] = "#" + field.value;
+        }
+      }
+    }
+    chrome.storage.sync.set({"theme": theme}, function() {
+      applyTheme();
+    });
+  });
+};
+
 document.addEventListener('click', function(e){
   var t = e.target,
       id = e.target.id;
   // if span inside li is clicked
-  console.log(t.type);
   if (t.parentNode.className == "element" && t.type != "checkbox") {
     t = t.parentNode;
     id = t.id;
   } else if (t.type == "checkbox") {
-    console.log(t.checked);
     if (t.checked) {
       // activated
       // push to activePlugins
@@ -219,15 +255,8 @@ document.addEventListener('click', function(e){
         var ar = obj['activePlugins'];
         var prev = t.previousElementSibling;
         if (prev.dataset.plugin == undefined) return;
-
-        // not sure about the following line, employing a clumsy filter
-        ar = ar.splice(ar.indexOf(prev.dataset.plugin));
-        for (var i = 0; i < ar.length; i++) {
-          if (ar[i] === prev.dataset.plugin) {
-            // ar[i] = "";
-          }
-        }
-        // console.log(ar);
+        var ind = ar.indexOf(prev.dataset.plugin);
+        ar.splice(ind, 1);
         chrome.storage.sync.set({"activePlugins": ar}, function() {});
       });
     }
@@ -271,18 +300,7 @@ document.addEventListener('click', function(e){
   }
 
   if (id == "saveButton") {
-    // set when installing to ""
-    // localStorage.styleChanges += styleParent.value + ",";
-    var aI = document.getElementsByClassName("style-input");
-    for (var i = 0; i < aI.length; i++) {
-      var field = aI[i];
-      var rule = field.name;
-      // if (field.value != styles[rule]) console.log(selectedElementField.value, rule, field.value);
-      if (field.value != styles[rule]) {
-        styles[rule] = field.value;
-        applyThemeChange(selectedElementField.value, rule, field.value);
-      }
-    }
+    save();
   }
 
   // closing button
@@ -323,6 +341,123 @@ document.addEventListener('click', function(e){
         aT[i].className = aT[i].className + " active";
         c.className = c.className + " active";
       }
+    }
+  }
+  // sticking
+
+  if (t.id == "resetMarginButton") {
+    var pos = document.getElementById('position'),
+        top = document.getElementById('top'),
+        bottom = document.getElementById('bottom'),
+        left = document.getElementById('left'),
+        right = document.getElementById('right'),
+        center = document.getElementById('center'),
+        margin = document.getElementById('margin');
+
+        bottom.value = "none";
+        top.value = "none";
+        left.value = "none";
+        right.value = "none";
+        margin.value = "0";
+
+        var marginTop = document.getElementById('marginTop'),
+            marginLeft = document.getElementById('marginLeft'),
+            marginBottom = document.getElementById('marginBottom'),
+            marginRight = document.getElementById('marginRight');
+
+        marginTop.value = "0";
+        marginLeft.value = "0";
+        marginBottom.value = "0";
+        marginRight.value = "0";
+
+        pos.value = "static";
+        saveButton.click();
+  }
+
+  // if (t.dataset.stick != "") {
+  //   // stick it
+  //   // posa
+  //   var pos = document.getElementById('position'),
+  //       top = document.getElementById('top'),
+  //       bottom = document.getElementById('bottom'),
+  //       left = document.getElementById('left'),
+  //       right = document.getElementById('right'),
+  //       center = document.getElementById('center'),
+  //       margin = document.getElementById('margin');
+  //
+  //   pos.value = "absolute";
+  //
+  //   var ptr = t.parentNode;
+  //   if (ptr.dataset.row == "top") {
+  //     top.value = 0;
+  //     bottom.value = "none";
+  //   }
+  //   if (ptr.dataset.row == "bottom") {
+  //     bottom.value = 0;
+  //     top.value = "none";
+  //   }
+  //   if (t.dataset.stick == "left") {
+  //     left.value = 0;
+  //     right.value = "none";
+  //   }
+  //   if (t.dataset.stick == "center") left.value = "48%";
+  //   if (t.dataset.stick == "right") {
+  //     right.value = 0;
+  //     left.value = "none";
+  //   }
+  //   margin.value = 0;
+  //   //
+  //   saveButton.click();
+  // }
+  // position arrows
+  if (t.className.indexOf("arrow") !== -1) {
+    var f = {};
+    switch (t.id) {
+      case "arrowUp":
+        var f = document.getElementById('marginTop');
+        var v = f.value;
+        if (v == "") f.value = "0";
+        else {
+          v = v.replace(/\r?\n|\%|\r/g, '');
+          v = parseInt(v) - 20;
+          f.value = v + "px";
+          saveButton.click();
+        }
+        break;
+      case "arrowLeft":
+        var f = document.getElementById('marginLeft');
+        var v = f.value;
+        if (v == "") f.value = "0";
+        else {
+          v = v.replace(/\r?\n|\%|\r/g, '');
+          v = parseInt(v) - 20;
+          f.value = v + "px";
+          saveButton.click();
+        }
+        break;
+      case "arrowRight":
+        var f = document.getElementById('marginLeft');
+        var v = f.value;
+        if (v == "") f.value = "20px";
+        else {
+          v = v.replace(/\r?\n|\%|\r/g, '');
+          v = parseInt(v) + 20;
+          f.value = v + "px";
+          saveButton.click();
+        }
+        break;
+      case "arrowDown":
+        var f = document.getElementById('marginTop');
+        var v = f.value;
+        if (v == "") f.value = "20px";
+        else {
+          v = v.replace(/\r?\n|\%|\r/g, '');
+          v = parseInt(v) + 20;
+          f.value = v + "px";
+          saveButton.click();
+        }
+        break;
+      // saveButton.click();
     }
   }
 }, false);

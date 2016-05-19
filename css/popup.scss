@@ -2,18 +2,24 @@
   margin: 0;
   padding: 0;
 }
+// discovery
+// alpha
+// beta
+// live
+$borderRadius: 0px;
+$headerButtonSize: 25px;
+$borderShadow: 0.5px 0.5px 1px 0 gray;
+$bg: rgba(215, 215, 215, 0.76);
+
 body {
   position: relative;
   overflow: auto;
-  // background-color: #FFC41E;
-  background-color: rgba(117, 128, 142, 0.76);
-  font-family: Ubuntu;
+  background-color: $bg;
+  font-family: 'Lato';
   width: 280px;
   @include nomp;
 }
-$borderRadius: 3.5px;
-$headerButtonSize: 25px;
-$borderShadow: 0.5px 0.5px 1px 0 gray;
+
 .header-button {
   background-color: transparent;
   margin: 5px;
@@ -60,26 +66,28 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
     text-indent: 1px;
   }
 }
+$elSelHov: #ececeb;
+$textSize: 12pt;
+$checkedC: #89f786;
 .element-select, .style-select {
   position: relative;
   width: 100%;
   overflow: hidden;
-
   .style-parent, ul {
     width: 100%;
     @include nomp;
     .element, .style {
       width: 276px;
+      text-align: center;
       height: 30px;
       margin: 2px;
       border-radius: $borderRadius;
       background-color: #fff;
       cursor: pointer;
-      text-align: center;
-      font-size: 14px;
+      font-size: $textSize;
       line-height: 30px;
       &:hover {
-        background-color: #ffeba4;
+        background-color: $elSelHov;
       }
     }
     input[type="checkbox"] {
@@ -103,7 +111,7 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
         display: block;
       }
       &:checked {
-        background: #74f072;
+        background: $checkedC;
         &::after {
           content: "on";
           color: #000;
@@ -133,6 +141,7 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
 .dark-buttons {
   @extend .header-button;
   font-size: 20px;
+  font-family: 'Lato';
   background-color: lighten(#37424E, 25%);
   &.bold {
     text-transform: uppercase;
@@ -181,25 +190,29 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
 .save-button-box {
   bottom: 0;
   margin-top: 25px;
+  margin-bottom: 30px;
   height: auto;
   position: absolute;
   display: block;
   width: 100%;
 }
+$saveButtonBg: #85ff91;
 .save-button {
   display: none;
   width: 275px;
   margin: 2.5px;
-  background-color: #85ff91;
+  background-color: $saveButtonBg;
   cursor: pointer;
   height: 30px;
   border-radius: $borderRadius;
   box-shadow: $borderShadow;
   border: 0;
   bottom: 0;
+  font-size: 12pt;
+  font-family: 'Lato';
   position: fixed;
   &:hover {
-    background-color: #37424E;
+    background-color: darken($saveButtonBg, 20%);
     color: #fff;
   }
 }
@@ -210,23 +223,22 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
     display: block;
     text-align: left;
     margin-left: 5px;
+    text-align: center;
     height: 25px;
   }
-  input {
-    background-color: #6D8198;
+  input, select {
+    background-color: #CBD0EA;
     border-radius: $borderRadius;
     text-indent: 5px;
-    margin-left: 3px;
     border: 0;
+    width: 100%;
+    text-align: center;
     outline: 0;
     text-indent: 5px;
-    padding-right: 8px;
     height: 25px;
     display: block;
-    width: 150px;
-    color: #faf4ce;
     &:focus {
-      background-color: #37424E;
+      background-color: #699bd1;
     }
   }
 }
@@ -238,7 +250,6 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
     height: 20px;
     border: 1px solid #999;
     cursor: pointer;
-    border-radius: 4px;
     &:hover {
       background-color: #1ab2c1;
       color: #fff;
@@ -247,7 +258,7 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
       }
     }
   }
-  .default {
+  tr[data-row="center"] td[data-stick="center"] {
     &::after {
       content: "stick";
     }
@@ -264,7 +275,6 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
     height: 20px;
     border: 1px solid #999;
     cursor: pointer;
-    border-radius: 4px;
     &:hover {
       background-color: #1ab2c1;
       color: #fff;
@@ -272,25 +282,30 @@ $borderShadow: 0.5px 0.5px 1px 0 gray;
   }
   .hidden-cell {
     border: none;
+    cursor: default;
+    &:hover {
+      background-color: transparent;
+    }
   }
   .arrow-up {
-    display: block;
-    margin: auto;
+    &::after {
+      content: "up";
+    }
   }
   .arrow-down {
-    display: block;
-    margin: auto;
-  }
-  .arrow-right {
-    float: right;
-    margin-right: 75px;
-    margin-top: -24px;
+    &::after {
+      content: "down";
+    }
   }
   .arrow-left {
-    position: absolute;
-    float: left;
-    margin-left: -52px;
-    margin-top: 4px;
+    &::after {
+      content: "left";
+    }
+  }
+  .arrow-right {
+    &::after {
+      content: "right";
+    }
   }
 }
 .arrow-table {

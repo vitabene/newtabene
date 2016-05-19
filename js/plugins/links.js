@@ -1,7 +1,41 @@
 var links = (function() {
   const NAME = 'links',
         PARENT_TYPE = 'ul',
-        CHILD_TYPE = 'li';
+        CHILD_TYPE = 'li',
+        DEF_LINKS = [
+          {
+            "name":"mail",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+          },
+          {
+            "name":"mail",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+          },
+          {
+            "name":"mail",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+          },
+          {
+            "name":"mail",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+          },
+          {
+            "name":"mail",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+          },
+          {
+            "name":"mail",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+          },
+          {
+            "name":"mail",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+          },
+          {
+            "name":"mail",
+            "url": "https://mail.google.com/mail/u/0/#inbox"
+          },
+        ];
 
   var parent = {};
 
@@ -14,10 +48,12 @@ var links = (function() {
     e.className = NAME;
     e.id = NAME;
     var links = newtabene.getData(NAME);
+    if (typeof links === "undefined") {
+      links = DEF_LINKS;
+    }
     // crude, should be part of links object
-    var linkTitles = newtabene.getData('linkTitles');
     for (var i = 0; i < links.length; i++) {
-      constructLink(e, links[i], linkTitles[i]);
+      constructLink(e, links[i].url, links[i].name);
     }
     parent = e;
     document.body.appendChild(e);

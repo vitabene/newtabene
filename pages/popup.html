@@ -5,11 +5,12 @@
   <title>Newtabene</title>
   <link rel="stylesheet" href="../css/newtab.css"/>
   <link rel="stylesheet" href="../css/popup.css"/>
+  <script src="../js/jscolor.min.js"></script>
 </head>
 <body>
   <div class="header-box">
     <button class="back-button" id="elementBackButton">&#8592;</button>
-    <input type="text" id="selectedElementField" class="selected-element" value="please select an element"/>
+    <input type="text" id="selectedElementField" class="selected-element" value="select an element"/>
     <button class="close-button" id="elementCloseButton">&#x2717</button>
   </div>
 
@@ -32,7 +33,7 @@
         <!-- color box -->
         <div class="formgroup">
           <label for="">background color</label>
-          <input class="style-input" name="background-color"/>
+          <input class="jscolor style-input" name="background-color"/>
         </div>
         <div class="formgroup">
           <label for="">background image</label>
@@ -59,11 +60,12 @@
       <div class="style" data-ctrls="fontControls">font</div>
       <div id="fontControls" class="style-controls font-controls">
         <!-- bold, normal, italics - toggles checkboxes -->
-        <button class="dark-buttons bold" data-value="font-weight">b</button>
-        <button class="dark-buttons italics" data-value="font-style">i</button>
-        <button class="dark-buttons underline" data-value="text-decoration">u</button>
-        <button class="dark-buttons overline" data-value="text-decoration">o</button>
-        <button class="dark-buttons line-through" data-value="text-decoration">S</button>
+        <div class="formgroup">
+          <button class="dark-buttons bold" data-value="font-weight">b</button>
+          <button class="dark-buttons italics" data-value="font-style">i</button>
+          <button class="dark-buttons underline" data-value="text-decoration">u</button>
+          <button class="dark-buttons line-through" data-value="text-decoration">S</button>
+        </div>
         <div class="formgroup">
           <label for="">font</label>
           <input class="style-input" name="font-family"/>
@@ -78,7 +80,7 @@
         </div>
         <div class="formgroup">
           <label for="">color</label>
-          <input class="style-input" name="color"/>
+          <input class="jscolor style-input" name="color"/>
         </div>
         <!-- advanced -->
         <!-- <option value="text-shadow">text shadow</option> -->
@@ -86,60 +88,71 @@
       <div class="style" data-ctrls="shapeControls">shape</div>
       <div id="shapeControls" class="style-controls">
         <div class="formgroup">
-          <label for="">Width</label>
+          <label for="">width</label>
           <input class="style-input" type="text" name="width">
         </div>
         <div class="formgroup">
-          <label for="">Height</label>
+          <label for="">weight</label>
           <input class="style-input" type="text" name="height">
         </div>
         <div class="formgroup">
-          <label for="">Corner Roundness</label>
+          <label for="">corner Roundness</label>
           <input class="style-input" type="text" name="border-radius">
         </div>
       </div>
       <div class="style" data-ctrls="positionControls">position</div>
       <div id="positionControls" class="style-controls">
         <div>
-          <table class="position-table">
-            <tr>
-              <td></td><td></td><td></td>
+          <!-- <table class="position-table">
+            <tr data-row="top">
+                <td data-stick="left"></td>
+                <td td data-stick="center"></td>
+                <td data-stick="right"></td>
             </tr>
-            <tr>
-              <td></td><td class="default"></td><td></td>
-            </tr>
-            <tr>
-              <td></td><td></td><td></td>
+            <tr data-row="bottom">
+              <td data-stick="left"></td>
+              <td td data-stick="center"></td>
+              <td data-stick="right"></td>
             </tr>
           </table>
+          <input class="style-input" id="position" name="position"/>
+          <input class="style-input" id="top" name="top"/>
+          <input class="style-input" id="left" name="left"/>
+          <input class="style-input" id="right" name="right"/>
+          <input class="style-input" id="bottom" name="bottom"/> -->
+          <button id="resetMarginButton">reset</button>
         </div>
         <div class="move-box">
           <table class="arrow-table">
             <tr>
               <td class="hidden-cell"></td>
-              <td><span class="">&#8593;</span></td>
+              <td id="arrowUp" class="arrow-up"></td>
               <td class="hidden-cell"></td>
             </tr>
             <tr>
-              <td><span class="">&#8592;</span></td>
+              <td id="arrowLeft" class="arrow-left"></td>
               <td><span class="move">move</span></td>
-              <td><span class="">&#8594;</span></td>
+              <td id="arrowRight" class="arrow-right"></td>
             </tr>
             <tr>
               <td class="hidden-cell"></td>
-              <td><span class="">&#8595;</span></td>
+              <td id="arrowDown" class="arrow-down"></td>
               <td class="hidden-cell"></td>
             </tr>
           </table>
-          <!-- position -->
+          <!-- position-->
           <div class="formgroup">
             <label for="">margin</label>
-            <input class="style-input" name="margin"/>
+            <input id="margin" class="style-input" name="margin"/>
           </div>
           <div class="formgroup">
             <label for="">padding</label>
             <input class="style-input" name="padding"/>
           </div>
+          <input class="style-input" id="marginLeft" name="margin-left"/>
+          <input class="style-input" id="marginRight" name="margin-right"/>
+          <input class="style-input" id="marginBottom" name="margin-bottom"/>
+          <input class="style-input" id="marginTop" name="margin-top"/>
         </div>
       </div>
       <div class="style" data-ctrls="contentsControls">contents</div>
@@ -150,7 +163,7 @@
   </div>
 
   <div class="save-button-box">
-    <button id="saveButton" class="save-button">Save</button>
+    <button id="saveButton" class="save-button">save</button>
   </div>
 
   <script src="../js/popup.js"></script>

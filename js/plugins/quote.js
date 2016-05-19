@@ -2,7 +2,8 @@ var quote = (function() {
   const NAME = 'quote',
         ELEMENT_TYPE = 'quote',
         CONTENT_EDITABLE = true,
-        SPELLCHECK = false;
+        SPELLCHECK = false,
+        DEF_QUOTE = 'Adapt what is useful, reject what is useless, and add what is specifically your own.';
 
   var element = {};
 
@@ -14,7 +15,11 @@ var quote = (function() {
     var e = document.createElement(ELEMENT_TYPE);
     e.className = NAME;
     e.id = NAME;
-    e.innerHTML = newtabene.getData(NAME);
+    var quote = newtabene.getData(NAME);
+    if (typeof quote === "undefined") {
+      quote = DEF_QUOTE;
+    }
+    e.innerHTML = quote;
     e.contentEditable = CONTENT_EDITABLE;
     e.spellcheck = SPELLCHECK;
     e.dataset.plugin = NAME;

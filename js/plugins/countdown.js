@@ -1,6 +1,7 @@
 var countdown = (function() {
   const NAME = 'countdown',
-        ELEMENT_TYPE = 'span';
+        ELEMENT_TYPE = 'span',
+        DEF_NUM = 7;
 
   var number = 0;
 
@@ -22,6 +23,7 @@ var countdown = (function() {
     var lastDate = new Date(newtabene.getData("lastOpen")),
         today = new Date(),
         countdown = newtabene.getData(NAME);
+        if (typeof countdown === "undefined") countdown = DEF_NUM;
         number = countdown;
     if (today.getDate() != lastDate.getDate()) {
       chrome.storage.sync.set({

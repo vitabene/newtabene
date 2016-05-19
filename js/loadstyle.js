@@ -1,5 +1,6 @@
 function getSetStyle(themeName) {
   chrome.storage.sync.get(themeName, function(obj){
+    // console.log(obj.activeTheme);
     setStyle(obj.activeTheme.str);
   });
 }

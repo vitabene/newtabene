@@ -3,7 +3,7 @@ var linkNums = (function(newtabene, links) {
         STORAGE_KEY = 'addresses',
         ELEMENT_TYPE = 'span',
         DEPENDENCIES = 'links',
-        CLASS = 'link-number';
+        CLASS = 'linkNums';
 
   var linkParent = {},
       addresses = [];
@@ -18,6 +18,10 @@ var linkNums = (function(newtabene, links) {
   var construct = function(){
     linkParent = links.getParent(),
     addresses = newtabene.getData(STORAGE_KEY);
+    if (addresses == undefined) {
+      addresses = [];
+      onChanged();
+    }
     for (var i = 0; i < linkParent.children.length; i++) {
       var span = document.createElement(ELEMENT_TYPE);
       span.className = CLASS;
@@ -34,11 +38,10 @@ var linkNums = (function(newtabene, links) {
     linkParent.addEventListener("click", function(e) {
       e.preventDefault();
       address = e.target.href;
-      if (addresses[address] == undefined) addresses[address] = 0;
+      if (typeof addresses[address] === "undefined") addresses[address] = 0;
       addresses[address]++;
       e.target.nextSibling.innerHTML = addresses[address];
-      chrome.storage.sync.set({'addresses': addresses}, function(obj){
-        console.log('Addresses set.');
+      chrome.storage.sync.set({"addresses": addresses}, function(obj){
         window.location = address;
       });
     }, false);
