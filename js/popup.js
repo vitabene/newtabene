@@ -172,6 +172,11 @@ var loadToInputs = function(id) {
 window.onload = function() {
   chrome.storage.sync.get("activePlugins", function(obj){
     var ACTIVE_PLUGINS = obj['activePlugins'];
+    // links
+    // {
+      // "numFields":1,
+
+    // }
     // load the available extension
     // temporary solution
     // ext settings needed
@@ -198,6 +203,22 @@ window.onload = function() {
   });
 };
 
+// var saveImage = function(){
+//   var file    = document.querySelector('input[type=file]').files[0];
+//   var reader  = new FileReader();
+//
+//   reader.onloadend = function () {
+//     // set src of bg
+//     // preview.src = reader.result;
+//   }
+//
+//   if (file) {
+//     // reader.readAsDataURL(file);
+//   } else {
+//     // preview.src = "";
+//   }
+// };
+
 var save = function(){
   // set when installing to ""
   // localStorage.styleChanges += styleParent.value + ",";
@@ -218,7 +239,7 @@ var save = function(){
         // applyThemeChange(selectedElementField.value, rule, field.value);
         theme[selEl][rule] = field.value;
         if (rule == "background-color" || rule == "color") {
-          theme[selEl][rule] = "#" + field.value;
+          if (field.value.indexOf("#") === -1) theme[selEl][rule] = "#" + field.value;
         }
       }
     }
@@ -295,8 +316,6 @@ document.addEventListener('click', function(e){
         }
       }
     }
-    // sliding
-    saveButton.style.display = "block";
   }
 
   if (id == "saveButton") {
@@ -304,7 +323,7 @@ document.addEventListener('click', function(e){
   }
 
   // closing button
-  if (id == "elementCloseButton") window.close();
+  // if (id == "elementCloseButton") window.close();
 
   // back to element choice
   if (id == "elementBackButton") {
@@ -344,6 +363,13 @@ document.addEventListener('click', function(e){
     }
   }
   // sticking
+
+  if (t.id == "contentLink" || t.parentNode.id == "contentLink") {
+    e.preventDefault();
+    var elementSelect = document.getElementById('selectedElementField');
+    var urlLink =  "./" + elementSelect.value.substring(1) + ".html";
+    window.location = urlLink;
+  }
 
   if (t.id == "resetMarginButton") {
     var pos = document.getElementById('position'),
@@ -421,7 +447,7 @@ document.addEventListener('click', function(e){
           v = v.replace(/\r?\n|\%|\r/g, '');
           v = parseInt(v) - 20;
           f.value = v + "px";
-          saveButton.click();
+          save();
         }
         break;
       case "arrowLeft":
@@ -432,7 +458,7 @@ document.addEventListener('click', function(e){
           v = v.replace(/\r?\n|\%|\r/g, '');
           v = parseInt(v) - 20;
           f.value = v + "px";
-          saveButton.click();
+          save();
         }
         break;
       case "arrowRight":
@@ -443,7 +469,7 @@ document.addEventListener('click', function(e){
           v = v.replace(/\r?\n|\%|\r/g, '');
           v = parseInt(v) + 20;
           f.value = v + "px";
-          saveButton.click();
+          save();
         }
         break;
       case "arrowDown":
@@ -454,10 +480,9 @@ document.addEventListener('click', function(e){
           v = v.replace(/\r?\n|\%|\r/g, '');
           v = parseInt(v) + 20;
           f.value = v + "px";
-          saveButton.click();
+          save();
         }
         break;
-      // saveButton.click();
     }
   }
 }, false);

@@ -2,40 +2,14 @@ var links = (function() {
   const NAME = 'links',
         PARENT_TYPE = 'ul',
         CHILD_TYPE = 'li',
-        DEF_LINKS = [
-          {
-            "name":"mail",
-            "url": "https://mail.google.com/mail/u/0/#inbox"
-          },
-          {
-            "name":"mail",
-            "url": "https://mail.google.com/mail/u/0/#inbox"
-          },
-          {
-            "name":"mail",
-            "url": "https://mail.google.com/mail/u/0/#inbox"
-          },
-          {
-            "name":"mail",
-            "url": "https://mail.google.com/mail/u/0/#inbox"
-          },
-          {
-            "name":"mail",
-            "url": "https://mail.google.com/mail/u/0/#inbox"
-          },
-          {
-            "name":"mail",
-            "url": "https://mail.google.com/mail/u/0/#inbox"
-          },
-          {
-            "name":"mail",
-            "url": "https://mail.google.com/mail/u/0/#inbox"
-          },
-          {
-            "name":"mail",
-            "url": "https://mail.google.com/mail/u/0/#inbox"
-          },
-        ];
+        DEF_LINKS = [{"name":"calendar","url":"https://calendar.google.com"},
+        {"name":"slack","url":"https://uncollegefellows.slack.com/messages/january_2016/"},
+        {"name":"mail","url":"https://mail.google.com/mail/u/0/#inbox"},
+        {"name":"mail","url":"https://mail.google.com/mail/u/0/#inbox"},
+        {"name":"my site","url":"www.vitabenes.com"},
+        {"name":"mail","url":"https://mail.google.com/mail/u/0/#inbox"},
+        {"name":"github","url":"www.github.com"},
+        {"name":"evernote","url":"https://www.evernote.com/Home.action"}];
 
   var parent = {};
 
@@ -48,8 +22,9 @@ var links = (function() {
     e.className = NAME;
     e.id = NAME;
     var links = newtabene.getData(NAME);
-    if (typeof links === "undefined") {
+    if (typeof links === "undefined" ||  links === "") {
       links = DEF_LINKS;
+      chrome.storage.sync.set({"links": links}, function() {});
     }
     // crude, should be part of links object
     for (var i = 0; i < links.length; i++) {

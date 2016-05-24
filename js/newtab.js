@@ -1,5 +1,6 @@
 'use strict';
-
+// http://stackoverflow.com/questions/19158887/saving-and-loading-an-image-from-localstorage
+// http://stackoverflow.com/questions/5802580/html-input-type-file-get-the-image-before-submitting-the-form
 const ESCAPE_KEYCODE = 27,
       ENTER_KEYCODE = 13;
 
@@ -25,6 +26,9 @@ var newtabene = (function(){
         setDefaultTheme();
       }
     });
+  };
+  var checkStorage = function(){
+    chrome.storage.sync.get(null, function(obj){console.log(obj)})
   };
 
   var setDefaultTheme = function(){
@@ -61,7 +65,8 @@ var newtabene = (function(){
           setStyle(storageChange.newValue.str)
         }
         if (changeDependecies.indexOf(key) !== -1) changeDependecies[key].call();
-        if (key === "activePlugins") window.location = window.location;
+        if (key === "activePlugins" || key === "links" ) window.location = window.location;
+        if (key === "countdown") window.location = window.location;
       }
     });
     document.onkeydown = function(e) {
@@ -101,6 +106,7 @@ var newtabene = (function(){
     registerChangeKey: registerChangeKey,
     registerPlugin: registerPlugin,
     loadNextPlugin: loadNextPlugin,
+    checkStorage: checkStorage,
     getData: getData
   };
 })();

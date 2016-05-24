@@ -9,20 +9,14 @@
 </head>
 <body>
   <div class="header-box">
-    <button class="back-button" id="elementBackButton">&#8592;</button>
+    <button class="back-button" id="elementBackButton">back</button>
     <input type="text" id="selectedElementField" class="selected-element" value="select an element"/>
-    <button class="close-button" id="elementCloseButton">&#x2717</button>
+    <button id="saveButton" class="save-button">save</button>
   </div>
 
   <div class="element-select" id="elementSelect">
     <ul id="elementParent">
       <li class="element" id="body"><span>body</span></li>
-      <!-- load dynamically the rest -->
-      <!-- <li class="element" id=".links"><span data-plugin="links">link</span><input type="checkbox"></li> -->
-      <!-- <li class="element" id=".link-number"><span data-plugin="linkNums">link numbers</span><input type="checkbox"></li> -->
-      <!-- <li class="element" id=".life-span"><span data-plugin="countdown">life span</span><input type="checkbox"></li> -->
-      <!-- <li class="element" id=".quote"><span data-plugin="quote">quote</span><input type="checkbox"></li> -->
-      <!-- <li class="element" id=".notes"><span data-plugin="notes">notes</span><input type="checkbox"></li> -->
     </ul>
   </div>
 
@@ -39,6 +33,10 @@
           <label for="">background image</label>
           <input class="style-input" name="background-image"/>
         </div>
+        <!-- <div class="formgroup"> -->
+          <!-- <label for="">background image</label> -->
+          <!-- <input class="style-input" type="file" onchange="saveImage()"> -->
+        <!-- </div> -->
         <div class="formgroup">
           <label for="">background size</label>
           <input class="style-input" name="background-size"/>
@@ -57,7 +55,7 @@
           </select>
         </div>
       </div>
-      <div class="style" data-ctrls="fontControls">font</div>
+      <div class="style" data-ctrls="fontControls">text</div>
       <div id="fontControls" class="style-controls font-controls">
         <!-- bold, normal, italics - toggles checkboxes -->
         <div class="formgroup">
@@ -67,6 +65,10 @@
           <button class="dark-buttons line-through" data-value="text-decoration">S</button>
         </div>
         <div class="formgroup">
+          <label for="">color</label>
+          <input class="jscolor style-input" name="color"/>
+        </div>
+        <div class="formgroup">
           <label for="">font</label>
           <input class="style-input" name="font-family"/>
         </div>
@@ -74,14 +76,10 @@
           <label for="">font size</label>
           <input class="style-input" name="font-size"/>
         </div>
-        <div class="formgroup">
+        <!-- <div class="formgroup">
           <label for="">text shadow</label>
           <input class="style-input" name="text-shadow"/>
-        </div>
-        <div class="formgroup">
-          <label for="">color</label>
-          <input class="jscolor style-input" name="color"/>
-        </div>
+        </div> -->
         <!-- advanced -->
         <!-- <option value="text-shadow">text shadow</option> -->
       </div>
@@ -92,7 +90,7 @@
           <input class="style-input" type="text" name="width">
         </div>
         <div class="formgroup">
-          <label for="">weight</label>
+          <label for="">height</label>
           <input class="style-input" type="text" name="height">
         </div>
         <div class="formgroup">
@@ -120,7 +118,7 @@
           <input class="style-input" id="left" name="left"/>
           <input class="style-input" id="right" name="right"/>
           <input class="style-input" id="bottom" name="bottom"/> -->
-          <button id="resetMarginButton">reset</button>
+          <!-- <button id="resetMarginButton">reset</button> -->
         </div>
         <div class="move-box">
           <table class="arrow-table">
@@ -149,23 +147,16 @@
             <label for="">padding</label>
             <input class="style-input" name="padding"/>
           </div>
-          <input class="style-input" id="marginLeft" name="margin-left"/>
-          <input class="style-input" id="marginRight" name="margin-right"/>
-          <input class="style-input" id="marginBottom" name="margin-bottom"/>
-          <input class="style-input" id="marginTop" name="margin-top"/>
+          <input type="hidden" class="style-input" id="marginLeft" name="margin-left"/>
+          <input type="hidden" class="style-input" id="marginRight" name="margin-right"/>
+          <input type="hidden" class="style-input" id="marginBottom" name="margin-bottom"/>
+          <input type="hidden" class="style-input" id="marginTop" name="margin-top"/>
         </div>
       </div>
-      <div class="style" data-ctrls="contentsControls">contents</div>
-      <div id="contentsControls" class="style-controls">
-
+      <a id="contentLink" href="#"><div class="style" data-ctrls="contentsControls">contents</div></a>
       </div>
     </div>
   </div>
-
-  <div class="save-button-box">
-    <button id="saveButton" class="save-button">save</button>
-  </div>
-
   <script src="../js/popup.js"></script>
 </body>
 </html>
