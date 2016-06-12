@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Newtabene options</title>
+  <meta charset="UTF-8">
+  <title>Newtabene</title>
+  <!-- <link rel="stylesheet" href="../css/newtab.css"/> -->
+  <link rel="stylesheet" href="../css/popup.css"/>
+</head>
+<body>
+  <div class="header-box">
+    <a href="./popup.html"><button class="back-button" id="elementBackButton">back</button></a>
+    <input type="text" id="selectedElementField" class="selected-element" value="links"/>
+    <button id="saveButton" class="save-button">save</button>
+  </div>
+  <div class="style-select" style="right:0;">
+    <div class="style-controls active-controls">
+      <div class="formgroup">
+        <label for="">Link #</label>
+        <input class="style-input" type="number" value="0" min="0" max="7" id="linkNumber">
+        <label for="">Link Url</label>
+        <input class="style-input" id="linkUrl"/>
+        <label for="">Link Name</label>
+        <input class="style-input" id="linkName"/>
+      </div>
+    </div>
+  </div>
+  <script src="../js/plugins/linksContent.js"></script>
+</body>
+</html>
