@@ -2,7 +2,8 @@
 // http://stackoverflow.com/questions/19158887/saving-and-loading-an-image-from-localstorage
 // http://stackoverflow.com/questions/5802580/html-input-type-file-get-the-image-before-submitting-the-form
 const ESCAPE_KEYCODE = 27,
-      ENTER_KEYCODE = 13;
+      ENTER_KEYCODE = 13,
+      DEFAULT_PLUGINS = ["countdown", "links", "linkNums", "notes", "quote"];
 
 var newtabene = (function(){
 
@@ -88,7 +89,9 @@ var newtabene = (function(){
     var nwt = this;
     chrome.storage.sync.get(null, function(o){
       data = o;
-      plugins = o.activePlugins;
+      if (o.activePlugins == undefined) plugins = DEFAULT_PLUGINS;
+      else plugins = o.activePlugins;
+      chrome.storage.sync.set({"activePlugins": DEFAULT_PLUGINS});
       init();
     });
   };

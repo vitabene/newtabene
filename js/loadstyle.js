@@ -1,7 +1,8 @@
 function getSetStyle(themeName) {
   chrome.storage.sync.get(themeName, function(obj){
     // console.log(obj.activeTheme);
-    setStyle(obj.activeTheme.str);
+    if (obj.activeTheme != undefined) setStyle(obj.activeTheme.str);
+    else setStyle("");
   });
 }
 function setStyle(str) {

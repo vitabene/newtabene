@@ -22,7 +22,8 @@ var links = (function() {
     e.className = NAME;
     e.id = NAME;
     var links = newtabene.getData(NAME);
-    if (typeof links === "undefined" ||  links === "") {
+    if (typeof links === "undefined" ||  links === ""
+          || Object.keys(links).length == 0) {
       links = DEF_LINKS;
       chrome.storage.sync.set({"links": links}, function() {});
     }
