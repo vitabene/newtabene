@@ -21,6 +21,7 @@ body#newtab, html#newtab {
   }
   .countdown {
     display: block;
+    text-align: center;
   }
   .life-span {
     position: absolute;
@@ -74,10 +75,7 @@ body#newtab, html#newtab {
     line-height: 22px;
   }
   quote {
-    position: absolute;
-
     display: block;
-
     text-align: center;
 
     font-family: inherit;

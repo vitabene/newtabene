@@ -241,6 +241,18 @@ var save = function(){
         if (rule == "background-color" || rule == "color") {
           if (field.value.indexOf("#") === -1) theme[selEl][rule] = "#" + field.value;
         }
+        if (rule == "margin") {
+          if (field.value == "0") {
+            console.log(field.value);
+            console.log(rule);
+            // reseting side margins
+            theme[selEl]["margin-right"] = 0;
+            theme[selEl]["margin-left"] = 0;
+          } else if (field.value == "auto") {
+            theme[selEl]["margin-right"] = "auto";
+            theme[selEl]["margin-left"] = "auto";
+          }
+        }
       }
     }
     chrome.storage.sync.set({"theme": theme}, function() {
