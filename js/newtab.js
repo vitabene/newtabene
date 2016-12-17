@@ -91,7 +91,7 @@ var newtabene = (function(){
       data = o;
       if (o.activePlugins == undefined) plugins = DEFAULT_PLUGINS;
       else plugins = o.activePlugins;
-      chrome.storage.sync.set({"activePlugins": DEFAULT_PLUGINS});
+      chrome.storage.sync.set({"activePlugins": plugins});
       init();
     });
   };

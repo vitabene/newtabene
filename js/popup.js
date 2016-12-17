@@ -288,6 +288,7 @@ document.addEventListener('click', function(e){
         var ar = obj['activePlugins'];
         var prev = t.previousElementSibling;
         if (prev.dataset.plugin == undefined) return;
+        console.log(prev.dataset.plugin);
         var ind = ar.indexOf(prev.dataset.plugin);
         ar.splice(ind, 1);
         chrome.storage.sync.set({"activePlugins": ar}, function() {});
@@ -345,20 +346,20 @@ document.addEventListener('click', function(e){
     styleSelect.className = styleSelect.className.replace(" slide-from-right", " slide-right");
   }
 
-  if (t.type === "checkbox") {
-    var elementNode = t.parentNode;
-    // console.log(elementNode, t);
-    chrome.storage.sync.get("settings", function(obj){
-      var settings = obj.settings,
-          setting = settings[elementNode.id];
-      if (typeof setting != "object") setting = {};
-      setting["active"] = t.checked;
-      settings[elementNode.id] = setting;
-      chrome.storage.sync.set({"settings": settings});
-    });
-    // another object - settings
-    // chrome.storage.sync.set({elementNode.id: t.checked}, function() {});
-  }
+  // if (t.type === "checkbox") {
+  //   var elementNode = t.parentNode;
+  //   // console.log(elementNode, t);
+  //   chrome.storage.sync.get("settings", function(obj){
+  //     var settings = obj.settings,
+  //         setting = settings[elementNode.id];
+  //     if (typeof setting != "object") setting = {};
+  //     setting["active"] = t.checked;
+  //     settings[elementNode.id] = setting;
+  //     chrome.storage.sync.set({"settings": settings});
+  //   });
+  //   // another object - settings
+  //   // chrome.storage.sync.set({elementNode.id: t.checked}, function() {});
+  // }
 
   // tabs switching
   if (t.className.indexOf("tab") !== -1) {

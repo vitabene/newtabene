@@ -20,6 +20,7 @@ body#newtab, html#newtab {
     line-height: 60px;
   }
   .countdown {
+    position: relative;
     display: block;
     text-align: center;
   }
@@ -82,7 +83,7 @@ body#newtab, html#newtab {
   }
   .notes {
 
-    position: absolute;
+    position: relative;
 
     display: block;
 
@@ -101,5 +102,14 @@ body#newtab, html#newtab {
     &:focus {
       background-color: rgba(#fff, .1);
     }
+  }
+}
+@media (max-width: 1000px) {
+  #newtab {
+
+  .notes, .links {
+    width: 80% !important;
+    margin-left: 10% !important;
+  }
   }
 }
