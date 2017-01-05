@@ -104,12 +104,12 @@ body#newtab, html#newtab {
     }
   }
 }
-@media (max-width: 1000px) {
+// add more breakpoint
+@media (max-width: 1400px) {
   #newtab {
-
-  .notes, .links {
-    width: 80% !important;
-    margin-left: 10% !important;
-  }
+    .notes, .links {
+      width: 80% !important;
+      margin-left: 10% !important;
+    }
   }
 }
