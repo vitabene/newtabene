@@ -24,16 +24,6 @@ body#newtab, html#newtab {
     display: block;
     text-align: center;
   }
-  .life-span {
-    position: absolute;
-
-    display: block;
-
-    height: 50px;
-    margin: 0 30%;
-
-    text-align: absolute;
-  }
   .links {
     position: initial;
 
@@ -108,8 +98,9 @@ body#newtab, html#newtab {
 @media (max-width: 1400px) {
   #newtab {
     .notes, .links {
-      width: 80% !important;
-      margin-left: 10% !important;
+      width: 60% !important;
+      margin-left: 20% !important;
+      
     }
   }
 }

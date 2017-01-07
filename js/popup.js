@@ -343,7 +343,12 @@ document.addEventListener('click', function(e){
     var elementSelect = document.getElementById('elementSelect');
     var styleSelect = document.getElementById('styleSelect');
     elementSelect.className = elementSelect.className.replace(" slide-left", " slide-from-left");
+    setTimeout(function(){
+      elementSelect.className = elementSelect.className.replace(" slide-from-left", " ");
+    });
     styleSelect.className = styleSelect.className.replace(" slide-from-right", " slide-right");
+    var aC = document.getElementsByClassName('active-controls')[0];
+    aC.className = aC.className.replace(" active-controls", " ");
   }
 
   // if (t.type === "checkbox") {
@@ -499,3 +504,7 @@ document.addEventListener('click', function(e){
     }
   }
 }, false);
+document.onkeydown = function(e){
+  // up = 38, down = 40
+  if (e.keyCode == 13) save();
+}

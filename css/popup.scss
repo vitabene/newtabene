@@ -10,12 +10,14 @@ $borderRadius: 0px;
 $headerButtonSize: 13pt;
 $borderShadow: 0.5px 0.5px 1px 0 gray;
 $bg: rgba(215, 215, 215, 0.76);
+$btnBrown: #0e0904;
+
 
 body {
   position: relative;
   overflow: auto;
   background-color: $bg;
-  font-family: 'Lato';
+  font-family: 'Inconsolata';
   width: 280px;
   @include nomp;
 }
@@ -29,7 +31,7 @@ body {
   width: 50px;
   height: 35px;
   font-size: 13pt;
-  font-family: 'Lato';
+  font-family: inherit;
   line-height: $headerButtonSize;
   border-radius: $borderRadius;
   border: 0;
@@ -50,6 +52,7 @@ body {
     height: 35px;
     border: 0;
     font-size: 13pt;
+    font-family: inherit;
     background-color: #fff;
     border-radius: $borderRadius;
     text-align: center;
@@ -58,12 +61,20 @@ body {
   .back-button {
     @extend .header-button;
     float: left;
-    background-color: rgb(139, 139, 139);
+    background-color: #fff;
+    color: $btnBrown;
+    &:hover {
+      background-color: #ebe5e5;
+    }
   }
   .save-button {
     @extend .header-button;
     float: right;
-    background-color: rgb(4, 179, 93);
+    background-color: #fff;
+    color: #1ab825;
+    &:hover {
+      background-color: #ebe5e5;
+    }
   }
 }
 $elSelHov: #ececeb;
@@ -87,7 +98,7 @@ $checkedC: #89f786;
       font-size: $textSize;
       line-height: 30px;
       &:hover {
-        background-color: $elSelHov;
+        text-decoration: underline;
       }
     }
     input[type="checkbox"] {
@@ -104,8 +115,9 @@ $checkedC: #89f786;
       border-radius: $borderRadius;
       &::after {
         content: "off";
-        font-family: Ubuntu;
-        color: #fff;
+        font-family: inherit;
+        color: #fa2d2d;
+        background-color: #fff;
         text-align: center;
         line-height: 25px;
         display: block;
@@ -114,7 +126,7 @@ $checkedC: #89f786;
         background: $checkedC;
         &::after {
           content: "on";
-          color: #000;
+          color: #1ab825;
         }
       }
     }
@@ -140,12 +152,18 @@ $checkedC: #89f786;
 }
 .dark-buttons {
   @extend .header-button;
-  font-size: 20px;
-  font-family: 'Lato';
-  background-color: lighten(#37424E, 25%);
+  font-size: 16px;
+  font-family: inherit;
+  box-shadow: 0.5px 0.5px 1px 0 gray;
+  color: $btnBrown;
+  text-align: center;
+  background-color: #fff;
+  &:hover {
+    background-color: #e8e5e5;
+  }
   &.bold {
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 700;
   }
   &.italics {
     font-style: italic;
@@ -190,16 +208,19 @@ $checkedC: #89f786;
 .formgroup {
   margin: 5px 0;
   padding: 5px;
+  text-align: center;
   label {
     display: block;
+    margin-top: 5px;
     text-align: left;
     margin-left: 5px;
     text-align: center;
     height: 25px;
   }
   input, select {
-    background-color: #CBD0EA;
+    background-color: #ececec;
     border-radius: $borderRadius;
+    box-shadow: 0.5px 0.5px 1px 0 gray;
     text-indent: 5px;
     border: 0;
     width: 100%;
@@ -209,7 +230,7 @@ $checkedC: #89f786;
     height: 25px;
     display: block;
     &:focus {
-      background-color: #699bd1;
+      background-color: #d6d6d6;
     }
   }
 }
@@ -222,7 +243,7 @@ $checkedC: #89f786;
     border: 1px solid #999;
     cursor: pointer;
     &:hover {
-      background-color: #1ab2c1;
+      background-color: $btnBrown;
       color: #fff;
       &::after {
         content: "here";
@@ -244,10 +265,10 @@ $checkedC: #89f786;
   td {
     width: 45px;
     height: 20px;
-    border: 1px solid #999;
+    border: none;
     cursor: pointer;
     &:hover {
-      background-color: #1ab2c1;
+      background-color: $btnBrown;
       color: #fff;
     }
   }
@@ -260,22 +281,22 @@ $checkedC: #89f786;
   }
   .arrow-up {
     &::after {
-      content: "up";
+      content: "↑";
     }
   }
   .arrow-down {
     &::after {
-      content: "down";
+      content: "↓";
     }
   }
   .arrow-left {
     &::after {
-      content: "left";
+      content: "←";
     }
   }
   .arrow-right {
     &::after {
-      content: "right";
+      content: "→";
     }
   }
 }
