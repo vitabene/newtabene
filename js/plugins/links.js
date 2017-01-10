@@ -29,17 +29,18 @@ var links = (function() {
     }
     // crude, should be part of links object
     for (var i = 0; i < links.length; i++) {
-      constructLink(e, links[i].url, links[i].name);
+      constructLink(e, links[i].url, links[i].name, links[i].important);
     }
     parent = e;
     document.body.appendChild(e);
   };
 
-  var constructLink = function(par, url, title) {
+  var constructLink = function(par, url, title, isImportant) {
     var li = document.createElement('li'),
         a = document.createElement('a');
     a.href = url;
     a.innerHTML = title;
+    if (isImportant) a.className += " important";
     li.appendChild(a);
     par.appendChild(li);
   }

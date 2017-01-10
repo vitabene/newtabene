@@ -45,6 +45,18 @@ body#newtab, html#newtab {
         animation: lighten .5s forwards;
       }
     }
+    a.important {
+      &::after {
+        content: "!";
+        color: red;
+        width: 0px;
+        height: 5px;
+        border-radius: 10px;
+        top: 0;
+        float: right;
+        right: 0;
+      }
+    }
   }
   .linkNums {
     float: right;
@@ -100,7 +112,7 @@ body#newtab, html#newtab {
     .notes, .links {
       width: 60% !important;
       margin-left: 20% !important;
-      
+
     }
   }
 }
