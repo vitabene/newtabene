@@ -6,9 +6,9 @@ var links = (function() {
         {"name":"slack","url":"https://uncollegefellows.slack.com/messages/january_2016/"},
         {"name":"mail","url":"https://mail.google.com/mail/u/0/#inbox"},
         {"name":"mail","url":"https://mail.google.com/mail/u/0/#inbox"},
-        {"name":"my site","url":"www.vitabenes.com"},
+        {"name":"my site","url":"http://www.vitabenes.com"},
         {"name":"mail","url":"https://mail.google.com/mail/u/0/#inbox"},
-        {"name":"github","url":"www.github.com"},
+        {"name":"github","url":"https://www.github.com"},
         {"name":"evernote","url":"https://www.evernote.com/Home.action"}];
 
   var parent = {};
