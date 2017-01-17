@@ -19,6 +19,14 @@ document.getElementById('saveButton').addEventListener("click", function(e){
     chrome.storage.sync.set({"links": links});
   });
 });
+document.getElementById('prev').addEventListener('click', function(e){
+  if (linkNumber.value >= 1) linkNumber.value = --linkNumber.value;
+  getLinks();
+});
+document.getElementById('next').addEventListener('click', function(e){
+  if (linkNumber.value <= 6) linkNumber.value = ++linkNumber.value;
+  getLinks();
+});
 window.onload = function() {
   linkNumber = document.getElementById('linkNumber');
   linkUrl = document.getElementById('linkUrl');

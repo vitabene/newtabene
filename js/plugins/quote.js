@@ -3,7 +3,7 @@ var quote = (function() {
         ELEMENT_TYPE = 'quote',
         CONTENT_EDITABLE = true,
         SPELLCHECK = false,
-        DEF_QUOTE = 'Adapt what is useful, reject what is useless, and add what is specifically your own.';
+        DEF_QUOTE = 'Absorb what is useful, reject what is useless, and add what is specifically your own.';
 
   var element = {};
 

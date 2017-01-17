@@ -386,7 +386,19 @@ document.addEventListener('click', function(e){
     e.preventDefault();
     var elementSelect = document.getElementById('selectedElementField');
     var urlLink =  "./" + elementSelect.value.substring(1) + ".html";
-    window.location = urlLink;
+    try {
+      var http = new XMLHttpRequest();
+      http.open('HEAD', urlLink, false);
+      http.send();
+      if (http.status!=404) window.location = urlLink;
+    } catch (e) {
+      console.log(e);
+      var el = document.getElementById('contentLink');
+      el.children[0].style.background = "red";
+      setTimeout(function(){
+        el.children[0].style.background = "white";
+      }, 200);
+    }
   }
 
   if (t.id == "resetMarginButton") {

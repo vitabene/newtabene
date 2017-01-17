@@ -5,10 +5,7 @@ var notes = (function(newtabene) {
         SPELLCHECK = false,
 
         SAVE_MESSAGE = 'Notes saved.',
-        DEFAULT_CONTENT = 'Huh, there are no notes in my memory.' +
-                            'Here is a random fact:' +
-                            'You can only pay attention two people' +
-                            'speaking at once';
+        DEFAULT_CONTENT = 'No notes in my memory. Click here to edit.';
 
   var element = {};
 
