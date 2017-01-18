@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Newtabene options</title>
-  <meta charset="UTF-8">
-  <title>Newtabene</title>
-  <!-- <link rel="stylesheet" href="../css/newtab.css"/> -->
-  <link rel="stylesheet" href="../css/popup.css"/>
-</head>
-<body>
-  <div class="header-box">
-    <a href="./popup.html"><button class="back-button" id="elementBackButton">back</button></a>
-    <input type="text" id="selectedElementField" class="selected-element" value="countdown"/>
-    <button id="saveButton" class="save-button">save</button>
-  </div>
-  <div class="style-select" style="right:0;">
-    <div class="style-controls active-controls">
-      <div class="formgroup">
-        <label for="">Number</label>
-        <input class="style-input" id="countdown"/>
-      </div>
+<link rel="stylesheet" href="../build/css/popup.css"/>
+<div class="header-box">
+  <a href="./popup.html"><button class="back-button" id="elementBackButton">←</button></a>
+  <input type="text" id="selectedElementField" class="selected-element" value="countdown"/>
+  <button id="saveButton" class="save-button">save</button>
+</div>
+<div class="style-select" style="right:0;">
+  <div class="style-controls active-controls">
+    <div class="formgroup">
+      <label for="">Number</label>
+      <input class="style-input" id="countdown"/>
     </div>
   </div>
-  <script src="../js/plugins/countdownContent.js"></script>
-</body>
-</html>
+</div>
+<script src="../build/js/modules/countdownContent.js"></script>

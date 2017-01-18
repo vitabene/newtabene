@@ -49,7 +49,7 @@ var newtabene = (function(){
     var scr = document.createElement('script');
     // clumsy
     if (plugins[loadIndex] !== "") {
-      scr.src = "../js/plugins/" + plugins[loadIndex] + ".js";
+      scr.src = "../js/modules/" + plugins[loadIndex] + ".js";
       document.body.appendChild(scr);
     } else {
       // loadNextPlugin();
@@ -104,6 +104,8 @@ var newtabene = (function(){
     changeDependecies[key] = fn;
   };
 
+  loadData();
+
   return {
     loadData: loadData,
     registerChangeKey: registerChangeKey,
@@ -113,8 +115,6 @@ var newtabene = (function(){
     getData: getData
   };
 })();
-
-newtabene.loadData();
 
 // ******************** non-modularized follows ********************
 // ******************** functions ********************
@@ -129,12 +129,7 @@ newtabene.loadData();
 //     }
 //   });
 // };
-// ******************** event handlers ********************
 
-window.onload = function(){
-  getSetStyle("activeTheme");
-  // loadSettings();
-};
 // ******************** unused code snippets ********************
 // chrome.notifications.create("", {message:"Hello World!", title: "Hi!", type: "basic", iconUrl:"./assets/favicon.png"})
 // var tim = setTimeout(function(){chrome.notifications.create("", {

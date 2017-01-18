@@ -1,0 +1,41 @@
+.slide-left {
+  animation: 0.75s slideLeft forwards;
+}
+.slide-right {
+  animation: 0.75s slideRight forwards;
+}
+.slide-from-right {
+  animation: 0.75s slideFromRight forwards;
+}
+.slide-from-left {
+  animation: 0.75s slideFromLeft forwards;
+}
+@keyframes slideLeft {
+  from {
+    left:0;
+  }
+  to {
+    left: -100%;
+  }
+}
+@keyframes slideRight {
+  from {
+    right: 0;
+  }
+  to {
+    right: -100%;
+  }
+}
+@keyframes slideFromRight {
+  to {
+    right: 0;
+  }
+}
+@keyframes slideFromLeft {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}

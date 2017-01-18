@@ -24,3 +24,7 @@ function writeRule(style, ruleText) {
   else style.appendChild(document.createTextNode(ruleText));
   return style;
 }
+window.onload = function(){
+  getSetStyle("activeTheme");
+  // loadSettings();
+};

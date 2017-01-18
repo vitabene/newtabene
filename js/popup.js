@@ -351,6 +351,7 @@ document.addEventListener('click', function(e){
     aC.className = aC.className.replace(" active-controls", " ");
   }
 
+  // loading settings
   // if (t.type === "checkbox") {
   //   var elementNode = t.parentNode;
   //   // console.log(elementNode, t);
@@ -391,6 +392,7 @@ document.addEventListener('click', function(e){
       http.open('HEAD', urlLink, false);
       http.send();
       if (http.status!=404) window.location = urlLink;
+      // document.getElementById('contentFrame').src = urlLink;
     } catch (e) {
       console.log(e);
       var el = document.getElementById('contentLink');

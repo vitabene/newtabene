@@ -1101,9 +1101,11 @@ var jsc = {
 				if (this.hash) { value = '#' + value; }
 
 				if (jsc.isElementType(this.valueElement, 'input')) {
-					this.valueElement.value = value;
+					if (this.valueElement.value !== "transparent")
+						this.valueElement.value = value;
 				} else {
-					this.valueElement.innerHTML = value;
+					if (this.valueElement.value !== "transparent")
+						this.valueElement.innerHTML = value;
 				}
 			}
 			if (!(flags & jsc.leaveStyle)) {

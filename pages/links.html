@@ -1,34 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Newtabene options</title>
-  <meta charset="UTF-8">
-  <title>Newtabene</title>
-  <!-- <link rel="stylesheet" href="../css/newtab.css"/> -->
-  <link rel="stylesheet" href="../css/popup.css"/>
-</head>
-<body>
+  <link rel="stylesheet" href="../build/css/popup.css"/>
   <div class="header-box">
-    <a href="./popup.html"><button class="back-button" id="elementBackButton">←</button></a>
-    <input type="text" id="selectedElementField" class="selected-element" value="links"/>
+    <button class="back-button" id="elementBackButton">←</button>
+    <input type="text" id="selectedElementField" class="selected-element" value="select an element"/>
     <button id="saveButton" class="save-button">save</button>
   </div>
-  <div class="style-select" style="right:0;">
-    <div class="style-controls active-controls">
-      <div class="formgroup">
-        <label for="">Link</label>
-        <input class="style-input" style="display:none;" type="number" value="0" min="0" max="7" id="linkNumber">
-        <button id="prev"><-</button><button id="next">-></button>
-        <label for="">Link Url</label>
-        <input class="style-input" id="linkUrl"/>
-        <label for="">Link Name</label>
-        <input class="style-input" id="linkName"/>
-        <label for="">Important</label>
-        <input type="checkbox" id="important">
-      </div>
-    </div>
+  <div class="style-controls active-controls">
+  <div class="formgroup">
+    <label for="">Link</label>
+    <input class="style-input" style="display:none;" type="number" value="0" min="0" max="7" id="linkNumber">
+    <button id="prev" class="left-btn">←</button><button id="next" class="right-btn">→</button>
+    <label for="">Url</label>
+    <input class="style-input" id="linkUrl"/>
+    <label for="">Label</label>
+    <input class="style-input" id="linkName"/>
+    <label for="">Important</label>
+    <input type="checkbox" id="important">
   </div>
-  <script src="../js/plugins/linksContent.js"></script>
-</body>
-</html>
+</div>
+</div>
+<script src="../build/js/modules/linksContent.js"></script>

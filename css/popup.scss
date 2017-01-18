@@ -6,12 +6,12 @@
 // alpha
 // beta
 // live
+
 $borderRadius: 0px;
 $headerButtonSize: 13pt;
 $borderShadow: 0.5px 0.5px 1px 0 gray;
 $bg: rgba(215, 215, 215, 0.76);
 $btnBrown: #0e0904;
-
 
 body {
   position: relative;
@@ -76,6 +76,18 @@ body {
       background-color: #ebe5e5;
     }
   }
+}
+.left-btn, .right-btn {
+  @extend .header-button;
+  background-color: #fff;
+  color: $btnBrown;
+  margin-bottom: 15px;
+}
+.content-frame {
+  width: auto;
+  height: auto;
+  min-height: 0;
+  min-width: 0;
 }
 $elSelHov: #ececeb;
 $textSize: 12pt;
@@ -236,6 +248,9 @@ $checkedC: #89f786;
       background-color: #d6d6d6;
     }
   }
+  input[type="checkbox"] {
+    box-shadow: none;
+  }
 }
 .position-table {
   margin: auto;
@@ -306,44 +321,4 @@ $checkedC: #89f786;
 .arrow-table {
   margin: auto;
 }
-.slide-left {
-  animation: 0.75s slideLeft forwards;
-}
-.slide-right {
-  animation: 0.75s slideRight forwards;
-}
-.slide-from-right {
-  animation: 0.75s slideFromRight forwards;
-}
-.slide-from-left {
-  animation: 0.75s slideFromLeft forwards;
-}
-@keyframes slideLeft {
-  from {
-    left:0;
-  }
-  to {
-    left: -100%;
-  }
-}
-@keyframes slideRight {
-  from {
-    right: 0;
-  }
-  to {
-    right: -100%;
-  }
-}
-@keyframes slideFromRight {
-  to {
-    right: 0;
-  }
-}
-@keyframes slideFromLeft {
-  from {
-    left: -100%;
-  }
-  to {
-    left: 0;
-  }
-}
+@import "anim";
