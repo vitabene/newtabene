@@ -1,0 +1,1 @@
+var resetModules=function(){chrome.storage.sync.set({activePlugins:["links","notes","linkNums","countdown","quote"]},function(n){console.log(n)})};

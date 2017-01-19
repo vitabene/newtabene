@@ -17,7 +17,7 @@ var newtabene = (function(){
 
   var init = function(){
     checkStyles();
-    if (plugins.length !== 0) loadNextPlugin();
+    if (plugins.length !== 0) loadNextModule();
     addHandlers();
   };
 
@@ -44,7 +44,7 @@ var newtabene = (function(){
     chrome.storage.sync.set({"theme": theme});
   };
 
-  var loadNextPlugin = function() {
+  var loadNextModule = function() {
     if (plugins.length == loadIndex) return;
     var scr = document.createElement('script');
     // clumsy
@@ -52,7 +52,7 @@ var newtabene = (function(){
       scr.src = "../js/modules/" + plugins[loadIndex] + ".js";
       document.body.appendChild(scr);
     } else {
-      // loadNextPlugin();
+      // loadNextModule();
     }
       loadIndex++;
   };
@@ -110,7 +110,7 @@ var newtabene = (function(){
     loadData: loadData,
     registerChangeKey: registerChangeKey,
     registerPlugin: registerPlugin,
-    loadNextPlugin: loadNextPlugin,
+    loadNextModule: loadNextModule,
     checkStorage: checkStorage,
     getData: getData
   };

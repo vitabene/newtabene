@@ -11,11 +11,14 @@ var countdown = (function() {
   };
 
   var construct = function(){
-    var e = document.createElement(ELEMENT_TYPE);
+    var modLayer = document.createElement('div'),
+        e = document.createElement(ELEMENT_TYPE);
+    modLayer.className = "mod-layer";
     e.className = NAME;
     e.id = NAME;
     e.innerHTML = number;
-    document.body.appendChild(e);
+    modLayer.appendChild(e);
+    document.body.appendChild(modLayer);
   };
 
   var checkLastOpen = function() {
@@ -34,7 +37,7 @@ var countdown = (function() {
   };
 
   init();
-  newtabene.loadNextPlugin();
+  newtabene.loadNextModule();
 
   return {
     init: init

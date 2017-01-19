@@ -18,7 +18,9 @@ var links = (function() {
   };
 
   var construct = function(){
-    var e = document.createElement(PARENT_TYPE);
+    var modLayer = document.createElement('div'),
+        e = document.createElement(PARENT_TYPE);
+    modLayer.className = "mod-layer";
     e.className = NAME;
     e.id = NAME;
     var links = newtabene.getData(NAME);
@@ -32,7 +34,8 @@ var links = (function() {
       constructLink(e, links[i].url, links[i].name, links[i].important);
     }
     parent = e;
-    document.body.appendChild(e);
+    modLayer.appendChild(e);
+    document.body.appendChild(modLayer);
   };
 
   var constructLink = function(par, url, title, isImportant) {
@@ -50,7 +53,7 @@ var links = (function() {
   };
 
   init();
-  newtabene.loadNextPlugin();
+  newtabene.loadNextModule();
 
   return {
     getParent: getParent

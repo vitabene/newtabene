@@ -12,7 +12,9 @@ var quote = (function() {
   };
 
   var construct = function(){
-    var e = document.createElement(ELEMENT_TYPE);
+    var modLayer = document.createElement('div'),
+        e = document.createElement(ELEMENT_TYPE);
+    modLayer.className = "mod-layer";
     e.className = NAME;
     e.id = NAME;
     var quote = newtabene.getData(NAME);
@@ -23,7 +25,8 @@ var quote = (function() {
     e.contentEditable = CONTENT_EDITABLE;
     e.spellcheck = SPELLCHECK;
     e.dataset.plugin = NAME;
-    document.body.appendChild(e);
+    modLayer.appendChild(e);
+    document.body.appendChild(modLayer);
     element = e;
   };
 
@@ -40,7 +43,7 @@ var quote = (function() {
   };
 
   init();
-  newtabene.loadNextPlugin();
+  newtabene.loadNextModule();
 
   return {
     init: init,

@@ -14,7 +14,9 @@ var notes = (function(newtabene) {
   };
 
   var construct = function(){
-    var e = document.createElement(ELEMENT_TYPE);
+    var modLayer = document.createElement('div'),
+        e = document.createElement(ELEMENT_TYPE);
+    modLayer.className = "mod-layer";
     e.className = NAME;
     e.id = NAME;
     var note = newtabene.getData(NAME);
@@ -24,7 +26,8 @@ var notes = (function(newtabene) {
     e.spellcheck = SPELLCHECK;
     // crude
     e.dataset.plugin = NAME;
-    document.body.appendChild(e);
+    modLayer.appendChild(e);
+    document.body.appendChild(modLayer);
     element = e;
   };
 
@@ -41,7 +44,7 @@ var notes = (function(newtabene) {
   };
 
   init();
-  newtabene.loadNextPlugin();
+  newtabene.loadNextModule();
 
   return {
     init: init,

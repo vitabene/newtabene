@@ -12,7 +12,7 @@ var linkNums = (function(newtabene, links) {
     construct();
     newtabene.registerChangeKey("lastOpen", onChanged);
     addHandlers();
-    newtabene.loadNextPlugin();
+    newtabene.loadNextModule();
   };
 
   var construct = function(){
@@ -54,7 +54,7 @@ var linkNums = (function(newtabene, links) {
   };
 
   init();
-  // newtabene.loadNextPlugin();
+  // newtabene.loadNextModule();
 
   return {
     init: init
