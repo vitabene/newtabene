@@ -1,2 +1,4 @@
 #Newtabene
-##Simple new tab extension for Google Chrome
+##Simple, extremely customizable new tab extension for Google Chrome
+
+Work in progress.
