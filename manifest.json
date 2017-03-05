@@ -9,8 +9,13 @@
   "chrome_url_overrides" : {
     "newtab": "./pages/newtab.html"
   },
+  "icons": {
+    "16": "assets/logo_16.png",
+    "48": "assets/logo_48.png",
+    "128": "assets/logo.png"
+  },
   "browser_action": {
-    "default_icon": "./assets/favicon.png",
+    "default_icon": "./assets/logo_16.png",
     "default_popup": "./pages/popup.html"
   },
   "manifest_version": 2
