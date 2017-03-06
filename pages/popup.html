@@ -22,12 +22,51 @@
 
   <div class="style-select" id="styleSelect">
     <div id="styleParent" class="style-parent">
-      <div class="style" data-ctrls="backgroundControls">background</div>
-      <div id="backgroundControls" class="style-controls background-controls">
+      <!-- <div class="style" data-ctrls="backgroundControls">background</div> -->
+      <div class="style-controls">
         <!-- color box -->
         <div class="formgroup">
           <label for="">background color</label>
           <input class="jscolor style-input" name="background-color"/>
+        </div>
+        <div class="formgroup">
+          <label for="">color</label>
+          <input class="jscolor style-input" name="color"/>
+        </div>
+        <div class="formgroup">
+          <label for="">font</label>
+          <input class="style-input" name="font-family"/>
+        </div>
+        <div class="formgroup">
+          <label for="">font size</label>
+          <input class="style-input" name="font-size" placeholder="e.g.: 10px"/>
+        </div>
+        <div class="formgroup">
+          <label for="">text shadow</label>
+          <input class="style-input" name="text-shadow"/>
+        </div>
+        <div class="move-box">
+          <input type="hidden" class="style-input" id="marginLeft" name="margin-left"/>
+          <input type="hidden" class="style-input" id="marginRight" name="margin-right"/>
+          <input type="hidden" class="style-input" id="marginBottom" name="margin-bottom"/>
+          <input type="hidden" class="style-input" id="marginTop" name="margin-top"/>
+          <table class="arrow-table">
+            <tr>
+              <td class="hidden-cell"></td>
+              <td id="arrowUp" class="arrow-up"></td>
+              <td class="hidden-cell"></td>
+            </tr>
+            <tr>
+              <td id="arrowLeft" class="arrow-left"></td>
+              <td><span class="move">move</span></td>
+              <td id="arrowRight" class="arrow-right"></td>
+            </tr>
+            <tr>
+              <td class="hidden-cell"></td>
+              <td id="arrowDown" class="arrow-down"></td>
+              <td class="hidden-cell"></td>
+            </tr>
+          </table>
         </div>
         <!-- <div class="formgroup">
           <label for="">background image</label>
@@ -54,9 +93,9 @@
             <option value="repeat">vertical &amp; horizantal</option>
           </select>
         </div> -->
-      </div>
+      <!-- </div>
       <div class="style" data-ctrls="fontControls">text</div>
-      <div id="fontControls" class="style-controls font-controls">
+      <div id="fontControls" class="style-controls font-controls"> -->
         <!-- bold, normal, italics - toggles checkboxes -->
         <!-- <div class="formgroup">
           <button class="dark-buttons bold" data-value="font-weight">b</button>
@@ -64,29 +103,15 @@
           <button class="dark-buttons underline" data-value="text-decoration">u</button>
           <button class="dark-buttons line-through" data-value="text-decoration">S</button>
         </div> -->
-        <div class="formgroup">
-          <label for="">color</label>
-          <input class="jscolor style-input" name="color"/>
-        </div>
-        <div class="formgroup">
-          <label for="">font</label>
-          <input class="style-input" name="font-family"/>
-        </div>
-        <div class="formgroup">
-          <label for="">font size</label>
-          <input class="style-input" name="font-size" placeholder="e.g.: 10px"/>
-        </div>
+
         <!-- <div class="formgroup">
           <label for="">letter spacing</label>
           <input class="style-input" name="letter-spacing"/>
         </div> -->
-        <div class="formgroup">
-          <label for="">text shadow</label>
-          <input class="style-input" name="text-shadow"/>
-        </div>
+
         <!-- advanced -->
         <!-- <option value="text-shadow">text shadow</option> -->
-      </div>
+      <!-- </div> -->
       <!-- <div class="style" data-ctrls="shapeControls">shape</div>
       <div id="shapeControls" class="style-controls">
         <div class="formgroup">
@@ -102,9 +127,9 @@
           <input class="style-input" type="text" name="border-radius">
         </div>
       </div> -->
-      <div class="style" data-ctrls="positionControls">position</div>
-      <div id="positionControls" class="style-controls">
-        <div>
+      <!-- <div class="style" data-ctrls="positionControls">position</div>
+      <div id="positionControls" class="style-controls"> -->
+        <!-- <div> -->
           <!-- <table class="position-table">
             <tr data-row="top">
                 <td data-stick="left"></td>
@@ -123,40 +148,18 @@
           <input class="style-input" id="right" name="right"/>
           <input class="style-input" id="bottom" name="bottom"/> -->
           <!-- <button id="resetMarginButton">reset</button> -->
-        </div>
-        <div class="move-box">
-          <input type="hidden" class="style-input" id="marginLeft" name="margin-left"/>
-          <input type="hidden" class="style-input" id="marginRight" name="margin-right"/>
-          <input type="hidden" class="style-input" id="marginBottom" name="margin-bottom"/>
-          <input type="hidden" class="style-input" id="marginTop" name="margin-top"/>
-          <table class="arrow-table">
-            <tr>
-              <td class="hidden-cell"></td>
-              <td id="arrowUp" class="arrow-up"></td>
-              <td class="hidden-cell"></td>
-            </tr>
-            <tr>
-              <td id="arrowLeft" class="arrow-left"></td>
-              <td><span class="move">move</span></td>
-              <td id="arrowRight" class="arrow-right"></td>
-            </tr>
-            <tr>
-              <td class="hidden-cell"></td>
-              <td id="arrowDown" class="arrow-down"></td>
-              <td class="hidden-cell"></td>
-            </tr>
-          </table>
-          <!-- position-->
-          <!-- <div class="formgroup">
-            <label for="">margin</label>
-            <input id="margin" class="style-input" name="margin"/>
-          </div>
-          <div class="formgroup">
-            <label for="">padding</label>
-            <input class="style-input" name="padding"/>
-          </div> -->
-        </div>
+        <!-- </div> -->
+
+        <!-- position-->
+        <!-- <div class="formgroup">
+        <label for="">margin</label>
+        <input id="margin" class="style-input" name="margin"/>
       </div>
+      <div class="formgroup">
+      <label for="">padding</label>
+      <input class="style-input" name="padding"/>
+    </div> -->
+      <!-- </div> -->
       <a id="contentLink" href="#"><div class="style" data-ctrls="contentsControls">contents</div></a>
       <iframe id="contentFrame" class="content-frame" style="display:none;" src="" width="" height=""></iframe>
       </div>

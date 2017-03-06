@@ -2,10 +2,6 @@
   margin: 0;
   padding: 0;
 }
-// discovery
-// alpha
-// beta
-// live
 
 $borderRadius: 0px;
 $headerButtonSize: 13pt;
@@ -17,7 +13,7 @@ body {
   position: relative;
   overflow: auto;
   background-color: $bg;
-  font-family: 'Inconsolata';
+  font-family: 'Lato';
   width: 280px;
   @include nomp;
 }
@@ -157,9 +153,6 @@ $checkedC: #89f786;
     width: 256px;
     margin: 2px;
     padding: 10px 10px 45px 10px;
-    &:not(.active-controls) {
-      display: none;
-    }
   }
 }
 .dark-buttons {
@@ -202,7 +195,7 @@ $checkedC: #89f786;
   }
 }
 .jscolor {
-  height: 100px !important;
+  height: 60px !important;
 }
 .control-select {
   width: 256px;

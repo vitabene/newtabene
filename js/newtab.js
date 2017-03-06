@@ -96,10 +96,6 @@ var newtabene = (function(){
     });
   };
 
-  var registerPlugin = function(plugin) {
-    // plugins.push(plugin);
-  }
-
   var registerChangeKey = function(key, fn) {
     changeDependecies[key] = fn;
   };

@@ -1,6 +1,5 @@
 function getSetStyle(themeName) {
   chrome.storage.sync.get(themeName, function(obj){
-    // console.log(obj.activeTheme);
     if (obj.activeTheme != undefined) setStyle(obj.activeTheme.str);
     else setStyle("");
   });
@@ -26,5 +25,4 @@ function writeRule(style, ruleText) {
 }
 window.onload = function(){
   getSetStyle("activeTheme");
-  // loadSettings();
 };

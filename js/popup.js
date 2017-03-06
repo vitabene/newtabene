@@ -377,10 +377,10 @@ document.addEventListener('click', function(e){
     arrowMove(t.id);
   }
 
-  if (t.className == "style") {
-    var styleType = t.dataset.ctrls;
-    showActiveControls(styleType);
-  }
+  // if (t.className == "style") {
+    // var styleType = t.dataset.ctrls;
+    // showActiveControls(styleType);
+  // }
 
   if (id == "saveButton") {
     save();
