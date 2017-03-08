@@ -17,6 +17,7 @@ body {
   width: 280px;
   @include nomp;
 }
+
 * a {
   text-decoration: none;
   color: #000;
@@ -108,6 +109,9 @@ $checkedC: #89f786;
       &:hover {
         text-decoration: underline;
       }
+    }
+    #contentsControls {
+      width: 280px;
     }
     input[type="checkbox"] {
       height: 25px;

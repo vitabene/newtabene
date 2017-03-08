@@ -164,9 +164,6 @@ var save = function(){
         if (theme[selEl][rule] === undefined) theme[selEl][rule] = "";
         // applyThemeChange(selectedElementField.value, rule, field.value);
         theme[selEl][rule] = field.value;
-        if (rule == "background-color" || rule == "color") {
-          if (field.value.indexOf("#") === -1) theme[selEl][rule] = "#" + field.value;
-        }
         if (rule == "margin") {
           if (field.value == "0") {
             // reseting side margins
@@ -192,8 +189,9 @@ function slideLeftToElements() {
     elementSelect.className = elementSelect.className.replace(" slide-from-left", " ");
   });
   styleSelect.className = styleSelect.className.replace(" slide-from-right", " slide-right");
-  var aC = document.getElementsByClassName('active-controls')[0];
-  aC.className = aC.className.replace(" active-controls", " ");
+
+  var aC = document.getElementsByClassName('style-controls')[0];
+  aC.style.display = "none";
 }
 
 function slideRightToStyles(id) {
@@ -210,6 +208,9 @@ function slideRightToStyles(id) {
   // UI effect
   elementSelect.className += " slide-left";
   styleSelect.className += " slide-from-right";
+
+  aC = document.getElementsByClassName('style-controls')[0];
+  aC.style.display = "none";
 }
 
 function activateModule(moduleName){
@@ -230,33 +231,9 @@ function deactivateModule(moduleName){
   });
 }
 
-function showActiveControls(styleType){
-  var activeControls = document.getElementById(styleType);
-  var aC = document.getElementsByClassName("style-controls");
-  for (var i = 0; i < aC.length; i++) {
-    if (aC[i] != activeControls) {
-      aC[i].className = aC[i].className.replace("active-controls", "");
-    } else {
-      if (aC[i].className.indexOf('active-controls') !== -1) {
-        aC[i].className = aC[i].className.replace("active-controls", "");
-      } else {
-        aC[i].className = aC[i].className + " active-controls";
-      }
-    }
-  }
-}
-function switchTabs(target) {
-  var aT = document.getElementsByClassName("tab");
-  for (var i = 0; i < aT.length; i++) {
-    var c = document.getElementById(aT[i].id + "Content");
-    if (aT[i] != target) {
-      aT[i].className = aT[i].className.replace("active", "");
-      c.className = c.className.replace("active", "");
-    } else {
-      aT[i].className = aT[i].className + " active";
-      c.className = c.className + " active";
-    }
-  }
+function showControls(){
+  var aC = document.getElementsByClassName("style-controls")[0];
+  aC.style.display = "block";
 }
 function arrowMove(arrowId) {
   var f = {},
@@ -371,16 +348,10 @@ document.addEventListener('click', function(e){
   if (t.className.indexOf("element") !== -1) {
     selectedElementField.value = id.replace(".","");
     slideRightToStyles(id);
-  } else if (t.className.indexOf("tab") !== -1) {
-    switchTabs(t);
+    showControls();
   } else if (t.className.indexOf("arrow") !== -1) {
     arrowMove(t.id);
   }
-
-  // if (t.className == "style") {
-    // var styleType = t.dataset.ctrls;
-    // showActiveControls(styleType);
-  // }
 
   if (id == "saveButton") {
     save();
@@ -396,10 +367,10 @@ document.addEventListener('click', function(e){
     loadModuleContent(urlLink);
   }
   // back to element choice
-  if (t.dataset.stick != "") {
-    var ptr = t.parentNode;
-    stickTo(ptr.dataset.row, t.dataset.stick)
-  }
+  // if (t.dataset.stick != "") {
+  //   var ptr = t.parentNode;
+  //   stickTo(ptr.dataset.row, t.dataset.stick)
+  // }
   // loading settings
   // if (t.type === "checkbox") {
   //   var elementNode = t.parentNode;

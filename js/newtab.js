@@ -105,7 +105,6 @@ var newtabene = (function(){
   return {
     loadData: loadData,
     registerChangeKey: registerChangeKey,
-    registerPlugin: registerPlugin,
     loadNextModule: loadNextModule,
     checkStorage: checkStorage,
     getData: getData

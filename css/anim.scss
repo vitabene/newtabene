@@ -1,14 +1,14 @@
 .slide-left {
-  animation: 0.75s slideLeft forwards;
+  animation: 0.35s slideLeft forwards;
 }
 .slide-right {
-  animation: 0.75s slideRight forwards;
+  animation: 0.35s slideRight forwards;
 }
 .slide-from-right {
-  animation: 0.75s slideFromRight forwards;
+  animation: 0.35s slideFromRight forwards;
 }
 .slide-from-left {
-  animation: 0.75s slideFromLeft forwards;
+  animation: 0.35s slideFromLeft forwards;
 }
 @keyframes slideLeft {
   from {
